@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-
+logo: string ="assets/Logo.gif";
+user:string="assets/User.png";
 }

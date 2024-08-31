@@ -6,9 +6,9 @@
     <nav>
         <ul>
           <li>
-              <a href="Home">Accueil</a>
-            <a href="Database">La Database</a>
-            <img [src] = "user" alt="user connexion logo" class="user-logo">
+              <a [routerLink]="'/home'">Accueil</a>
+            <a [routerLink]="'/database'">La Database</a>
+            <img [src] = "user" alt="user connexion logo" class="user-logo" [routerLink]="'/login'">
         </li>
         </ul>
           </nav>

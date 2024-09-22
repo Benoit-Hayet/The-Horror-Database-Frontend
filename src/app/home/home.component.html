@@ -1,1 +1,15 @@
-<p>home works!</p>
+<section>
+    <h2>Carousel</h2>
+</section>
+<section>
+    <h2>Les derniers films ajoutés</h2>
+    <ng-container *ngFor="let item of movieCards">
+        <article *ngIf="item.genreName.includes('Gore')">
+            <header>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.synopsis }}</p>
+                <img [src]="item.posterUrl" alt="{{ item.title }} poster">
+            </header>
+        </article>
+    </ng-container>
+</section>

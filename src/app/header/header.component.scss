@@ -1,13 +1,19 @@
+body, header {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 header {
     display: block;
     background-color: black;
 }
 nav ul li a {
-    margin-right: 200px;
+    margin-right: 2rem;
 }
 
 nav ul li img {
-    margin-left: 30px;
+    margin-left: 5px;
 }
 
 a , p {
@@ -20,6 +26,23 @@ section {
 }
 
 .user-logo {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
+
+.logo {
+    width: 300px;
+    height: 90px; 
+}
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .Section2 {
+        text-align: center;
+        margin-right: 5rem;
+        margin-left: 5rem;
+    }
+    
+    }
+  
+  

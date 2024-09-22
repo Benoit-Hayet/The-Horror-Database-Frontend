@@ -3,12 +3,12 @@
 </section>
 <section>
     <h2>Les derniers films ajoutés</h2>
-    <ng-container *ngFor="let item of movieCards">
-        <article *ngIf="item.genreName.includes('Gore')">
+    <ng-container *ngFor="let item of sortedMoviesById">
+        <article *ngIf="item.id">
             <header>
                 <h3>{{ item.title }}</h3>
-                <p>{{ item.synopsis }}</p>
-                <img [src]="item.posterUrl" alt="{{ item.title }} poster">
+                <p>{{ item.releaseYear }}</p>
+                <img [src]="item.posterUrl" alt="{{ item.title }} poster" class="img">
             </header>
         </article>
     </ng-container>

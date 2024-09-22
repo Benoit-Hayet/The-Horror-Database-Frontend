@@ -13,4 +13,8 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent {
   movieCards : movieCards[] = movies;
+
+ get sortedMoviesById() : movieCards [] {
+  return this.movieCards.sort((a, b) => b.id - a.id);
+ } 
 }

@@ -1,13 +1,13 @@
 export const movies = [
     {
-        "id": 1,
-        "title": "The Exorcist",
-        "country": "United States",
-        "releaseYear": 1973,
-        "director": "William Friedkin",
-        "synopsis": "A young girl becomes possessed by a malevolent entity, leading her desperate mother to seek the help of two priests. Together, they confront the darkest forces in a battle for her soul.",
+        "id": 3,
+        "title": "Hellraiser",
+        "country": "Royaume-Uni",
+        "releaseYear": 1987,
+        "director": "Clive Barker",
+        "synopsis": "Frank Cotton, un homme en quête de plaisirs inconnus, fait l'acquisition d’une mystérieuse boîte. Il y découvre un enfer rempli de souffrance et de plaisir.",
         "status": "APPROVED",
-        "posterUrl": "https://example.com/hellraiser.jpg",
+        "posterUrl": "https://m.media-amazon.com/images/M/MV5BOGRlZTdhOGYtODc5NS00YmJkLTkzN2UtZDMyYmRhZWM1NTQwXkEyXkFqcGdeQXVyMzU4Nzk4MDI@._V1_FMjpg_UX1000_.jpg",
         "createdBy": 1,
         "createdAt": "2024-08-22T16:07:02",
         "genreName": ["Monstres", "Gore"]
@@ -20,22 +20,9 @@ export const movies = [
         "director": "William Friedkin",
         "synopsis": "A young girl becomes possessed by a malevolent entity, leading her desperate mother to seek the help of two priests. Together, they confront the darkest forces in a battle for her soul.",
         "status": "APPROVED",
-        "posterUrl": "https://example.com/theexorcist.jpg",
+        "posterUrl": "https://m.media-amazon.com/images/I/81g32srM67L._AC_UF894,1000_QL80_.jpg",
         "createdBy": 1,
         "createdAt": "2024-08-24T11:54:40.47787",
-        "genreName": ["Gore"]
-    },
-    {
-        "id": 3,
-        "title": "Hellraiser",
-        "country": "Royaume-Uni",
-        "releaseYear": 1987,
-        "director": "Clive Barker",
-        "synopsis": "Frank Cotton, un homme en quête de plaisirs inconnus, fait l'acquisition d’une mystérieuse boîte. Il y découvre un enfer rempli de souffrance et de plaisir.",
-        "status": "APPROVED",
-        "posterUrl": "https://example.com/texaschainsaw.jpg",
-        "createdBy": 1,
-        "createdAt": "2024-08-24T17:48:47.602493",
         "genreName": ["Gore"]
     },
     {
@@ -46,7 +33,7 @@ export const movies = [
         "director": "Ari Aster",
         "synopsis": "A grieving woman joins her boyfriend on a trip to a remote Swedish village for a rare midsummer festival, only to become part of disturbing rituals.",
         "status": "APPROVED",
-        "posterUrl": "https://example.com/midsommar.jpg",
+        "posterUrl": "https://fr.web.img6.acsta.net/pictures/19/06/21/16/39/3513823.jpg",
         "createdBy": 1,
         "createdAt": "2024-09-22T11:00:00",
         "genreName": ["Horreur psychologique", "Folk horror"]
@@ -59,7 +46,7 @@ export const movies = [
         "director": "Damien Leone",
         "synopsis": "On Halloween night, a maniacal clown named Art terrorizes two young women and anyone who stands in his way.",
         "status": "APPROVED",
-        "posterUrl": "https://example.com/terrifier.jpg",
+        "posterUrl": "https://m.media-amazon.com/images/S/pv-target-images/b6e1f34be0461be55c4a6fa451773fea6f0aa781808d97811f6dccc26bc1ec5e.jpg",
         "createdBy": 1,
         "createdAt": "2024-09-22T11:05:00",
         "genreName": ["Slasher", "Gore"]

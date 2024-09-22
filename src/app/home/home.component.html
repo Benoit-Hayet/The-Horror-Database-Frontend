@@ -3,6 +3,7 @@
 </section>
 <section>
     <h2>Les derniers films ajoutés</h2>
+    <div class="movies-container">
     <ng-container *ngFor="let item of sortedMoviesById">
         <article *ngIf="item.id">
             <header>
@@ -12,4 +13,5 @@
             </header>
         </article>
     </ng-container>
+</div>
 </section>

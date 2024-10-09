@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
 import { movies } from '../data/movie.data';
 import { CommonModule } from '@angular/common';
+import { CarouselComponent } from '../carousel/carousel.component';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,CarouselComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

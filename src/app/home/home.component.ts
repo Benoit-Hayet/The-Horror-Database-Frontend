@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
-import { movies } from '../movies/movie.data';
+import { movies } from '../data/movie.data';
 import { CommonModule } from '@angular/common';
 
 

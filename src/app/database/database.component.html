@@ -37,10 +37,12 @@
         <li>1920-1929</li>
       </ul>
       </div>
+      <h3>Par Pays</h3>
       <div class="country">
-        <h3>Par Pays</h3>
         <ng-container *ngFor="let item of countryMap">
-       <p>{{item.name}}</p>
+          <ul class="countryList">
+            <li>{{item.name}}</li>
+          </ul>
       </ng-container>
     </div>
 </section>

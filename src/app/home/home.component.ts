@@ -15,6 +15,6 @@ export class HomeComponent {
   movieCards : movieCards[] = movies;
 
  get sortedMoviesById() : movieCards [] {
-  return this.movieCards.sort((a, b) => b.id - a.id).slice(0, 5);
+  return this.movieCards.sort((a, b) => b.id - a.id).slice(0, 15);
  } 
 }

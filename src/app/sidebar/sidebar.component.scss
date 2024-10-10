@@ -1,8 +1,17 @@
-.Sidenav {
-    margin: 2rem;
+.sidenav {
+    margin: 1rem;
     width: 250px;
-    height: 100vh;
-    overflow-y: auto;
+    text-align: center;
+}
+
+.filtres {
+    background-color:#d9d9d9;
+  
+}
+
+h3 {
+    background-color: #F0F0F0;
+    margin-top: 10px;
 }
 
 .country {

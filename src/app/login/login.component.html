@@ -1,1 +1,13 @@
-<p>login works!</p>
+<div class="container">
+    <h1>Connectez-vous</h1>
+    <form [formGroup]="signUpForm">
+        <label for="email">Email</label>
+        <input type="text" id="email" formControlName="email">
+        
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" formControlName="password">
+        
+        <button>Se Connecter</button>
+    </form>
+  </div>
+  

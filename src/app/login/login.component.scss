@@ -1,0 +1,42 @@
+.container {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    margin :35px;
+  }
+  
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 300px;
+  }
+  
+
+  input,
+  button {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+
+  button {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: grey;
+  }
+  

@@ -1,34 +1,4 @@
-.movies-container {
-    display: flex;
-    gap:12px;
-    overflow-x: auto;
-}
-
-article {
-    border: 1px solid #ECE1E1;
-}
-section {
-    padding: 4px;
-}
-
 h2 {
     text-align: center;
     justify-content: space-aroun;
-}
-
-h3 {
-text-align: center;
-font-size: 70%;
-}
-
-p {
-    text-align: center;
-    font-size: 60%;
-}
-
-.img {
-    border-radius: 2px;
-    object-fit: cover;
-height: 100px;
-
 }

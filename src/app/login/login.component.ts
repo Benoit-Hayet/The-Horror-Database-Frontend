@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,4 +10,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class LoginComponent {
 
+formBuilder = inject(FormBuilder);
+
+signUpForm = this.formBuilder.group ({
+  email:(''),
+  password:(''),
+})
 }

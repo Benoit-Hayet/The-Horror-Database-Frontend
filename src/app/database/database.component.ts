@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { countries } from '../data/country.data';
 import { CommonModule } from '@angular/common';
-import { country } from '../model/country.model';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 
 

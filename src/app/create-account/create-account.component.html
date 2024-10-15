@@ -1,0 +1,27 @@
+<div class="registerContainer">
+    <h1>Créer un compte</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <div class="name-container">
+        <label for="lastname">Nom</label>
+        <input type="text" id="lastname" formControlName="lastname">
+
+        <label for="name">Prénom</label>
+        <input type="text" id="name" formControlName="name">
+    </div>
+
+    <label for="dateOfBirth">Date de naissance</label>
+        <input type="date" id="dateOfBirth" formControlName="dateOfBirth">
+
+        <label for="email">Email</label>
+        <input type="text" id="email" formControlName="email">
+        
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" formControlName="password">
+        
+        <button>Suivant</button>
+    </form>
+    <div class="create-account">
+</div>
+<button [routerLink]="'/login'">Retour</button>
+  </div>

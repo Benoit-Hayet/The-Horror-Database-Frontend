@@ -1,4 +1,4 @@
-.container {
+.registerContainer {
     display: block;
     align-items: center;
     justify-content: center;
@@ -45,13 +45,23 @@
     margin :15px;
   }
   
-  .create-account p,
-.create-account a {
-    display: inline;
-    margin-right: 5px;
+  .registerContainer .name-container {
+    display: flex;
+    gap: 10px; 
 }
 
-.create-account a {
-  font-weight: bold;
+.registerContainer .name {
+    flex: 1; 
 }
-  
+
+.registerContainer label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.registerContainer input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}

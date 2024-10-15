@@ -13,7 +13,10 @@ export class LoginComponent {
 formBuilder = inject(FormBuilder);
 
 signUpForm = this.formBuilder.group ({
-  email:(''),
-  password:(''),
+  email:[''],
+  password:[''],
 })
+onSubmit() {
+  console.log(this.signUpForm.value)
+}
 }

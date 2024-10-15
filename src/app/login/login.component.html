@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Connectez-vous</h1>
-    <form [formGroup]="signUpForm">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
         <label for="email">Email</label>
         <input type="text" id="email" formControlName="email">
         

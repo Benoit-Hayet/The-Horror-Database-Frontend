@@ -39,4 +39,19 @@
   button:hover {
     background-color: grey;
   }
+
+
+  .create-account {
+    margin :15px;
+  }
+  
+  .create-account p,
+.create-account a {
+    display: inline;
+    margin-right: 5px;
+}
+
+.create-account a {
+  font-weight: bold;
+}
   

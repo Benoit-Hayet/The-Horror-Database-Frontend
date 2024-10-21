@@ -4,15 +4,18 @@
   height: 100vh;
 }
 
+/*
+Grisé pour maintenir footer down
 .main-content {
   display: flex;
   flex: 1;
-}
+}*/
 
 .footer {
    /* position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;*/
+    margin-top: auto;
     text-align: center;
   }

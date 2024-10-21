@@ -3,25 +3,25 @@
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
         <div class="name-container">
-        <label for="lastname">Nom</label>
-        <input type="text" id="lastname" formControlName="lastname">
+        <label for="lastname"></label>
+        <input type="text" id="lastname" formControlName="lastname" placeholder="Nom">
 
-        <label for="name">Prénom</label>
-        <input type="text" id="name" formControlName="name">
+        <label for="name"></label>
+        <input type="text" id="name" formControlName="name"placeholder="Prénom">
     </div>
 
-    <label for="dateOfBirth">Date de naissance</label>
-        <input type="date" id="dateOfBirth" formControlName="dateOfBirth">
+    <label for="dateOfBirth"></label>
+        <input type="text" id="dateOfBirth" formControlName="dateOfBirth"placeholder="Date de naissance JJ/MM/AAAA">
 
-        <label for="email">Email</label>
-        <input type="text" id="email" formControlName="email">
+        <label for="email"></label>
+        <input type="text" id="email" formControlName="email" placeholder="Email">
         
-        <label for="password">Mot de passe</label>
-        <input type="password" id="password" formControlName="password">
+        <label for="password"></label>
+        <input type="password" id="password" formControlName="password"placeholder="Mot de passe">
         
-        <button>Suivant</button>
+        <button >Suivant</button>
     </form>
     <div class="create-account">
 </div>
-<button [routerLink]="'/login'">Retour</button>
+<a [routerLink]="'/login'" class="buttonBack">Retour</a>
   </div>

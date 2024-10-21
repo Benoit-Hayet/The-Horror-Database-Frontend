@@ -1,11 +1,11 @@
 <div class="container">
     <h1>Connectez-vous</h1>
     <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-        <label for="email">Email</label>
-        <input type="text" id="email" formControlName="email">
+        <label for="email"></label>
+        <input type="text" id="email" formControlName="email" placeholder="Email">
         
-        <label for="password">Mot de passe</label>
-        <input type="password" id="password" formControlName="password">
+        <label for="password"></label>
+        <input type="password" id="password" formControlName="password" placeholder="Mot de passe">
         
         <button>Se Connecter</button>
     </form>

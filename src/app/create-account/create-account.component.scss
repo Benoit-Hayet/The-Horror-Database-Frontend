@@ -1,5 +1,5 @@
 .registerContainer {
-    display: block;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -65,3 +65,34 @@
     margin-bottom: 15px;
     box-sizing: border-box;
 }
+@media screen and (min-width: 1200px) {
+  .registerContainer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; 
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      width: 60%; /* Définit une largeur raisonnable pour les écrans larges */
+      max-width: 600px; /* Limite la largeur pour éviter que le formulaire soit trop large */
+      margin: 2em auto; /* Centre horizontalement le formulaire */
+      padding: 60em; /* Ajoute un padding léger pour l’espace intérieur */  
+  }
+}
+
+
+   
+      /*min-height: 90vh; /* Réduit la hauteur pour le remonter 
+      flex-direction: column;
+      text-align: center;
+      width: 60%; /* Définit une largeur raisonnable pour les écrans larges 
+      max-width: 600px; /* Limite la largeur 
+      margin: 2em auto; /* Centre horizontalement le formulaire et ajoute un espace en haut 
+      padding: 2em; /* Ajoute un léger padding intérieur 
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); Ombre pour un effet visuel 
+      border-radius: 8px; /* Ajoute un léger arrondi des bords 
+      background-color: #f9f9f9; /* Couleur de fond pour détacher le formulaire de l’arrière-plan 
+  
+*/
+

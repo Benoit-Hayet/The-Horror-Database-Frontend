@@ -27,6 +27,7 @@ section {
 
 
 h3 {
+    margin-top: 7px;
     text-align: center;
     font-weight: bold;
     font-size: 70%;
@@ -44,13 +45,34 @@ p {
     height: 100px;
 }
 
-/* Styles pour les grands écrans */
+.header-content {
+    display: inline-flex;
+    margin-top: 3px;
+}
+
+
+.content {
+    display: flex;
+    margin-top: 5px;
+    align-items: flex-start; 
+    gap: 8px; 
+}
+
+.synopsis {
+    margin: 7px;
+    flex: 3;
+    font-size: 0.6em;
+    line-height: 0.9;
+    text-align: justify;
+}
+
+
 @media screen and (min-width: 1200px) {
     article {
         border: 2px solid #ECE1E1;
         padding: 16px;
         width: 100%;
-        max-width: 600px;
+        max-width: 500px;
         height: 320px;
     }
 
@@ -61,4 +83,32 @@ p {
     h3, p {
         font-size: 100%;
     }
+
+    
+.header-content {
+    display: inline-flex;
+    margin-top: 7px;
+}
+
+
+.content {
+    display: flex;
+    margin-top: 10px;
+    align-items: flex-start; 
+    gap: 16px; 
+}
+
+.synopsis {
+    margin: 30px;
+    font-size: 0.9em;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+}
+.movies-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
 }

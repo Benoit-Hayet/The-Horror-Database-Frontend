@@ -2,13 +2,18 @@
     <div class="movies-container">
     <ng-container *ngFor="let item of sortedMoviesById">
         <article *ngIf="item.id">
-            <header>
+            <header class="header">
                 <h3>{{ item.title }}</h3>
+                <div class="header-content">
                 <p>{{ item.releaseYear }}</p>
                 <p>{{item.genreName}}</p>
-                <img [src]="item.posterUrl" alt="{{ item.title }} poster" class="img">
-                <p>{{item.synopsis}}</p>
+                </div>
             </header>
+            <div class="content">
+                <img [src]="item.posterUrl" alt="{{ item.title }} poster" class="img">
+                <p class="synopsis">{{item.synopsis}}</p>
+            </div>
+            
         </article>
     </ng-container>
 </div>

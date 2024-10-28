@@ -1,0 +1,14 @@
+<section>
+    <div class="movies-container">
+    <ng-container *ngFor="let item of sortedMoviesById">
+        <article *ngIf="item.id">
+            <header>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.releaseYear }}</p>
+                <img [src]="item.posterUrl" alt="{{ item.title }} poster" class="img">
+                <button>Découvrir</button>
+            </header>
+        </article>
+    </ng-container>
+</div>
+</section>

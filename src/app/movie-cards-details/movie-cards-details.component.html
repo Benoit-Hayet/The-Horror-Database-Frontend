@@ -5,8 +5,9 @@
             <header>
                 <h3>{{ item.title }}</h3>
                 <p>{{ item.releaseYear }}</p>
+                <p>{{item.genreName}}</p>
                 <img [src]="item.posterUrl" alt="{{ item.title }} poster" class="img">
-                <button>Découvrir</button>
+                <p>{{item.synopsis}}</p>
             </header>
         </article>
     </ng-container>

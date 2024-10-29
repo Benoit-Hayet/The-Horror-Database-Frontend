@@ -1,57 +1,62 @@
 .container {
-    display: block;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    min-height: 100vh;
-    flex-direction: column;
-    text-align: center;
-    margin :35px;
-  }
-  
-  h1 {
-    margin-bottom: 2rem;
-  }
+  display: block;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 35px;
+}
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 300px;
-  }
-  
+h1 {
+  margin-bottom: 1rem;
+}
 
-  input,
-  button {
-    padding: 0.5rem;
-    font-size: 1rem;
-  }
-  
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 300px;
+}
 
-  button {
-    background-color: black;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: grey;
-  }
+input,
+button {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
 
+button {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  .create-account {
-    margin :15px;
-  }
-  
-  .create-account p,
+button:hover {
+  background-color: grey;
+}
+
+.create-account {
+  margin: 15px;
+}
+
+.create-account p,
 .create-account a {
-    display: inline;
-    margin-right: 5px;
+  display: inline;
+  margin-right: 5px;
 }
 
 .create-account a {
   font-weight: bold;
 }
-  
+
+@media screen and (min-width: 1200px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { MemberHomeComponent } from './member-home/member-home.component';
 import { AccountComponent } from './account/account.component';
+import { FavoriteMovieComponent } from './favorite-movie/favorite-movie.component';
 
 
 export const routes: Routes = [
@@ -38,5 +39,9 @@ export const routes: Routes = [
     { 
     path:'account',
     component:AccountComponent
+},
+{ 
+    path:'favorite-movie',
+    component:FavoriteMovieComponent
 }
 ];

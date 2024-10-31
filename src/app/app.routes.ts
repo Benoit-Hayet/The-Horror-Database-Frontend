@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { MemberHomeComponent } from './member-home/member-home.component';
+import { AccountComponent } from './account/account.component';
 
 
 export const routes: Routes = [
@@ -33,5 +34,9 @@ export const routes: Routes = [
     {
         path:'member-home',
         component:MemberHomeComponent
-    }
+    },
+    { 
+    path:'account',
+    component:AccountComponent
+}
 ];

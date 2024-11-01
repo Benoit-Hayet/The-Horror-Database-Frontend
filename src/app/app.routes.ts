@@ -8,6 +8,7 @@ import { MemberHomeComponent } from './member-home/member-home.component';
 import { AccountComponent } from './account/account.component';
 import { FavoriteMovieComponent } from './favorite-movie/favorite-movie.component';
 import { MyReviewComponent } from './my-review/my-review.component';
+import { MyAddMovieComponent } from './my-add-movie/my-add-movie.component';
 
 
 export const routes: Routes = [
@@ -48,5 +49,10 @@ export const routes: Routes = [
 { 
     path:'my-review',
     component:MyReviewComponent
-}
+},
+{ 
+    path:'my-add-movie',
+    component:MyAddMovieComponent
+},
+
 ];

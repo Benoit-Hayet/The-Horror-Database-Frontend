@@ -9,6 +9,7 @@ import { AccountComponent } from './account/account.component';
 import { FavoriteMovieComponent } from './favorite-movie/favorite-movie.component';
 import { MyReviewComponent } from './my-review/my-review.component';
 import { MyAddMovieComponent } from './my-add-movie/my-add-movie.component';
+import { AddMovieComponent } from './add-movie/add-movie.component';
 
 
 export const routes: Routes = [
@@ -54,5 +55,9 @@ export const routes: Routes = [
     path:'my-add-movie',
     component:MyAddMovieComponent
 },
+{ 
+    path:'add-movie',
+    component:AddMovieComponent
+}
 
 ];

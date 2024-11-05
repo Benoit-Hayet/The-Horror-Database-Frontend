@@ -1,6 +1,6 @@
 <section>
     <div class="movies-container">
-    <ng-container *ngFor="let item of sortedMoviesById">
+    <ng-container *ngFor="let item of filteredMovieCards">
         <article *ngIf="item.id">
             <header class="header">
                 <h3>{{ item.title }}</h3>

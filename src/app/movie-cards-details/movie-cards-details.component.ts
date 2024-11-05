@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, Input, input, Output } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../api.service';
@@ -15,6 +15,7 @@ export class MovieCardsDetailsComponent {
   filteredMovieCards: movieCards[] = [];
 
   @Input() genreClicked: string = '';
+
 
   constructor(private apiService: ApiService) {}
 

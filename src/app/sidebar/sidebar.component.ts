@@ -17,8 +17,10 @@ export class SidebarComponent {
   countryMap: country[] = countries;
 
   @Output() notifyParent: EventEmitter<string> = new EventEmitter<string>();
+  
 
   showMoviesByGenre(genre: string): void {
     this.notifyParent.emit(genre);
   }
 }
+

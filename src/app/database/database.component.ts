@@ -12,8 +12,13 @@ import { MovieCardsDetailsComponent } from '../movie-cards-details/movie-cards-d
 })
 export class DatabaseComponent {
   genreClicked: string = '';
+  orderByTitle: 'asc' = 'asc';
 
   handleGenre(genre: string) {
     this.genreClicked = genre;
+  }
+
+  orderByTitleChange(order: 'asc') {
+    this.orderByTitle = order;
   }
 }

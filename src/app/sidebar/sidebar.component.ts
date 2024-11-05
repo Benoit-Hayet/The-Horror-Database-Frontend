@@ -17,10 +17,15 @@ export class SidebarComponent {
   countryMap: country[] = countries;
 
   @Output() notifyParent: EventEmitter<string> = new EventEmitter<string>();
+  @Output() orderByTitleChange:EventEmitter<'asc'> = new EventEmitter<'asc'>();
   
 
   showMoviesByGenre(genre: string): void {
     this.notifyParent.emit(genre);
   }
+  sortByTitle(): void {
+    this.orderByTitleChange.emit();
+  }
+  /*J'ai retiré 'asc' de emit*/
 }
 

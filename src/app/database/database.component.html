@@ -1,2 +1,4 @@
-<div class="sideBloc"><app-sidebar class="sidebar" (notifyParent)="handleGenre($event)"></app-sidebar></div>
-<div class="movieBloc"><app-movie-cards-details [genreClicked]="genreClicked"></app-movie-cards-details></div>
+<div class="sideBloc"><app-sidebar class="sidebar" (notifyParent)="handleGenre($event)"
+    (orderByTitleChange)="orderByTitleChange($event)"
+    ></app-sidebar></div>
+<div class="movieBloc"><app-movie-cards-details [genreClicked]="genreClicked" [orderByTitle]="orderByTitle" ></app-movie-cards-details></div>

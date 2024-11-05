@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../api.service';
@@ -12,16 +12,25 @@ import { ApiService } from '../api.service';
 })
 export class MovieCardsDetailsComponent {
   movieCards: movieCards[] = [];
+  filteredMovieCards: movieCards[] = [];
+
+  @Input() genreClicked: string = '';
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.apiService.getMovies().subscribe((response) => {
       this.movieCards = response;
+      this.filteredMovieCards = response;
     });
+
   }
 
-  get sortedMoviesById(): movieCards[] {
-    return this.movieCards.sort((a, b) => b.id - a.id).slice(0, 15);
+  ngOnChanges(){
+    this.filteredMovieCards = this.movieCards.filter(movie => movie.genreName.includes(this.genreClicked));
   }
+
+  /*get sortedMoviesById(): movieCards[] {
+    return this.movieCards.sort((a, b) => b.id - a.id).slice(0, 15);
+  }*/
 }

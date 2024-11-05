@@ -29,6 +29,10 @@ li {
     padding: 6px 0;
 }
 
+button {
+    all:unset
+}
+
 @media screen and (min-width: 1200px) {
     .sidenav {
         margin: 1rem;

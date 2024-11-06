@@ -14,4 +14,8 @@ export class ApiService {
   getMovies(): Observable<any> {
     return this.http.get('http://localhost:3000/movies');
   }
+
+  getMoviesById(): Observable<any>{
+    return this.http.get('http://localhost:3000/movies/');
+  }
 }

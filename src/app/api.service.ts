@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { movieCards } from './model/movieCards.model';
+import { review } from './model/review.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,11 +12,19 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getMovies(): Observable<any> {
+  getAllMovies(): Observable<any> {
     return this.http.get('http://localhost:3000/movies');
   }
 
-  getMoviesById(): Observable<any>{
-    return this.http.get('http://localhost:3000/movies/');
+  getMoviesById(movieId: number): Observable<any> {
+    return this.http.get(`http://localhost:3000/movies/${movieId}`);
+  }
+
+  getAllReviews(): Observable<any> {
+    return this.http.get('http://localhost:3000/reviews');
+  }
+
+  getReviewsByMovieId(movieId: number): Observable<review[]> {
+    return this.http.get<review[]>(`http://localhost:3000/reviews?movieId=${movieId}`);
   }
 }

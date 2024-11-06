@@ -1,12 +1,13 @@
-import { Component, Input,SimpleChanges } from '@angular/core';
+import { Component, inject, Input, SimpleChanges } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../api.service';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movie-cards-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './movie-cards-details.component.html',
   styleUrl: './movie-cards-details.component.scss',
 })
@@ -15,17 +16,18 @@ export class MovieCardsDetailsComponent {
   filteredMovieCards: movieCards[] = [];
   orderTitles: movieCards[] = [];
 
-  @Input() genreClicked: string = '';
-  @Input() orderByTitle: 'asc'| 'desc' = 'asc';
+  
 
+  @Input() genreClicked: string = '';
+  @Input() orderByTitle: 'asc' | 'desc' = 'asc';
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.apiService.getMovies().subscribe((response) => {
+    this.apiService.getAllMovies().subscribe((response) => {
       this.movieCards = response;
       this.filteredMovieCards = response;
-      this.orderTitles=response;
+      this.orderTitles = response;
     });
   }
   ngOnChanges(changes: SimpleChanges) {
@@ -41,4 +43,5 @@ export class MovieCardsDetailsComponent {
     }
     console.log(changes);
   }
+
 }

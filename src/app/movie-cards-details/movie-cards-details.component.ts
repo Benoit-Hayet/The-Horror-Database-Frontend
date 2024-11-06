@@ -1,4 +1,4 @@
-import { Component, Input, input, Output } from '@angular/core';
+import { Component, Input,SimpleChanges } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../api.service';
@@ -13,8 +13,10 @@ import { ApiService } from '../api.service';
 export class MovieCardsDetailsComponent {
   movieCards: movieCards[] = [];
   filteredMovieCards: movieCards[] = [];
+  orderTitles: movieCards[] = [];
 
   @Input() genreClicked: string = '';
+  @Input() orderByTitle: 'asc'| 'desc' = 'asc';
 
 
   constructor(private apiService: ApiService) {}
@@ -23,15 +25,20 @@ export class MovieCardsDetailsComponent {
     this.apiService.getMovies().subscribe((response) => {
       this.movieCards = response;
       this.filteredMovieCards = response;
+      this.orderTitles=response;
     });
-
   }
-
-  ngOnChanges(){
-    this.filteredMovieCards = this.movieCards.filter(movie => movie.genreName.includes(this.genreClicked));
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['genreClicked']) {
+      this.filteredMovieCards = this.movieCards.filter((movie) =>
+        movie.genreName.includes(this.genreClicked),
+      );
+    }
+    if (changes['orderByTitle']) {
+      this.orderTitles = this.movieCards.sort((a, b) => {
+        return a.title < b.title ? -1 : a.title > b.title ? 1 : 0;
+      });
+    }
+    console.log(changes);
   }
-
-  /*get sortedMoviesById(): movieCards[] {
-    return this.movieCards.sort((a, b) => b.id - a.id).slice(0, 15);
-  }*/
 }

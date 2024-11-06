@@ -1,1 +1,20 @@
-<h1>MOVIE REVIEW</h1>
+<section>
+    <div class="movies-container">
+      <ng-container *ngIf="movieDetails$ | async as movieDetails">
+        <article *ngIf="movieDetails.id">
+          <header class="header">
+            <h3>{{ movieDetails.title }}</h3>
+            <div class="header-content">
+              <p>{{ movieDetails.releaseYear }}</p>
+              <p>{{ movieDetails.genreName }}</p>
+            </div>
+          </header>
+          <div class="content">
+            <img [src]="movieDetails.posterUrl" alt="{{ movieDetails.title }} poster" class="img">
+            <p class="synopsis">{{ movieDetails.synopsis }}</p>
+          </div>
+        </article>
+      </ng-container>
+    </div>
+  </section>
+  

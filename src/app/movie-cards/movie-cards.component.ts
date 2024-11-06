@@ -16,7 +16,7 @@ export class MovieCardsComponent {
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.apiService.getMovies().subscribe((response) => {
+    this.apiService.getAllMovies().subscribe((response) => {
       this.movieCards = response;
     });
   }

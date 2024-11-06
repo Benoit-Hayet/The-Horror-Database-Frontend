@@ -8,6 +8,22 @@
     box-sizing: border-box;
 }
 
+.btn-style {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: grey;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: black;
+    }
+  }
+  
 article {
     display: flex;
     flex-direction: column;

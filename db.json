@@ -210,5 +210,85 @@
       "createdAt": "2024-09-22T11:00:00",
       "genreName": ["Drame", "Horreur"]
     }
+  ],
+
+  "reviews": [
+    {
+      "id": 1,
+      "movieId": 1,
+      "username": "HorrorFan78",
+      "rating": 5,
+      "comment": "Un classique indétrônable du slasher. Michael Myers reste terrifiant, même après plusieurs décennies."
+    },
+    {
+      "id": 2,
+      "movieId": 2,
+      "username": "CinemaCritic123",
+      "rating": 4,
+      "comment": "Une ambiance oppressante avec des images troublantes. Idéal pour les amateurs de frissons surnaturels."
+    },
+    {
+      "id": 3,
+      "movieId": 3,
+      "username": "ClownLover",
+      "rating": 3,
+      "comment": "Art the Clown est vraiment effrayant, mais l'histoire manque un peu de profondeur."
+    },
+    {
+      "id": 4,
+      "movieId": 4,
+      "username": "KubrickFan",
+      "rating": 5,
+      "comment": "Le chef-d'œuvre de Kubrick. Un film psychologique et horrifique qui marque les esprits."
+    },
+    {
+      "id": 5,
+      "movieId": 5,
+      "username": "DarkSoul",
+      "rating": 4,
+      "comment": "Effrayant et mystérieux. 'The Omen' est un film d'horreur qui vous laisse une impression durable."
+    },
+    {
+      "id": 6,
+      "movieId": 6,
+      "username": "PriestFan",
+      "rating": 5,
+      "comment": "Le film d'exorcisme par excellence. Toujours aussi choquant et perturbant."
+    },
+    {
+      "id": 7,
+      "movieId": 7,
+      "username": "HorrorLover",
+      "rating": 4,
+      "comment": "Un concept unique et une esthétique mémorable. Pinhead est une icône du genre."
+    },
+    {
+      "id": 8,
+      "movieId": 8,
+      "username": "FolkHorrorFan",
+      "rating": 5,
+      "comment": "Un film dérangeant et hypnotisant. 'Midsommar' explore le côté sombre des rituels."
+    },
+    {
+      "id": 9,
+      "movieId": 9,
+      "username": "ScreamQueen",
+      "rating": 4,
+      "comment": "Un slasher méta qui a redéfini le genre. Toujours aussi fun à regarder !"
+    },
+    {
+      "id": 10,
+      "movieId": 10,
+      "username": "FoundFootageLover",
+      "rating": 4,
+      "comment": "Un film à petit budget qui fait vraiment peur. Le format found footage fonctionne parfaitement ici."
+    },
+    {
+      "id": 11,
+      "movieId": 11,
+      "username": "ThrillSeeker",
+      "rating": 3,
+      "comment": "Un concept intéressant mais qui manque un peu de profondeur."
+    }
   ]
 }

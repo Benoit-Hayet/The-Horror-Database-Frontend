@@ -1,20 +1,34 @@
 <section>
-    <div class="movies-container">
-      <ng-container *ngIf="movieDetails$ | async as movieDetails">
-        <article *ngIf="movieDetails.id">
-          <header class="header">
-            <h3>{{ movieDetails.title }}</h3>
-            <div class="header-content">
-              <p>{{ movieDetails.releaseYear }}</p>
-              <p>{{ movieDetails.genreName }}</p>
-            </div>
-          </header>
-          <div class="content">
-            <img [src]="movieDetails.posterUrl" alt="{{ movieDetails.title }} poster" class="img">
-            <p class="synopsis">{{ movieDetails.synopsis }}</p>
+  <div class="movies-container">
+    <ng-container *ngIf="movieDetails$ | async as movieDetails">
+      <article *ngIf="movieDetails.id">
+        <header class="header">
+          <h3>{{ movieDetails.title }}</h3>
+          <div class="header-content">
+            <p>{{ movieDetails.releaseYear }}</p>
+            <p>{{ movieDetails.genreName }}</p>
           </div>
-        </article>
-      </ng-container>
+        </header>
+        <div class="content">
+          <img
+            [src]="movieDetails.posterUrl"
+            alt="{{ movieDetails.title }} poster"
+            class="img"
+          />
+          <p class="synopsis">{{ movieDetails.synopsis }}</p>
+        </div>
+      </article>
+    </ng-container>
+  </div>
+</section>
+
+<section>
+  <ng-container *ngIf="reviewDetailsId$ | async as reviewDetails">
+    <div *ngFor="let review of reviewDetails">
+      <p>
+        <strong>{{ review.username }}</strong> - Rating: {{ review.rating }}
+      </p>
+      <p>{{ review.comment }}</p>
     </div>
-  </section>
-  
+  </ng-container>
+</section>

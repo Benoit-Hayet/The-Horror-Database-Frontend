@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
 import { ApiService } from '../api.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movie-cards',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './movie-cards.component.html',
   styleUrl: './movie-cards.component.scss'
 })

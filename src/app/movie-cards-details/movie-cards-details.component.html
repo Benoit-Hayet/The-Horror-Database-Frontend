@@ -4,11 +4,13 @@
         <article *ngIf="item.id">
             <header class="header">
                 <h3>{{ item.title }}</h3>
+            </header>
+            <section>
                 <div class="header-content">
                 <p>{{ item.releaseYear }}</p>
                 <p>{{item.genreName}}</p>
                 </div>
-            </header>
+            </section>
             <div class="content">
                 <img [src]="item.posterUrl" alt="{{ item.title }} poster" class="img">
                 <p class="synopsis">{{item.synopsis}}</p>

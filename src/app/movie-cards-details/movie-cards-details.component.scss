@@ -29,13 +29,19 @@ article {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ECE1E1;
+    border: 2px solid #e1dede ;
+    background-color: #f9f9f8;
     padding: 8px;
     width: 200px;
     max-width: 500px;
     box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 
+article:hover {
+    transform: scale(1.02);
+}
 button  { 
     border-radius: 10px;
     border: solid 1px;
@@ -74,6 +80,8 @@ p {
 
 .header-content {
     display: inline-flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 3px;
 }
 
@@ -96,7 +104,8 @@ p {
 
 @media screen and (min-width: 1200px) {
     article {
-        border: 2px solid #ECE1E1;
+        border: 2px solid #e1dede ;
+    background-color: #f9f9f8;
         padding: 16px;
         width: 100%;
         max-width: 500px;

@@ -289,6 +289,20 @@
       "username": "ThrillSeeker",
       "rating": 3,
       "comment": "Un concept intéressant mais qui manque un peu de profondeur."
+    },
+    {
+      "id": 12,
+      "movieId": 12,
+      "username": "Psycho-Torturer",
+      "rating": 5,
+      "comment": "Après la saga asiatique, cet American Guinea Pig nous ravis de sa brutalité"
+    },
+    {
+      "id": 13,
+      "movieId": 12,
+      "username": "SadMovie",
+      "rating": 5,
+      "comment": "Bien underground, ce film gore assumé ravir les fans du genre."
     }
   ]
 }

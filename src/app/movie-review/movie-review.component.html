@@ -7,6 +7,7 @@
           <div class="header-content">
             <p>{{ movieDetails.releaseYear }}</p>
             <p>{{ movieDetails.genreName }}</p>
+            <p class="director">De {{movieDetails.director}}</p>
           </div>
         </header>
         <div class="content">
@@ -22,13 +23,15 @@
   </div>
 </section>
 <h1>Critiques spectateurs</h1>
-<section>
+<section class="review-space">
   <ng-container *ngIf="reviewDetailsId$ | async as reviewDetails">
-    <div *ngFor="let review of reviewDetails">
-      <p>
-        <strong>{{ review.username }}</strong> - Rating: {{ review.rating }}
-      </p>
-      <p>{{ review.comment }}</p>
+    <div *ngFor="let review of reviewDetails" class="review-card">
+      <div class="review-header">
+        <strong class="username">{{ review.username }}</strong>
+        <span class="rating">Rating: {{ review.rating }}</span>
+      </div>
+      <p class="comment">{{ review.comment }}</p>
     </div>
   </ng-container>
 </section>
+

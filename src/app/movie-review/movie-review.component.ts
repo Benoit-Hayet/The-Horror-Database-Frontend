@@ -21,7 +21,7 @@ export class MovieReviewComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      const movieIdParam = params.get('movieId');
+      const movieIdParam = params.get('movieIdPath');
       this.movieId = movieIdParam !== null ? parseInt(movieIdParam, 10) : 0;
       if (this.movieId) {
         this.movieDetails$ = this.apiService.getMoviesById(this.movieId);

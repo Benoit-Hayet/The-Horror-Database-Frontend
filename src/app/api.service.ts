@@ -13,18 +13,19 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getAllMovies(): Observable<any> {
-    return this.http.get('http://localhost:3000/movies');
+    return this.http.get('http://localhost:8080/movies');
   }
 
   getMoviesById(movieId: number): Observable<any> {
-    return this.http.get(`http://localhost:3000/movies/${movieId}`);
+    return this.http.get(`http://localhost:8080/movies/${movieId}`);
   }
 
   getAllReviews(): Observable<any> {
-    return this.http.get('http://localhost:3000/reviews');
+    return this.http.get('http://localhost:8080/reviews');
   }
 
   getReviewsByMovieId(movieId: number): Observable<review[]> {
-    return this.http.get<review[]>(`http://localhost:3000/reviews?movieId=${movieId}`);
+    return this.http.get<review[]>(`http://localhost:8080/reviews?movieId=${movieId}`);
   }
+
 }

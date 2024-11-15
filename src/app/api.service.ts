@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { movieCards } from './model/movieCards.model';
 import { review } from './model/review.model';
 
@@ -25,7 +25,7 @@ export class ApiService {
   }
 
   getReviewsByMovieId(movieId: number): Observable<review[]> {
-    return this.http.get<review[]>(`http://localhost:8080/reviews?movieId=${movieId}`);
-  }
-
-}
+    return this.http.get<review[]>(`http://localhost:8080/reviews/movie-review/${movieId}`).pipe(
+      tap(response => console.log('Response from getMoviesById:', response))
+    );
+  }}

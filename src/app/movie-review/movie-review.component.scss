@@ -13,6 +13,12 @@ article {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 
+.avatar {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
 .img {
   height: 280px;
   width: auto;
@@ -176,3 +182,4 @@ text-align: center;
   margin-top: 16px;
 
 }
+

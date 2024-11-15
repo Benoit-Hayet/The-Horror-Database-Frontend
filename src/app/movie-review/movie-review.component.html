@@ -27,11 +27,23 @@
   <ng-container *ngIf="reviewDetailsId$ | async as reviewDetails">
     <div *ngFor="let review of reviewDetails" class="review-card">
       <div class="review-header">
+        <img
+            [src]="review.avatarUrl"
+            alt="{{ review.avatarUrl }}"
+            class="avatar"
+          />
         <strong class="username">{{ review.username }}</strong>
         <span class="rating">Rating: {{ review.rating }}</span>
       </div>
       <p class="comment">{{ review.review }}</p>
     </div>
   </ng-container>
+</section>
+<section>
+  <form class="form1" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+    <label for="review"></label>
+    <input type="text" id="review" formControlName="review" placeholder="Ajouter ma critique">
+    <button>Publier</button>
+  </form>
 </section>
 

@@ -35,15 +35,17 @@
         <strong class="username">{{ review.username }}</strong>
         <span class="rating">Rating: {{ review.rating }}</span>
       </div>
-      <p class="comment">{{ review.review }}</p>
+      <p class="userReview">{{ review.review }}</p>
     </div>
   </ng-container>
 </section>
-<section>
-  <form class="form1" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+<section class="new-review">
+  <div class="new-review-card">
+  <form class="formReview" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
     <label for="review"></label>
-    <input type="text" id="review" formControlName="review" placeholder="Ajouter ma critique">
+    <textarea class="reviewText"  type="text" id="review" formControlName="review" placeholder="Ajouter ma critique"></textarea>
     <button>Publier</button>
   </form>
+</div>
 </section>
 

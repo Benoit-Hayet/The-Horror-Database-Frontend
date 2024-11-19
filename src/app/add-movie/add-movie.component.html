@@ -1,1 +1,70 @@
-<p>add-movie works!</p>
+<div class="container">
+  <h1>Ajouter un film</h1>
+  <form class="form1" [formGroup]="addMovieForm" (ngSubmit)="onSubmit()">
+    <input type="text" id="title" formControlName="title" placeholder="Titre" />
+
+    <textarea
+    id="synopsis"
+    formControlName="synopsis"
+    placeholder="Synopsis"
+  ></textarea>
+
+  <input
+  type="number"
+  id="releaseYear"
+  formControlName="releaseYear"
+  placeholder="Année de sortie"
+/>
+
+<select>
+    <option value="" disabled selected>Pays</option>
+    <ng-container *ngFor="let item of countryMap">
+      <option [value]="item.id">{{ item.name }}</option>
+    </ng-container>
+  </select>
+  
+
+    <input
+      type="text"
+      id="director"
+      formControlName="director"
+      placeholder="Réalisateur"
+    />
+
+ 
+    <input
+      type="text"
+      id="status"
+      formControlName="status"
+      placeholder="Statut"
+    />
+
+    <input
+      type="url"
+      id="posterUrl"
+      formControlName="posterUrl"
+      placeholder="URL de l'affiche"
+    />
+
+    <input
+      type="text"
+      id="createdBy"
+      formControlName="createdBy"
+      placeholder="Créé par"
+    />
+
+    <input
+      type="datetime-local"
+      id="createdAt"
+      formControlName="createdAt"
+      placeholder="Date de création"
+    />
+
+    <select id="genreName" formControlName="genreName" multiple></select>
+
+    <button type="submit">Valider</button>
+  </form>
+  <div class="create-account">
+    <a href="database">Retour</a>
+  </div>
+</div>

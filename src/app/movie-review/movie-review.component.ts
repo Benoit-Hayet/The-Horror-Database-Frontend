@@ -50,6 +50,7 @@ export class MovieReviewComponent implements OnInit {
 
   // Méthode appelée lors du clic sur une étoile
   selectRating(rating: number) {
+    this.currentRating = rating;
     this.reviewForm.patchValue({ rating });
   }
 

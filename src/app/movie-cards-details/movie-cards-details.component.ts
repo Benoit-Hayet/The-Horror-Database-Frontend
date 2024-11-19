@@ -1,13 +1,13 @@
-import { Component, inject, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../api.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movie-cards-details',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,RouterLink,],
   templateUrl: './movie-cards-details.component.html',
   styleUrl: './movie-cards-details.component.scss',
 })
@@ -15,6 +15,7 @@ export class MovieCardsDetailsComponent {
   movieCards: movieCards[] = [];
   filteredMovieCards: movieCards[] = [];
   orderTitles: movieCards[] = [];
+  rating:movieCards[] = [];
 
   
 
@@ -41,7 +42,15 @@ export class MovieCardsDetailsComponent {
         return a.title < b.title ? -1 : a.title > b.title ? 1 : 0;
       });
     }
-    console.log(changes);
   }
+  stars: number[] = [1, 2, 3, 4, 5];
+  currentRating = 0; // La note sélectionnée
+  hoverRatingState = 0; // État au survol
 
+  // Méthode appelée lors du clic sur une étoile
+  /*selectRating(rating: number) {
+    return Math.round(rating);
+  }*/
 }
+
+

@@ -10,4 +10,5 @@ export interface movieCards {
     createdBy: number;
     createdAt: string;
     genreName: string[];
+    userReview:string[];
 }

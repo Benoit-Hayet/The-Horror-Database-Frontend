@@ -9,7 +9,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-movie-review',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './movie-review.component.html',
   styleUrls: ['./movie-review.component.scss'],
 })
@@ -20,12 +20,16 @@ export class MovieReviewComponent implements OnInit {
   movieDetails$!: Observable<any>;
   reviewDetailsId$!: Observable<review[]>;
 
+  stars: number[] = [1, 2, 3, 4, 5];
+  currentRating = 0;
+  hoverRatingState = 0;
+
   formBuilder = inject(FormBuilder);
 
   reviewForm = this.formBuilder.group({
     review: [''],
-   
-  
+    rating:[this.currentRating],
+
   });
   onSubmit() {
     console.log(this.reviewForm.value);
@@ -43,4 +47,15 @@ export class MovieReviewComponent implements OnInit {
       }
     });
   }
+
+  // Méthode appelée lors du clic sur une étoile
+  selectRating(rating: number) {
+    this.reviewForm.patchValue({ rating });
+  }
+
+  // Méthode appelée au survol des étoiles
+  hoverRating(rating: number) {
+    this.hoverRatingState = rating;
+  }
+
 }

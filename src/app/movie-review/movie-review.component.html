@@ -44,7 +44,16 @@
   <form class="formReview" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
     <label for="review"></label>
     <textarea class="reviewText"  type="text" id="review" formControlName="review" placeholder="Ajouter ma critique"></textarea>
-    <button>Publier</button>
+    <div class="star-rating">
+      <span *ngFor="let star of stars; let i = index"
+            (click)="selectRating(i + 1)"
+            (mouseenter)="hoverRating(i + 1)"
+            (mouseleave)="hoverRating(0)"
+            [ngStyle]="{ color: i < currentRating || i < hoverRatingState ? 'gold' : 'gray' }">
+        ★
+      </span>
+    </div>
+    <button >Publier</button>
   </form>
 </div>
 </section>

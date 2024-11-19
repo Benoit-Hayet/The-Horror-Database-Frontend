@@ -1,164 +1,118 @@
 .movies-container {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    overflow-y: auto;
-    max-height: 100vh;
+    flex-wrap: wrap;
+    gap: 24px;
     padding: 16px;
     box-sizing: border-box;
-}
+    overflow-y: auto;
+    max-height: 100vh;
+  }
 
-.btn-style {
-    display: inline-block;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: grey;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: black;
-    }
+  .star-rating {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .fas {
+    color: gold;
+  }
+  .far {
+    color: gray;
   }
   
-article {
+  
+  article {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid #e1dede ;
+    border: 2px solid #e1dede;
     background-color: #f9f9f8;
-    padding: 8px;
+    padding: 16px;
     width: 200px;
     max-width: 500px;
     box-sizing: border-box;
     border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-}
-
-article:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px;
+    transition: transform 0.3s ease;
+  }
+  
+  article:hover {
     transform: scale(1.02);
-}
-button  { 
-    border-radius: 10px;
-    border: solid 1px;
-    background-color: black;
-    color: whitesmoke;
-    font-size: 9px;
-    padding: 1px 4px;
-    margin-top: 5px; 
-    align-self:center;
-    justify-content:end;
-}
-
-section {
-    padding: 4px;
-}
-
-
-h3 {
-    margin-top: 7px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 70%;
-}
-
-p {
-    text-align: center;
-    font-size: 60%;
-    padding: 3px;
-}
-
-.img {
-    border-radius: 2px;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 8px;
+  }
+  
+  .content {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    align-items: flex-start;
+  }
+  
+  .img {
+    border-radius: 4px;
     object-fit: cover;
     height: 100px;
-}
-
-.header-content {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3px;
-}
-
-
-.content {
-    display: flex;
-    margin-top: 5px;
-    align-items: flex-start; 
-    gap: 8px; 
-}
-
-.synopsis {
-    margin: 7px;
-    flex: 3;
-    font-size: 0.6em;
+    flex-shrink: 0;
+  }
+  
+  .synopsis {
+    margin: 0;
+    font-size: 0.8em;
     line-height: 0.9;
     text-align: justify;
-}
-
-
-@media screen and (min-width: 1200px) {
-    article {
-        border: 2px solid #e1dede ;
-    background-color: #f9f9f8;
-        padding: 16px;
-        width: 100%;
-        max-width: 500px;
-        height: 320px;
-    }
-
-    .img {
-        height: 200px;
-    }
-
-    h3, p {
-        font-size: 100%;
-    }
-
-    
-.header-content {
-    display: inline-flex;
-    margin-top: 7px;
-}
-
-
-.content {
-    display: flex;
+  }
+  
+  .btn-style {
     margin-top: 10px;
-    align-items: flex-start; 
-    gap: 16px; 
-}
-
-.synopsis {
-    margin: 30px;
-    font-size: 0.9em;
-    line-height: 1.5;
-    text-align: justify;
-}
-
-}
-.movies-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 24px;
-}
-
-button  {
-   
-    border-radius: 20px;
-    border: solid 1px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: grey;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-style:hover {
     background-color: black;
-    color: whitesmoke;
-    font-size: 14px;
-    padding: 5px 10px;
-    margin-top: 5px; 
-    align-self:center;
-    justify-content:end;
-}
-
+  }
+  
+  h3 {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  p {
+    margin: 0;
+    font-size: 0.9em;
+    text-align: center;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    article {
+      width: calc(25% - 24px);
+      max-width: none;
+    }
+  
+    .img {
+      height: 200px;
+    }
+  
+    .synopsis {
+      font-size: 1em;
+      line-height: 1.5;
+    }
+  }
+  

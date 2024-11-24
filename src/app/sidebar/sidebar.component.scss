@@ -9,6 +9,23 @@
   
 }
 
+.addAMovie {
+    display: flex;
+    align-items:normal;
+    background-color: #f9f9f8;
+    border: 1px solid #e1dede ;
+    margin-top: 7px;
+    
+}
+.addAMovie  button{
+padding:10px ;
+}
+.addIcon {
+    margin-top: 6px;
+    width: 30px;
+    height:30px;
+}
+
 h3 {
     background-color: #f9f9f8;
     border: 1px solid #e1dede ;
@@ -32,6 +49,7 @@ li {
 
 button {
     all:unset
+
 }
 
 @media screen and (min-width: 1200px) {

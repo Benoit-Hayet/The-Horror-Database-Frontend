@@ -32,5 +32,14 @@ export class AddMovieComponent {
   onSubmit() {
     console.log(this.addMovieForm.value);
   }
+  onCountryChange(event: Event): void {
+    const selectedId = (event.target as HTMLSelectElement).value;
+    const selectedCountry = this.countryMap.find(item => item.id === +selectedId);
+    if (selectedCountry) {
+      this.addMovieForm.patchValue({ country: selectedCountry.name });
+    }
+  }
+  
+  
 
 }

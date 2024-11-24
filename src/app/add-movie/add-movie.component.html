@@ -16,27 +16,18 @@
   placeholder="Année de sortie"
 />
 
-<select>
-    <option value="" disabled selected>Pays</option>
-    <ng-container *ngFor="let item of countryMap">
-      <option [value]="item.id">{{ item.name }}</option>
-    </ng-container>
-  </select>
-  
+<select [formControl]="addMovieForm.controls['country']" (change)="onCountryChange($event)">
+  <option value="" disabled selected>Pays</option>
+  <ng-container *ngFor="let item of countryMap">
+    <option [value]="item.id">{{ item.name }}</option>
+  </ng-container>
+</select>
 
     <input
       type="text"
       id="director"
       formControlName="director"
       placeholder="Réalisateur"
-    />
-
- 
-    <input
-      type="text"
-      id="status"
-      formControlName="status"
-      placeholder="Statut"
     />
 
     <input
@@ -46,12 +37,6 @@
       placeholder="URL de l'affiche"
     />
 
-    <input
-      type="text"
-      id="createdBy"
-      formControlName="createdBy"
-      placeholder="Créé par"
-    />
 
     <input
       type="datetime-local"

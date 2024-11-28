@@ -11,6 +11,7 @@ import { MyReviewComponent } from './my-review/my-review.component';
 import { MyAddMovieComponent } from './my-add-movie/my-add-movie.component';
 import { MovieReviewComponent } from './movie-review/movie-review.component';
 import { AddMovieComponent } from './add-movie/add-movie.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 export const routes: Routes = [
   {
@@ -63,4 +64,9 @@ export const routes: Routes = [
     path: 'movie-review/:movieIdPath',
     component: MovieReviewComponent,
   },
+  {
+    path: 'admin-home',
+    component: AdminHomeComponent,
+  }
+
 ];

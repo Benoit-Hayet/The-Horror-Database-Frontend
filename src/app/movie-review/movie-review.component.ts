@@ -1,5 +1,5 @@
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { ApiService } from '../api.service';
+import { ApiService } from '../../services/api.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';

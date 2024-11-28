@@ -16,11 +16,11 @@ export class CreateAccountComponent {
 
   constructor(private formBuilder:FormBuilder,private authService:AuthService) { 
   this.registerForm = this.formBuilder.group ({
-    name:['',[Validators.required,Validators.pattern('^[a-zA-ZÀ-ÿ\\s-]+$')]],
-    lastname: ['',[Validators.required, Validators.pattern('^[a-zA-ZÀ-ÿ\\s-]+$')]],
+    firstName:['',[Validators.required,Validators.pattern('^[a-zA-ZÀ-ÿ\\s-]+$')]],
+    lastName: ['',[Validators.required, Validators.pattern('^[a-zA-ZÀ-ÿ\\s-]+$')]],
     username: ['',[Validators.required, Validators.pattern('^[a-zA-ZÀ-ÿ\\s-]+$')]],
 
-    dateOfBirth:['',[Validators.required, this.dateValidator]],
+    birthdate:['',[Validators.required, this.dateValidator]],
     email:['',[Validators.required,Validators.email]],
     password:['',[Validators.required,Validators.minLength(6)]],
 
@@ -29,9 +29,9 @@ export class CreateAccountComponent {
 
   onSubmit():void {
     if (this.registerForm.valid) { 
-      const {name, lastname, dateOfBirth, email, password } = this.registerForm.value;
+      const {firstName, lastName, birthdate,username, email, password } = this.registerForm.value;
       const role = 'USER';
-      this.authService.register(name, lastname, dateOfBirth, email,role, password ).subscribe(
+      this.authService.register(firstName, lastName, birthdate, username, email, password ,role).subscribe(
         (response) => {
           console.log('Inscription réussie', response);
         },

@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Connectez-vous</h1>
-    <form class="form1" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <form class="form1" [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
         <label for="email"></label>
         <input type="text" id="email" formControlName="email" placeholder="Email">
         
@@ -14,4 +14,5 @@
     <a [routerLink]="'/create-account'">Inscris-toi !</a>
 </div>
   </div>
+  
   

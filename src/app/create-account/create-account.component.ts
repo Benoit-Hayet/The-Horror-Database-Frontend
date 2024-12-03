@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-create-account',
@@ -32,11 +32,11 @@ export class CreateAccountComponent {
       const {firstName, lastName, birthdate,username, email, password } = this.registerForm.value;
       const role = 'USER';
       this.authService.register(firstName, lastName, birthdate, username, email, password ,role).subscribe(
-        (response) => {
+        (response: any) => {
           console.log('Inscription réussie', response);
         },
-        (error) => {
-          console.error('Erreur lors de l\'inscription', error);
+        (error: Error) => {
+          console.error('Erreur lors de l\'inscription', error.message);
         }
       );
       

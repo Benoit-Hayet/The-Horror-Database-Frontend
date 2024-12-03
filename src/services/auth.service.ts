@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -17,7 +17,7 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
     const body = { email, password };
-    return this.http.post<any>(this.authUrl + '/login', body);
+    return this.http.post<any>(this.authUrl + '/login', body, {responseType: 'text' as 'json'});
   }
   saveToken(token: string): void {
     localStorage.setItem('token', token);

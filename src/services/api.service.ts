@@ -1,13 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { movieCards } from './model/movieCards.model';
-import { review } from './model/review.model';
+import { movieCards } from '../app/model/movieCards.model';
+import { review } from '../app/model/review.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
+
+  private apiUrl = 'http://localhost:8080/movies';
+  
   movieCards: movieCards[] = [];
 
   constructor(private http: HttpClient) {}

@@ -3,15 +3,19 @@
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
         <div class="name-container">
-        <label for="lastname"></label>
-        <input type="text" id="lastname" formControlName="lastname" placeholder="Nom">
+        <label for="lastName"></label>
+        <input type="text" id="lastName" formControlName="lastName" placeholder="Nom">
 
-        <label for="name"></label>
-        <input type="text" id="name" formControlName="name"placeholder="Prénom">
+        <label for="firstName"></label>
+        <input type="text" id="firstName" formControlName="firstName"placeholder="Prénom">
+
+        <label for="username"></label>
+        <input type="text" id="username" formControlName="username"placeholder="Pseudo">
     </div>
 
-    <label for="dateOfBirth"></label>
-        <input type="text" id="dateOfBirth" formControlName="dateOfBirth"placeholder="Date de naissance JJ/MM/AAAA">
+    <label for="birthdate"></label>
+        <input type="date" id="birthdate" formControlName="birthdate"placeholder="Date de naissance JJ/MM/AAAA"
+        >
 
         <label for="email"></label>
         <input type="text" id="email" formControlName="email" placeholder="Email">

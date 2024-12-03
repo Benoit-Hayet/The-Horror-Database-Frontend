@@ -1,23 +1,43 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink,ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
+ loginForm: FormGroup;
 
-formBuilder = inject(FormBuilder);
-
-signUpForm = this.formBuilder.group ({
-  email:[''],
-  password:[''],
-})
-onSubmit() {
-  console.log(this.signUpForm.value)
-}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+  ) {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
+  onSubmit(): void {
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      this.authService.login(email, password).subscribe(
+        (response) => {
+          this.authService.saveToken(response);
+        },
+        (error) => {
+          console.error("Erreur lors de la connexion", error);
+        },
+      );
+    }
+  }
 }

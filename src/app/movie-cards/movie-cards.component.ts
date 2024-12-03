@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
-import { ApiService } from '../api.service';
+import { ApiService } from '../../services/api.service';
 import { RouterLink } from '@angular/router';
 
 @Component({

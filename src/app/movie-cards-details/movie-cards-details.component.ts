@@ -1,7 +1,7 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
 import { CommonModule } from '@angular/common';
-import { ApiService } from '../api.service';
+import { ApiService } from '../../services/api.service';
 import { RouterLink } from '@angular/router';
 
 @Component({

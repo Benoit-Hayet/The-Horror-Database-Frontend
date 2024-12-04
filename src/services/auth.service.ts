@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { jwtDecode } from 'jwt-decode';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
@@ -25,4 +26,29 @@ export class AuthService {
   getToken(): string | null {
     return localStorage.getItem('token');}
 
+    cleartoken(): void {
+localStorage.removeItem('token')
+    } 
+
+
+    isloggedin(): boolean {
+      const token = this.getToken();
+      if (!token) return false;
+      const decodedToken: any = jwtDecode(token);
+      const expiryDate = new Date(decodedToken.exp*1000);
+      if (expiryDate < new Date()) {
+        this.cleartoken();
+        return false;
+      }
+      return true;
+    }
+    getDecodedToken(): any {
+      const token = this.getToken();
+      if(!token)return null;
+      return jwtDecode(token);
+    }
+    getUserRole(): string | null {
+      const decodedToken = this.getDecodedToken();
+      return decodedToken ? decodedToken.role : null;
+    }
 }

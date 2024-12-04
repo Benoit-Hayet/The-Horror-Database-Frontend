@@ -33,6 +33,7 @@ export class LoginComponent {
       this.authService.login(email, password).subscribe(
         (response) => {
           this.authService.saveToken(response);
+          this.authService.isloggedin();
         },
         (error) => {
           console.error("Erreur lors de la connexion", error);

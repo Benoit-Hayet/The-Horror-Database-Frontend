@@ -42,4 +42,13 @@ localStorage.removeItem('token')
       }
       return true;
     }
+    getDecodedToken(): any {
+      const token = this.getToken();
+      if(!token)return null;
+      return jwtDecode(token);
+    }
+    getUserRole(): string | null {
+      const decodedToken = this.getDecodedToken();
+      return decodedToken ? decodedToken.role : null;
+    }
 }

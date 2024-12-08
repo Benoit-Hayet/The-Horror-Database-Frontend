@@ -31,8 +31,11 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    canActivate:[authGuard],
+    canActivate: [authGuard],
+    data: {
+      userType: 'visitor',
   },
+},
   {
     path: 'about',
     component: AboutComponent,
@@ -40,11 +43,19 @@ export const routes: Routes = [
   {
     path: 'create-account',
     component: CreateAccountComponent,
+    canActivate: [authGuard],
+    data: {
+      userType: 'visitor',
+    },
   },
   {
     path: 'member-home',
     component: MemberHomeComponent,
+       canActivate: [authGuard],
+    data: {
+      userType: 'user',
   },
+},
   {
     path: 'account',
     component: AccountComponent,
@@ -69,6 +80,9 @@ export const routes: Routes = [
   {
     path: 'admin-home',
     component: AdminHomeComponent,
-  }
-
+    canActivate: [authGuard],
+    data: {
+      userType: 'admin',
+    },
+  },
 ];

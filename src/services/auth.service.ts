@@ -14,7 +14,6 @@ export class AuthService {
     const body = { firstName, lastName, birthdate, username, email, role, password };
     return this.http.post(this.authUrl + '/register', body);
   }
-  
 
   login(email: string, password: string): Observable<any> {
     const body = { email, password };
@@ -49,6 +48,6 @@ localStorage.removeItem('token')
     }
     getUserRole(): string | null {
       const decodedToken = this.getDecodedToken();
-      return decodedToken ? decodedToken.role : null;
+      return decodedToken ? decodedToken.roles : null;
     }
 }

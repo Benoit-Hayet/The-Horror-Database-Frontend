@@ -1,19 +1,26 @@
 <header>
-   <section>
+  <section>
     <img [src]="logo" alt="logo du site" class="logo">
-   </section> 
-   <section class="Section2">
-    <nav>
-        <ul>
-          <li>
-              <a [routerLink]="'/home'">Accueil</a>
-            <a [routerLink]="'/database'">La Database</a>
-            <img [src] = "user" alt="user connexion logo" class="user-logo" [routerLink]="'/login'">
-           
-        </li>
-        </ul>
-        <button class="header-button" (click)="isLogged()">Connecté</button> 
-          </nav>
-   </section>
-</header>
+  </section>
 
+  <section class="Section2">
+    <nav>
+      <ul>
+        <li>
+          <!-- Utilisez des éléments <a> pour les liens -->
+          <a [routerLink]="'/home'">Accueil</a>
+          <a [routerLink]="'/database'">La Database</a>
+
+          <!-- Pour l'image utilisateur, utilisez un <a> pour le rendre cliquable -->
+          <a [routerLink]="'/login'">
+            <img [src]="user" alt="user connexion logo" class="user-logo">
+          </a>
+        </li>
+      </ul>
+      
+      <!-- Assurez-vous que les boutons sont placés correctement et n'affectent pas l'hydratation -->
+      <button class="header-button" (click)="isLogged()">Connecté</button>
+      <button class="header-button" (click)="whoIsLogged()">Decode Token</button> 
+    </nav>
+  </section>
+</header>

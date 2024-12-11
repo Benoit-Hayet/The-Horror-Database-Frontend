@@ -18,5 +18,8 @@ user:string="assets/User.png";
 isLogged(): void {
 console.log(this.authService.isloggedin());
 }
+whoIsLogged(): void {
+  console.log(this.authService.getDecodedToken());
+}
 }
 

@@ -48,6 +48,7 @@ localStorage.removeItem('token')
     }
     getUserRole(): string | null {
       const decodedToken = this.getDecodedToken();
-      return decodedToken ? decodedToken.roles : null;
+      return decodedToken && decodedToken.roles ? decodedToken.roles : null;
     }
+    
 }

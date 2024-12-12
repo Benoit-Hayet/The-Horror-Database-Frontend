@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MemberNavbarComponent } from '../member-navbar/member-navbar.component';
 import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-account',
@@ -13,13 +14,14 @@ import { UserService } from '../../services/user.service';
 export class AccountComponent {
   user: any;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private authService: AuthService) {}
+
 
   ngOnInit() {
-    if (typeof localStorage !== 'undefined') {
-      const userToken = localStorage.getItem('token');
-      if (userToken) {
-        this.userService.getUserProfile(userToken).subscribe(
+      const decodedToken = this.authService.getDecodedToken();
+      console.log(decodedToken)
+      if (decodedToken) {
+        this.userService.getUserProfile(decodedToken.sub).subscribe(
           (data) => {
             this.user = data;
             console.log(this.user);
@@ -32,5 +34,4 @@ export class AccountComponent {
         console.error('Aucun token trouvé');
       }
     }
-  }
 }

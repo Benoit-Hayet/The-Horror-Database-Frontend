@@ -21,5 +21,8 @@ console.log(this.authService.isloggedin());
 whoIsLogged(): void {
   console.log(this.authService.getDecodedToken());
 }
+getRole(): void {
+  console.log(this.authService.getUserRole());
+}
 }
 

@@ -1,11 +1,13 @@
+<h1>TOTO</h1>
 <app-member-navbar></app-member-navbar>
 <section>
+    <ng-container *ngFor="let profil of user">
     <div class="profil">
     <h1 >Mon profil</h1>
     <label for="email"></label>
         <input type="text" id="email" formControlName="email" placeholder="email">
 
-        <label for="username"></label>
+        <label for="username">{{user.username}}</label>
         <input type="text" id="username" formControlName="username"placeholder="Pseudo">
 </div>
 <div class="password">
@@ -22,4 +24,5 @@
     
 </div>
 <button>Supprimer mon compte</button>
+</ng-container>
 </section>

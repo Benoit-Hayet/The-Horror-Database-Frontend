@@ -16,9 +16,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getAllMovies(): Observable<any> {
-    return this.http.get('http://localhost:8080/movies').pipe(
-      tap(response => console.log('Response from getAllMovies:', response))
-    );
+    return this.http.get('http://localhost:8080/movies');
   }
   
 

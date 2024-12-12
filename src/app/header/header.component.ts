@@ -16,7 +16,13 @@ logo: string ="assets/Logo.gif";
 user:string="assets/User.png";
 
 isLogged(): void {
-console.log(this.authService.getDecodedToken());
+console.log(this.authService.isloggedin());
+}
+whoIsLogged(): void {
+  console.log(this.authService.getDecodedToken());
+}
+getRole(): void {
+  console.log(this.authService.getUserRole());
 }
 }
 

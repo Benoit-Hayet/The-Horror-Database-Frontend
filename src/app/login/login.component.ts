@@ -34,6 +34,7 @@ export class LoginComponent {
         (response) => {
           this.authService.saveToken(response);
           this.authService.isloggedin();
+          console.log(this.authService.getDecodedToken())
         },
         (error) => {
           console.error("Erreur lors de la connexion", error);

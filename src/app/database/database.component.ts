@@ -12,10 +12,14 @@ import { MovieCardsDetailsComponent } from '../movie-cards-details/movie-cards-d
 })
 export class DatabaseComponent {
   genreClicked: string = '';
+  countryClicked: string = '';
   orderByTitle: 'asc' = 'asc';
 
   handleGenre(genre: string) {
     this.genreClicked = genre;
+  }
+  handleCountry(country:any) {
+    this.countryClicked = country;
   }
 
   orderByTitleChange(order: 'asc') {

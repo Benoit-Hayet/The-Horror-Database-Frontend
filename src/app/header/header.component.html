@@ -12,9 +12,11 @@
           <a [routerLink]="'/database'">La Database</a>
 
           <!-- Pour l'image utilisateur, utilisez un <a> pour le rendre cliquable -->
-          <a [routerLink]="'/login'">
+          <a *ngIf="!isLoggedOk()" [routerLink]="'/login'">
             <img [src]="user" alt="user connexion logo" class="user-logo">
           </a>
+          <a *ngIf="isLoggedOk()" [routerLink]="'/account'">Mon Profil</a>
+          <a  *ngIf="isLoggedOk()" (click)="logOut()">Connecté</a>
         </li>
       </ul>
       

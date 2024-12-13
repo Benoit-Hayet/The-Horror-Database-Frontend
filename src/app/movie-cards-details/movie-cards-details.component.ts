@@ -3,6 +3,7 @@ import { movieCards } from '../model/movieCards.model';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { RouterLink } from '@angular/router';
+import { country } from '../model/country.model';
 
 @Component({
   selector: 'app-movie-cards-details',
@@ -13,6 +14,7 @@ import { RouterLink } from '@angular/router';
 })
 export class MovieCardsDetailsComponent {
   movieCards: movieCards[] = [];
+  filteredCountryCards: movieCards[] = [];
   filteredMovieCards: movieCards[] = [];
   orderTitles: movieCards[] = [];
   rating:movieCards[] = [];
@@ -20,6 +22,7 @@ export class MovieCardsDetailsComponent {
   
 
   @Input() genreClicked: string = '';
+  @Input() countryClicked: string = '';
   @Input() orderByTitle: 'asc' | 'desc' = 'asc';
 
   constructor(private apiService: ApiService) {}
@@ -28,6 +31,7 @@ export class MovieCardsDetailsComponent {
     this.apiService.getAllMovies().subscribe((response) => {
       this.movieCards = response;
       this.filteredMovieCards = response;
+      this.filteredCountryCards = response;
       this.orderTitles = response;
     });
   }
@@ -35,6 +39,11 @@ export class MovieCardsDetailsComponent {
     if (changes['genreClicked']) {
       this.filteredMovieCards = this.movieCards.filter((movie) =>
         movie.genreName.includes(this.genreClicked),
+      );
+    }
+    if (changes['countryClicked']) {
+      this.filteredCountryCards = this.movieCards.filter((movie) =>
+        movie.country.includes(this.countryClicked),
       );
     }
     if (changes['orderByTitle']) {

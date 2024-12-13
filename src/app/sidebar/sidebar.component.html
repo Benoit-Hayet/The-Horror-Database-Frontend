@@ -40,7 +40,8 @@
   <div class="country">
     <ng-container *ngFor="let item of countryMap">
       <ul class="countryList">
-        <li>{{ item.name }}</li>
+        <li><button (click)="showMoviesByCountry(item.name)">{{ item.name }}</button></li>
+        
       </ul>
     </ng-container>
   </div>

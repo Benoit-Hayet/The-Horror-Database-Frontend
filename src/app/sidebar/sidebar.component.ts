@@ -2,7 +2,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { country } from '../model/country.model';
 import { countries } from '../data/country.data';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { movieCards } from '../model/movieCards.model';
 
 @Component({
@@ -26,6 +25,6 @@ export class SidebarComponent {
   sortByTitle(): void {
     this.orderByTitleChange.emit();
   }
-  /*J'ai retiré 'asc' de emit*/
+  /*J'ai retiré 'asc' de emit test */
 }
 

@@ -12,7 +12,7 @@ import { MyAddMovieComponent } from './my-add-movie/my-add-movie.component';
 import { MovieReviewComponent } from './movie-review/movie-review.component';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { authGuard } from './shared/guards/auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -31,11 +31,11 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    canActivate: [authGuard],
+    canActivate: [AuthGuard],  // Utilisation de AuthGuard (avec majuscule)
     data: {
       userType: 'visitor',
+    },
   },
-},
   {
     path: 'about',
     component: AboutComponent,
@@ -43,7 +43,7 @@ export const routes: Routes = [
   {
     path: 'create-account',
     component: CreateAccountComponent,
-    canActivate: [authGuard],
+    canActivate: [AuthGuard],  // Idem
     data: {
       userType: 'visitor',
     },
@@ -51,7 +51,11 @@ export const routes: Routes = [
   {
     path: 'member-home',
     component: MemberHomeComponent,
-},
+    canActivate: [AuthGuard],  // Idem
+    data: {
+      userType: 'user',
+    },
+  },
   {
     path: 'account',
     component: AccountComponent,
@@ -68,7 +72,6 @@ export const routes: Routes = [
     path: 'my-add-movie',
     component: MyAddMovieComponent,
   },
-
   {
     path: 'movie-review/:movieIdPath',
     component: MovieReviewComponent,
@@ -76,7 +79,7 @@ export const routes: Routes = [
   {
     path: 'admin-home',
     component: AdminHomeComponent,
-    canActivate: [authGuard],
+    canActivate: [AuthGuard],  // Idem
     data: {
       userType: 'admin',
     },

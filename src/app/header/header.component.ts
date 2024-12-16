@@ -18,7 +18,11 @@ logo: string ="assets/Logo.gif";
 user:string="assets/User.png";
 
 isLoggedOk():  boolean {
-  return (this.authService.isloggedin()); 
+  return (this.authService.isLoggedIn()); 
+}
+
+readToken() : void {
+console.log(this.authService.getToken());
 }
 
 logOut(): void {
@@ -26,7 +30,7 @@ logOut(): void {
 }
 
 isLogged(): void {
-console.log(this.authService.isloggedin());
+console.log(this.authService.isLoggedIn());
 }
 whoIsLogged(): void {
   console.log(this.authService.getDecodedToken());

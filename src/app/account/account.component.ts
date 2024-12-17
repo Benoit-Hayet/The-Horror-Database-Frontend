@@ -18,20 +18,23 @@ export class AccountComponent {
 
 
   ngOnInit() {
-      const decodedToken = this.authService.getDecodedToken();
-      console.log(decodedToken)
-      if (decodedToken) {
-        this.userService.getUserProfile(decodedToken.sub).subscribe(
-          (data) => {
-            this.user = data;
-            console.log(this.user);
-          },
-          (error) => {
-            console.error('Erreur lors de la récupération des données utilisateur', error);
-          }
-        );
-      } else {
-        console.error('Aucun token trouvé');
-      }
+    const decodedToken = this.authService.getDecodedToken();
+    console.log(decodedToken);
+  
+    if (decodedToken) {
+      // Appel correct avec le paramètre decodedToken.sub
+      this.userService.getUserProfile(decodedToken.sub).subscribe(
+        (data) => {
+          this.user = data;
+          console.log(this.user);
+        },
+        (error) => {
+          console.error('Erreur lors de la récupération des données utilisateur', error);
+        }
+      );
+    } else {
+      console.error('Aucun token trouvé');
     }
+  }
+  
 }

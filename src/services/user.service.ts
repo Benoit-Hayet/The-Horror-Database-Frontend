@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, of, tap } from 'rxjs';
 
 @Injectable({
@@ -10,8 +10,17 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-
-  getUserProfile(email: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/profile?email=${email}`);
+  getToken(): string | null {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      return localStorage.getItem('token');
+    }
+    return null; // Retourner null si localStorage n'est pas disponible
   }
-}  
+  getUserProfile(userId: string) {
+    const token = this.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    console.log('Fetching user profile for ID:', userId);
+    return this.http.get(`${this.apiUrl}/profile/${userId}`, { headers });
+  }
+  
+}

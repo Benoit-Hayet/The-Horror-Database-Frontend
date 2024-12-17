@@ -1,39 +1,55 @@
-import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 
-export const authGuard: CanActivateFn = (route) => {
-  const authService = inject(AuthService);
-  const router = inject(Router);
+@Injectable({
+  providedIn: 'root'  // Assure-toi que le guard est fourni dans le root
+})
+export class AuthGuard implements CanActivate {
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   // Fonction pour vérifier les rôles
-  const checkRole = (role: string) => {
-    const decodedToken = authService.getDecodedToken();
-    return decodedToken && decodedToken.roles.some((r: any) => r.authority === role);
-  };
+  private checkRole(role: string): boolean {
+    const decodedToken = this.authService.getDecodedToken();
+    return decodedToken && decodedToken.roles && decodedToken.roles.some((r: any) => r.authority === role);
+  }
 
-  if (route.data['userType'] === 'visitor') {
-    if (!authService.isloggedin()) {
-      return true;
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
+    const userType = route.data['userType'];
+
+    if (userType === 'visitor') {
+      if (!this.authService.isLoggedIn()) {
+        return true;
+      }
+      this.router.navigate(['']);
+      return false;
     }
-    router.navigate(['']);
+
+    if (userType === 'user') {
+      if (this.authService.isLoggedIn() && this.checkRole('ROLE_USER')) {
+        this.router.navigate(['member-home']);
+        return true;
+      }
+      return false;
+    }
+
+    if (userType === 'admin') {
+      if (this.authService.isLoggedIn() && this.checkRole('ROLE_ADMIN')) {
+        return true;
+      }
+      return false;
+    }
+
     return false;
   }
 
-  if (route.data['userType'] === 'user') {
-    if (authService.isloggedin() && checkRole('ROLE_USER')) {
-      router.navigate(['member-home']);
-      return true;
-    }
-    return false;
-  }
+  
 
-  if (route.data['userType'] === 'admin') {
-    if (authService.isloggedin() && checkRole('ROLE_ADMIN')) {
-      return true;
-    }
-    return false;
-  }
-
-  return false;
-};
+}

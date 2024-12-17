@@ -12,16 +12,19 @@
           <a [routerLink]="'/database'">La Database</a>
 
           <!-- Pour l'image utilisateur, utilisez un <a> pour le rendre cliquable -->
-          <a [routerLink]="'/login'">
+          <a *ngIf="!isLoggedOk()" [routerLink]="'/login'">
             <img [src]="user" alt="user connexion logo" class="user-logo">
           </a>
+          <a *ngIf="isLoggedOk()" [routerLink]="'/account'">Mon Profil</a>
+          <a  *ngIf="isLoggedOk()" (click)="logOut()">Me Déconnecter</a>
         </li>
       </ul>
       
       <!-- Assurez-vous que les boutons sont placés correctement et n'affectent pas l'hydratation -->
-      <button class="header-button" (click)="isLogged()">Connecté</button>
+      <button class="header-button" (click)="isLogged()">Is Logged ?</button>
       <button class="header-button" (click)="whoIsLogged()">Decode Token</button> 
       <button class="header-button" (click)="getRole()">Get Role</button>
+      <button class="header-button" (click)="readToken()">Read Token</button>
     </nav>
   </section>
 </header>

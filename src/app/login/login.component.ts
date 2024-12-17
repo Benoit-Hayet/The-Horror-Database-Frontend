@@ -33,7 +33,7 @@ export class LoginComponent {
       this.authService.login(email, password).subscribe(
         (response) => {
           this.authService.saveToken(response);
-          this.authService.isloggedin();
+          this.authService.isLoggedIn();
           console.log(this.authService.getDecodedToken())
         },
         (error) => {

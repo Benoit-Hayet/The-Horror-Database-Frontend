@@ -12,6 +12,8 @@ import { countries } from '../data/country.data';
 import { genre } from '../model/genre.model';
 import { genres } from '../data/genre.data';
 import { MovieService } from '../../services/movie.service';
+import { AuthService } from '../../services/auth.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-add-movie',
@@ -20,6 +22,7 @@ import { MovieService } from '../../services/movie.service';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    RouterLink
 
   ],
   templateUrl: './add-movie.component.html',
@@ -29,6 +32,11 @@ export class AddMovieComponent {
   formBuilder = inject(FormBuilder);
   countryMap: country[] = countries;
   genreMap: genre[] = genres;
+authService: AuthService = inject(AuthService);
+  
+  isLoggedOk():  boolean {
+    return (this.authService.isLoggedIn()); 
+  }
 
   constructor(private movieService: MovieService) {}
 

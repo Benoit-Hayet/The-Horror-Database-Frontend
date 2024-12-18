@@ -1,27 +1,37 @@
-<div class="container">
-  <h1>Ajouter un film</h1>
+<h1>Ajouter un film</h1>
+<div class="unLogged" *ngIf="!isLoggedOk()">
+  <p class="centered-paragraph">
+    <a [routerLink]="'/create-account'" class="bold">Inscrivez-vous</a>
+    <span class="spacer">ou</span>
+    <a [routerLink]="'/login'" class="bold">connectez-vous</a>
+    <span class="spacer">pour ajouter votre avis !</span>
+  </p>
+</div>
+
+
+<div class="container" *ngIf="isLoggedOk()" >
+ 
   <form class="form1" [formGroup]="addMovieForm" (ngSubmit)="onSubmit()">
+
     <input type="text" id="title" formControlName="title" placeholder="Titre" />
 
-    <textarea
-    id="synopsis"
-    formControlName="synopsis"
-    placeholder="Synopsis"
-  ></textarea>
+    <select
+    [formControl]="addMovieForm.controls['country']"
+    (change)="onCountryChange($event)"
+  >
+    <option value="" disabled selected>Pays</option>
+    <ng-container *ngFor="let item of countryMap">
+      <option [value]="item.name">{{ item.name }}</option>
+    </ng-container>
+  </select>
+  
 
   <input
-  type="number"
-  id="releaseYear"
-  formControlName="releaseYear"
-  placeholder="Année de sortie"
-/>
-
-<select [formControl]="addMovieForm.controls['country']" (change)="onCountryChange($event)">
-  <option value="" disabled selected>Pays</option>
-  <ng-container *ngFor="let item of countryMap">
-    <option [value]="item.id">{{ item.name }}</option>
-  </ng-container>
-</select>
+      type="number"
+      id="releaseYear"
+      formControlName="releaseYear"
+      placeholder="Année de sortie"
+    />
 
     <input
       type="text"
@@ -30,6 +40,13 @@
       placeholder="Réalisateur"
     />
 
+    <textarea
+      id="synopsis"
+      formControlName="synopsis"
+      placeholder="Synopsis"
+    ></textarea>
+
+
     <input
       type="url"
       id="posterUrl"
@@ -37,16 +54,17 @@
       placeholder="URL de l'affiche"
     />
 
+    <select
+    [formControl]="addMovieForm.controls['genreName']"
+    (change)="onGenreChange($event)"
+  >
+    <option value="" disabled selected>Genre</option>
+    <ng-container *ngFor="let genre of genreMap">
+      <option [value]="genre.name">{{ genre.name }}</option>
+    </ng-container>
+  </select>
 
-    <input
-      type="datetime-local"
-      id="createdAt"
-      formControlName="createdAt"
-      placeholder="Date de création"
-    />
-
-    <select id="genreName" formControlName="genreName" multiple></select>
-
+  
     <button type="submit">Valider</button>
   </form>
   <div class="create-account">

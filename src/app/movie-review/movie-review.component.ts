@@ -1,21 +1,23 @@
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, RouterLink } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { review } from '../model/review.model';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-movie-review',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,RouterLink],
   templateUrl: './movie-review.component.html',
   styleUrls: ['./movie-review.component.scss'],
 })
 export class MovieReviewComponent implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);
   apiService: ApiService = inject(ApiService);
+  authService: AuthService = inject(AuthService);
   movieId!: number;
   movieDetails$!: Observable<any>;
   reviewDetailsId$!: Observable<review[]>;
@@ -33,6 +35,9 @@ export class MovieReviewComponent implements OnInit {
   });
   onSubmit() {
     console.log(this.reviewForm.value);
+  }
+  isLoggedOk():  boolean {
+    return (this.authService.isLoggedIn()); 
   }
 
   ngOnInit() {

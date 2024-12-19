@@ -31,9 +31,10 @@ export class MovieService {
         createdAt,
         genreName,
     };
+
+    // Log de l'objet envoyé
+    console.log('Objet envoyé:', body);
+
     return this.http.post(this.movieUrl, body);
   }
-
-
-  
 }

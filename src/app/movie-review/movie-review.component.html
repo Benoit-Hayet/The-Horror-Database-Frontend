@@ -39,7 +39,15 @@
     </div>
   </ng-container>
 </section>
-<section class="new-review">
+<div class="unLogged" *ngIf="!isLoggedOk()">
+  <p class="centered-paragraph">
+    <a [routerLink]="'/create-account'" class="bold">Inscrivez-vous</a>
+    <span class="spacer">ou</span>
+    <a [routerLink]="'/login'" class="bold">connectez-vous</a>
+    <span class="spacer">pour ajouter votre avis !</span>
+  </p>
+</div>
+<section class="new-review" *ngIf="isLoggedOk()">
   <div class="new-review-card">
   <form class="formReview" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
     <label for="review"></label>

@@ -16,14 +16,16 @@ export class AccountComponent {
 
   constructor(private userService: UserService, private authService: AuthService) {}
 
-
   ngOnInit() {
     const decodedToken = this.authService.getDecodedToken();
     console.log(decodedToken);
   
     if (decodedToken) {
-      // Appel correct avec le paramètre decodedToken.sub
-      this.userService.getUserProfile(decodedToken.sub).subscribe(
+      // Récupérer l'ID de l'utilisateur à partir du token décodé
+      const userId = decodedToken.id; // Assurez-vous que 'id' est bien présent dans le token JWT
+
+      // Appel correct avec l'ID de l'utilisateur
+      this.userService.getUserProfile(userId).subscribe(
         (data) => {
           this.user = data;
           console.log(this.user);
@@ -36,5 +38,4 @@ export class AccountComponent {
       console.error('Aucun token trouvé');
     }
   }
-  
 }

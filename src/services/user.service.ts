@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, Observable, of, tap } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,17 +10,25 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  // Récupérer le token JWT depuis le localStorage
   getToken(): string | null {
     if (typeof window !== 'undefined' && window.localStorage) {
       return localStorage.getItem('token');
     }
-    return null; // Retourner null si localStorage n'est pas disponible
+    return null;
   }
-  getUserProfile(userId: string) {
+
+  getUserProfile(id: string): Observable<any> {
     const token = this.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    console.log('Fetching user profile for ID:', userId);
-    return this.http.get(`${this.apiUrl}/profile/${userId}`, { headers });
+    console.log('Fetching user profile for id:', id);
+  
+    return this.http.get(`${this.apiUrl}/profile/${id}`, { headers }).pipe(
+      catchError(error => {
+        console.error('Error fetching user profile:', error);
+        return throwError(error); // Relancer l'erreur
+      })
+    );
   }
   
 }

@@ -10,30 +10,30 @@ export class MovieService {
   addMovie(
     title: string,
     country: string,
-    releaseYear: string,
+    releaseYear: any, // Correction du type
     director: string,
     synopsis: string,
     status: string,
     posterUrl: string,
-    createdBy: any,
-    createdAt: any,
-    genreName: string,
+    genres: any[], // Correction : Tableau de chaînes de caractères
   ) {
+    // Mapper les genres pour correspondre au format attendu par l'API
+    const formattedGenres = genres.map((genre) => ({ name: genre }));
+
     const body = {
-        title,
-        country,
-        releaseYear,
-        director,
-        synopsis,
-        status,
-        posterUrl,
-        createdBy,
-        createdAt,
-        genreName,
+      title,
+      country,
+      releaseYear,
+      director,
+      synopsis,
+      status,
+      posterUrl,
+      genres: formattedGenres, // Utilisation des genres formatés
     };
+
+    // Log de l'objet envoyé
+    console.log('Objet envoyé:', body);
+
     return this.http.post(this.movieUrl, body);
   }
-
-
-  
 }

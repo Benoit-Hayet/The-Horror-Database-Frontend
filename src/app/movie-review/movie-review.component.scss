@@ -136,6 +136,23 @@ button:hover {
   box-sizing: border-box;
 }
 
+.centered-paragraph {
+  display: flex; 
+  justify-content: center;
+  font-size: large;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.spacer {
+  margin: 0 5px;
+}
+
 @media screen and (min-width: 1200px) {
   article {
     border: 2px solid #b5b1b1;

@@ -49,7 +49,6 @@ authService: AuthService = inject(AuthService);
     synopsis: [''],
     status: ['PENDING'],
     posterUrl: [''],
-    createdBy: [''],
     createdAt: [new Date().toISOString().split('T')[0]],
     genreName: [''],
   });
@@ -84,11 +83,12 @@ authService: AuthService = inject(AuthService);
         synopsis = '',
         status = '',
         posterUrl = '',
-        createdBy = '',
-        createdAt = '',
         genreName = '',
       } = this.addMovieForm.value;
-
+  
+      // Convertir genreName en tableau si ce n'est pas déjà un tableau
+      const genres = genreName ? [genreName] : [];
+  
       this.movieService
         .addMovie(
           title || '',
@@ -98,9 +98,7 @@ authService: AuthService = inject(AuthService);
           synopsis || '',
           status || '',
           posterUrl || '',
-          createdBy || '',
-          createdAt || '',
-          genreName || '',
+          genres // Envoyer un tableau
         )
         .subscribe(
           (response: any) => {
@@ -112,4 +110,5 @@ authService: AuthService = inject(AuthService);
         );
     }
   }
+  
 }

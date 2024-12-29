@@ -46,7 +46,9 @@
       placeholder="Synopsis"
     ></textarea>
 
-
+    <label for="poster">Affiche</label>
+    <input id="poster" type="file" (change)="onFileSelected($event)" />
+  
     <input
       type="url"
       id="posterUrl"

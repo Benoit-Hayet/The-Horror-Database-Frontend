@@ -1,27 +1,58 @@
 <app-member-navbar></app-member-navbar>
 <section>
-    <ng-container *ngFor="let profil of user">
-    <div class="profil">
-    <h1 >Mon profil</h1>
-    <label for="email"></label>
-        <input type="text" id="email" formControlName="email" placeholder="email">
+  <div class="profil">
+    <h1>Mon profil</h1>
+    <div class="content">
+      <!-- Vérifie si user est défini avant d'afficher -->
+      <img
+        *ngIf="user?.avatarUrl"
+        [src]="user.avatarUrl"
+        alt="Avatar de l'utilisateur"
+        class="img"
+      />
+      <label for="email">Email</label>
+      <input
+        type="text"
+        id="email"
+        [value]="user?.email"
+        placeholder="Email"
+        readonly
+      />
 
-        <label for="username">{{user.username}}</label>
-        <input type="text" id="username" formControlName="username"placeholder="Pseudo">
-</div>
-<div class="password">
+      <label for="username">Pseudo</label>
+      <input
+        type="text"
+        id="username"
+        [value]="user?.username"
+        placeholder="Pseudo"
+        readonly
+      />
+    </div>
+  </div>
+
+  <div class="password">
     <h1 class="passwordTitle">Mon mot de passe</h1>
+    <label for="lastPassword">Ancien mot de passe</label>
+    <input
+      type="password"
+      id="lastPassword"
+      placeholder="Ancien mot de passe"
+    />
 
-    <label for="lastPassword"></label>
-        <input type="text" id="lastPassword" formControlName="lastPassword" placeholder="Ancien mot de passe">
+    <label for="newPassword">Nouveau mot de passe</label>
+    <input
+      type="password"
+      id="newPassword"
+      placeholder="Nouveau mot de passe"
+    />
 
-        <label for="newPassword"></label>
-        <input type="text" id="newPassword" formControlName="newPassword"placeholder="Nouveau mot de passe">
+    <label for="newPasswordConfirmation">Confirmez le mot de passe</label>
+    <input
+      type="password"
+      id="newPasswordConfirmation"
+      placeholder="Confirmez le nouveau mot de passe"
+    />
+  </div>
 
-        <label for="newPasswordConfirmation"></label>
-        <input type="text" id="newPasswordConfirmation" formControlName="newPasswordConfirmation"placeholder="Confirmez le nouveau mot de passe">
-    
-</div>
-<button>Supprimer mon compte</button>
-</ng-container>
+  <button>Supprimer mon compte</button>
 </section>

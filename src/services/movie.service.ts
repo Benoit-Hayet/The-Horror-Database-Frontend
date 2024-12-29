@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class MovieService {
@@ -36,4 +37,11 @@ export class MovieService {
 
     return this.http.post(this.movieUrl, body);
   }
+  uploadImage(fileData: FormData): Observable<string> {
+    return this.http.post<{ url: string }>('https://votre-backend.com/upload', fileData).pipe(
+      map((response) => response.url) // Supposons que le backend retourne un objet avec `url`.
+    );
+  }
+  
+
 }

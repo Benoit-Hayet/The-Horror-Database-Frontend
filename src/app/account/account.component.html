@@ -1,23 +1,57 @@
+<app-member-navbar></app-member-navbar>
 <section>
   <div class="profil">
     <h1>Mon profil</h1>
-    <label for="email"></label>
-    <input type="text" id="email" [value]="user?.email" placeholder="email" readonly />
+    <div class="content">
+      <!-- Vérifie si user est défini avant d'afficher -->
+      <img
+        *ngIf="user?.avatarUrl"
+        [src]="user.avatarUrl"
+        alt="Avatar de l'utilisateur"
+        class="img"
+      />
+      <label for="email">Email</label>
+      <input
+        type="text"
+        id="email"
+        [value]="user?.email"
+        placeholder="Email"
+        readonly
+      />
 
-    <label for="username">Pseudo</label>
-    <input type="text" id="username" [value]="user?.username" placeholder="Pseudo" readonly />
+      <label for="username">Pseudo</label>
+      <input
+        type="text"
+        id="username"
+        [value]="user?.username"
+        placeholder="Pseudo"
+        readonly
+      />
+    </div>
   </div>
 
   <div class="password">
     <h1 class="passwordTitle">Mon mot de passe</h1>
-    <label for="lastPassword"></label>
-    <input type="password" id="lastPassword" placeholder="Ancien mot de passe" />
+    <label for="lastPassword">Ancien mot de passe</label>
+    <input
+      type="password"
+      id="lastPassword"
+      placeholder="Ancien mot de passe"
+    />
 
-    <label for="newPassword"></label>
-    <input type="password" id="newPassword" placeholder="Nouveau mot de passe" />
+    <label for="newPassword">Nouveau mot de passe</label>
+    <input
+      type="password"
+      id="newPassword"
+      placeholder="Nouveau mot de passe"
+    />
 
-    <label for="newPasswordConfirmation"></label>
-    <input type="password" id="newPasswordConfirmation" placeholder="Confirmez le nouveau mot de passe" />
+    <label for="newPasswordConfirmation">Confirmez le mot de passe</label>
+    <input
+      type="password"
+      id="newPasswordConfirmation"
+      placeholder="Confirmez le nouveau mot de passe"
+    />
   </div>
 
   <button>Supprimer mon compte</button>

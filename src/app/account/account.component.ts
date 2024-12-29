@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { MemberNavbarComponent } from '../member-navbar/member-navbar.component';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
+import { MemberNavbarComponent } from '../member-navbar/member-navbar.component';
 
 @Component({
   selector: 'app-account',
   standalone: true,
-  imports: [CommonModule, MemberNavbarComponent],
+  imports: [CommonModule,MemberNavbarComponent],
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss']
 })

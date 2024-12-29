@@ -1,0 +1,100 @@
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f9f9f9; // Fond clair
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    .profil,
+    .password {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+  
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+  
+        img {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid green;
+          margin-bottom: 1rem;
+        }
+  
+        label {
+          font-size: 1rem;
+          font-weight: bold;
+          color: #333;
+        }
+  
+        input {
+          padding: 0.5rem 1rem;
+          font-size: 1rem;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          background-color: #fff;
+          transition: border-color 0.2s;
+  
+          &:hover,
+          &:focus {
+            border-color: #007bff;
+            outline: none;
+          }
+  
+          &[readonly] {
+            background-color: #f0f0f0;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  
+    .password {
+      .passwordTitle {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+  
+      input {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #fff;
+  
+        &:hover,
+        &:focus {
+          border-color: #007bff;
+          outline: none;
+        }
+      }
+    }
+  
+    button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #dc3545; // Rouge pour un bouton dangereux
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #c82333;
+      }
+    }
+  }
+  

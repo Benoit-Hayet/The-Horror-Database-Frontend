@@ -41,6 +41,10 @@ getRole(): void {
   console.log(this.authService.getUserRole());
 }
 
+getUserId(): void {
+console.log(this.authService.getUserId());
+}
+
 
 }
 

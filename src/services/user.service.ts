@@ -1,34 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
+import { AuthService } from './auth.service';
+import { User } from '../app/model/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8080/auth'; // URL du backend
 
-  constructor(private http: HttpClient) {}
+  private apiUrl = 'http://localhost:8080/users'; // URL du backend
 
-  // Récupérer le token JWT depuis le localStorage
+  constructor(private http: HttpClient, private authService:AuthService) {}
+
   getToken(): string | null {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      return localStorage.getItem('token');
-    }
-    return null;
+    const token = localStorage.getItem('authToken'); // Vérifiez la clé utilisée
+    console.log('Token récupéré:', token); // Déboguez pour voir le contenu
+    return token;
   }
-
-  getUserProfile(id: string): Observable<any> {
-    const token = this.getToken();
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    console.log('Fetching user profile for id:', id);
   
-    return this.http.get(`${this.apiUrl}/profile/${id}`, { headers }).pipe(
-      catchError(error => {
-        console.error('Error fetching user profile:', error);
-        return throwError(error); // Relancer l'erreur
-      })
-    );
-  }
+
+getUserProfile(): Observable<User> {
+  const token = this.authService.getToken()
+  console.log('Token récupéré:', token); // Centralisé dans AuthService
+  const id = this.authService.getUserId();
+
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  console.log('Headers envoyés:', headers);
+  return this.http.get<User>(`${this.apiUrl}/${id}`, { headers }).pipe(
+    catchError(error => {
+      console.error('Error fetching user profile:', error);
+      return throwError(() => error); // Utilisation de la syntaxe moderne
+    })
+  );
+}
+
   
 }

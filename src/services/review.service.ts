@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ReviewService {
@@ -12,7 +12,14 @@ export class ReviewService {
   addReview(review: string, rating: number, movieId: number): Observable<any> {
     const body = { review, rating, movieId };
     console.log('Objet envoyé:', body);
-return this.http.post(this.reviewUrl, body);
+  
+    return this.http.post(this.reviewUrl, body).pipe(
+      catchError((error) => {
+        console.error('Erreur lors de l\'envoi de la critique:', error);
+        return throwError(() => new Error('Erreur de requête'));
+      })
+    );
   }
+  
 
 }

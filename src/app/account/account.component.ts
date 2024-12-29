@@ -25,7 +25,7 @@ export class AccountComponent {
       const userId = decodedToken.id; // Assurez-vous que 'id' est bien présent dans le token JWT
 
       // Appel correct avec l'ID de l'utilisateur
-      this.userService.getUserProfile(userId).subscribe(
+      this.userService.getUserProfile().subscribe(
         (data) => {
           this.user = data;
           console.log(this.user);

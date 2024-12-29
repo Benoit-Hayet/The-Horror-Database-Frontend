@@ -95,8 +95,21 @@ export class AuthService {
 
   getUserRole(): string | null {
     const decodedToken = this.getDecodedToken();
-    return decodedToken && decodedToken.roles ? decodedToken.roles : null;
+    if (decodedToken && decodedToken.roles && Array.isArray(decodedToken.roles)) {
+      // Extraction de la première autorité dans le tableau
+      const role = decodedToken.roles[0]?.authority;
+      return role || null; // Retourne la valeur ou null si non trouvée
+    }
+    return null;
   }
-  
+
+  getUserId(): string | null {
+    const decodedToken = this.getDecodedToken();
+    if(decodedToken && decodedToken.userId){
+      const id = decodedToken.userId;
+      return id || null;
+    }
+    return null
+  }
   
 }

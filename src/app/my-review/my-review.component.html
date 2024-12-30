@@ -1,2 +1,9 @@
 <app-member-navbar></app-member-navbar>
-<h1>Mes critiques</h1>
+<h1>Mes films favoris</h1>
+<div *ngFor="let movie of favoriteMovieCards" class="favorite-movie-card">
+  <img [src]="movie.avatarUrl" alt="Avatar" class="avatar">
+  <h3>Critique par : {{ movie.username }}</h3>
+  <p>Note : {{ movie.rating }} / 5</p>
+  <p>Critique : {{ movie.review }}</p>
+  <p>Film ID : {{ movie.movieId }}</p>
+</div>

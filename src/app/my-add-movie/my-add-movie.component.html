@@ -1,2 +1,24 @@
 <app-member-navbar></app-member-navbar>
 <h1>Mes films ajoutés</h1>
+<section>
+  <div class="movies-container">
+    <!-- Utiliser une boucle ngFor pour afficher chaque film -->
+    <ng-container *ngIf="addedMovieCards.length > 0">
+      <article *ngFor="let movie of addedMovieCards">
+        <header class="header">
+          <h3>{{ movie.title }}</h3>
+          <div class="header-content">
+            <p>{{ movie.releaseYear }}</p>
+            <p>{{ movie.genreName.join(', ') }}</p> <!-- Afficher les genres sous forme de liste -->
+            <p class="director">De {{ movie.director }}</p>
+          </div>
+        </header>
+        <div class="content">
+          <img [src]="movie.posterUrl" alt="{{ movie.title }} poster" class="img" />
+          <p class="synopsis">{{ movie.synopsis }}</p>
+        </div>
+      </article>
+    </ng-container>
+    <p *ngIf="addedMovieCards.length === 0">Aucun film ajouté.</p> <!-- Message si aucun film -->
+  </div>
+</section>

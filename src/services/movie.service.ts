@@ -1,12 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
+import { movieCards } from '../app/model/movieCards.model';
+import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class MovieService {
   private movieUrl = 'http://localhost:8080/movies';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   addMovie(
     title: string,
@@ -42,6 +44,20 @@ export class MovieService {
       map((response) => response.url) // Supposons que le backend retourne un objet avec `url`.
     );
   }
+  getAddedMoviesByUserId(): Observable<movieCards[]> {
+    const token = this.authService.getToken();
+    const userId = this.authService.getUserId();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    
+    return this.http.get<movieCards[]>(`${this.movieUrl}/user/${userId}`, { headers }).pipe(
+      catchError((error) => {
+        console.error('Erreur lors de la récupération des films:', error);
+        return throwError(() => new Error('Erreur de requête'));
+      })
+    );
+  }
   
 
 }
+
+  

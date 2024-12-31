@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-my-review',
   standalone: true,
   imports: [CommonModule, MemberNavbarComponent],
-  templateUrl: './my-review.component.html',
+  templateUrl:'./my-review.component.html',
   styleUrl: './my-review.component.scss',
 })
 export class MyReviewComponent {

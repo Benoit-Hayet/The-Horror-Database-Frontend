@@ -5,7 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -21,6 +21,7 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -35,6 +36,7 @@ export class LoginComponent {
           this.authService.saveToken(response);
           this.authService.isLoggedIn();
           console.log(this.authService.getDecodedToken())
+          this.router.navigate(['/account']);
         },
         (error) => {
           console.error("Erreur lors de la connexion", error);

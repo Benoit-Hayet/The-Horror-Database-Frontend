@@ -3,7 +3,6 @@ import { movieCards } from '../model/movieCards.model';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { RouterLink } from '@angular/router';
-import { country } from '../model/country.model';
 
 @Component({
   selector: 'app-movie-cards-details',
@@ -18,6 +17,8 @@ export class MovieCardsDetailsComponent {
   filteredMovieCards: movieCards[] = [];
   orderTitles: movieCards[] = [];
   rating:movieCards[] = [];
+ // ID utilisateur récupéré dynamiquement après connexion
+
 
   
 
@@ -33,6 +34,8 @@ export class MovieCardsDetailsComponent {
       this.filteredMovieCards = response;
       this.filteredCountryCards = response;
       this.orderTitles = response;
+    console.log(this.movieCards);
+
     });
   }
   ngOnChanges(changes: SimpleChanges) {
@@ -56,10 +59,6 @@ export class MovieCardsDetailsComponent {
   currentRating = 0; // La note sélectionnée
   hoverRatingState = 0; // État au survol
 
-  // Méthode appelée lors du clic sur une étoile
-  /*selectRating(rating: number) {
-    return Math.round(rating);
-  }*/
 }
 
 

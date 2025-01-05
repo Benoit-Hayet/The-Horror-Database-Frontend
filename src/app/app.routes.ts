@@ -51,10 +51,7 @@ export const routes: Routes = [
   {
     path: 'member-home',
     component: MemberHomeComponent,
-    canActivate: [AuthGuard],  // Idem
-    data: {
-      userType: 'user',
-    },
+   
   },
   {
     path: 'account',

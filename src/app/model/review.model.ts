@@ -22,5 +22,5 @@ export interface review {
     createdBy: number;
     createdAt: string;
     genreName: string[];
-  }>; // Ajouté
+  }>;
 }

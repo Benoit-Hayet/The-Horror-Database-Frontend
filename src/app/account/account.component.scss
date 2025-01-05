@@ -96,5 +96,16 @@ section {
         background-color: #c82333;
       }
     }
+    .btn-style {
+      margin-top: 10px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: grey;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
   }
   

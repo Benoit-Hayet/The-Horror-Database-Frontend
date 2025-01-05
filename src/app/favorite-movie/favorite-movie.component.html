@@ -1,3 +1,18 @@
 <app-member-navbar></app-member-navbar>
 <h1>Mes films favoris</h1>
+<div class="movies-container">
+  <article *ngFor="let movie of favoriteMovieCards">
+    <img
+      [src]="movie.movieDTOS?.[0]?.posterUrl || 'assets/default-poster.jpg'"
+      alt="Affiche du film"
+      class="img"
+    />
+    <div class="header-content">
+      <h3>{{ movie.movieDTOS?.[0]?.title }}</h3>
+    </div>
+    <div class="content">
+      <p class="synopsis">{{ movie.movieDTOS?.[0]?.synopsis }}</p>
+    </div>
+  </article>
+</div>
 

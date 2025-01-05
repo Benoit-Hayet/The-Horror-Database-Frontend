@@ -10,5 +10,17 @@ export interface movieCards {
     createdBy: number;
     createdAt: string;
     genreName: string[];
-    userReview:string[];
+    userReview?:Array <{
+        id: number;
+  avatarUrl: string;
+  movieId: number;
+  username: string;
+  rating: number;
+  review: string;
+  title?: string;   
+  releaseYear?: number;    
+  genreName?: string;     
+  posterUrl?: string;      
+  synopsis?: string; 
+    }>;
 }

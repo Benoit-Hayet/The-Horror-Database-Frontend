@@ -14,10 +14,10 @@
       </span>
     </div>
     <div class="content">
-      <p class="synopsis">{{ movie.movieDTOS?.[0]?.synopsis }}</p>
+      <p class="review">Ma critique : {{ movie.review }}</p>
     </div>
     <a class="btn-style" href="#">Modifier</a>
-    <a class="btn-style" href="#">Supprimer</a>
+    <a class="btn-style" href="#" (click)="deleteReview(movie.id)">Supprimer</a>
   </article>
 </div>
 

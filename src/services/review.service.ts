@@ -37,5 +37,10 @@ export class ReviewService {
     );
   }
   
+  deleteReview(reviewId: number): Observable<any> {
+    console.log('ID de la critique à supprimer:', reviewId);
+    return this.http.delete(`${this.reviewUrl}/${reviewId}`);
+  }
+  
 
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component} from '@angular/core';
 import { MemberNavbarComponent } from '../member-navbar/member-navbar.component';
 import { review } from '../model/review.model';
 import { ReviewService } from '../../services/review.service';
@@ -13,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './my-review.component.scss',
 })
 export class MyReviewComponent {
-  favoriteMovieCards: review[] = [];
+  reviewMovieCards: review[] = [];
   stars: number[] = [1, 2, 3, 4, 5];
 
   constructor(
@@ -28,7 +28,7 @@ export class MyReviewComponent {
 
       this.reviewService.getReviewsByUserId().subscribe((response) => {
         console.log(response); // Vérifiez si la réponse est bien reçue
-        this.favoriteMovieCards = response;
+        this.reviewMovieCards = response;
       });
     }
   }
@@ -38,7 +38,7 @@ export class MyReviewComponent {
       next: () => {
         console.log(`Critique avec l'ID ${reviewId} supprimée.`);
         // Met à jour la liste des critiques localement après suppression
-        this.favoriteMovieCards = this.favoriteMovieCards.filter(
+        this.reviewMovieCards = this.reviewMovieCards.filter(
           (review) => review.id !== reviewId
         );
       },

@@ -40,10 +40,10 @@ export class MovieReviewComponent implements OnInit {
   
   onSubmit() {
     if (this.reviewForm.valid) {
-      // Extraire et garantir que les valeurs sont définies
-      const review = this.reviewForm.value.review || ''; // Valeur par défaut si null
-      const rating = this.reviewForm.value.rating || 1;  // Valeur par défaut si null
-      const movieId = this.reviewForm.value.movieId || this.movieId; // Utiliser `this.movieId` si null
+
+      const review = this.reviewForm.value.review || '';
+      const rating = this.reviewForm.value.rating || 1;
+      const movieId = this.reviewForm.value.movieId || this.movieId;
   
       this.reviewService.addReview(review, rating, movieId).subscribe(
         (response: any) => {

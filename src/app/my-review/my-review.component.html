@@ -1,23 +1,23 @@
 <app-member-navbar></app-member-navbar>
 <div class="movies-container">
-  <article *ngFor="let movie of favoriteMovieCards">
+  <article *ngFor="let review of reviewMovieCards">
     <img
-      [src]="movie.movieDTOS?.[0]?.posterUrl || 'assets/default-poster.jpg'"
+      [src]="review.movieDTOS?.[0]?.posterUrl || 'assets/default-poster.jpg'"
       alt="Affiche du film"
       class="img"
     />
     <div class="header-content">
-      <h3>{{ movie.movieDTOS?.[0]?.title }}</h3>
+      <h3>{{ review.movieDTOS?.[0]?.title }}</h3>
       <span class="star-rating">
         <!-- Utilisez des icônes ici pour les étoiles -->
-        <i *ngFor="let star of [1, 2, 3, 4, 5]" [class]="star <= movie.rating ? 'fas fa-star' : 'far fa-star'"></i>
+        <i *ngFor="let star of [1, 2, 3, 4, 5]" [class]="star <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
       </span>
     </div>
     <div class="content">
-      <p class="review">Ma critique : {{ movie.review }}</p>
+      <p class="review">Ma critique : {{ review.review }}</p>
     </div>
     <a class="btn-style" href="#">Modifier</a>
-    <a class="btn-style" href="#" (click)="deleteReview(movie.id)">Supprimer</a>
+    <a class="btn-style" href="#" (click)="deleteReview(review.id)">Supprimer</a>
   </article>
 </div>
 

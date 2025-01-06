@@ -12,7 +12,7 @@ export class ReviewService {
   
 
   addReview(review: string, rating: number, movieId: number): Observable<any> {
-    const body = { review, rating, movieId };
+    const body = { review, rating, movie:{id: movieId} };
     console.log('Objet envoyé:', body);
   
     return this.http.post(this.reviewUrl, body).pipe(
@@ -35,6 +35,11 @@ export class ReviewService {
         return throwError(() => new Error('Erreur de requête'));
       })
     );
+  }
+  
+  deleteReview(reviewId: number): Observable<any> {
+    console.log('ID de la critique à supprimer:', reviewId);
+    return this.http.delete(`${this.reviewUrl}/${reviewId}`);
   }
   
 

@@ -59,6 +59,7 @@ export class MovieCardsDetailsComponent {
   currentRating = 0; // La note sélectionnée
   hoverRatingState = 0; // État au survol
 
+  
 }
 
 

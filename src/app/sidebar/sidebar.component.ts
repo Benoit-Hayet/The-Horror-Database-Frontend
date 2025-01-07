@@ -18,7 +18,7 @@ export class SidebarComponent {
 
   @Output() notifyParent: EventEmitter<string> = new EventEmitter<string>();
   @Output() dateFilter: EventEmitter<{ start: string; end: string }> = new EventEmitter();
-  @Output() coutryToParent: EventEmitter<string> = new EventEmitter<string>();
+  @Output() countryToParent: EventEmitter<string> = new EventEmitter<string>();
   @Output() orderByTitleChange:EventEmitter<'asc'> = new EventEmitter<'asc'>();
   
 
@@ -32,11 +32,14 @@ export class SidebarComponent {
   
   sortByTitle(): void {
     this.orderByTitleChange.emit();
+    console.log(this.orderByTitleChange.emit());
   }
+ 
   showMoviesByCountry(country: string): void {
-    console.log(country);
-    this.coutryToParent.emit(country);
+    console.log('Selected country:', country);
+    this.countryToParent.emit(country);
   }
-  /*J'ai retiré 'asc' de emit test */
+
 }
+
 

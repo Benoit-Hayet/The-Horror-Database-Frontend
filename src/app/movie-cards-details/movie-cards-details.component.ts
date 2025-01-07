@@ -56,12 +56,13 @@ export class MovieCardsDetailsComponent {
         this.filteredMovieCards = this.movieCards.filter(
           (movie) =>
             movie.releaseYear >= this.yearClicked.start &&
-            movie.releaseYear <= this.yearClicked.end
+            movie.releaseYear <= this.yearClicked.end,
         );
       }
-
-    if (changes['countryClicked']) {
-      this.filteredCountryCards = this.movieCards.filter((movie) =>
+    }
+    if (changes['countryClicked'] && this.countryClicked) {
+      console.log('Country changed:', this.countryClicked);
+      this.filteredMovieCards = this.movieCards.filter((movie) =>
         movie.country.includes(this.countryClicked),
       );
     }
@@ -71,8 +72,7 @@ export class MovieCardsDetailsComponent {
       });
     }
   }
-}
   stars: number[] = [1, 2, 3, 4, 5];
-  currentRating = 0; // La note sélectionnée
-  hoverRatingState = 0; // État au survol
+  currentRating = 0;
+  hoverRatingState = 0;
 }

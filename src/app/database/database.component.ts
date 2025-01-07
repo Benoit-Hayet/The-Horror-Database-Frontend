@@ -21,12 +21,14 @@ export class DatabaseComponent {
   }
   handleYear(event: { start: string; end: string }) {
     const { start, end } = event;
-    this.yearClicked = { start: +start, end: +end }; // Convertit les années en nombres
+    this.yearClicked = { start: +start, end: +end };
   }
-  
-  handleCountry(country: any) {
+
+  handleCountry(country: string): void {
+    console.log(country)
     this.countryClicked = country;
   }
+
   orderByTitleChange(order: 'asc') {
     this.orderByTitle = order;
   }

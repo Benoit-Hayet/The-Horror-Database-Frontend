@@ -16,6 +16,7 @@ export class SidebarComponent {
   movieCards: movieCards[] = [];
   countryMap: country[] = countries;
 
+
   @Output() notifyParent: EventEmitter<string> = new EventEmitter<string>();
   @Output() dateFilter: EventEmitter<{ start: string; end: string }> = new EventEmitter();
   @Output() countryToParent: EventEmitter<string> = new EventEmitter<string>();

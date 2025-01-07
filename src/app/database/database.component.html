@@ -1,4 +1,17 @@
-<div class="sideBloc"><app-sidebar class="sidebar" (notifyParent)="handleGenre($event)" (countryToParent)="handleCountry($event)"
+<div class="sideBloc">
+  <app-sidebar
+    class="sidebar"
+    (notifyParent)="handleGenre($event)"
+    (dateFilter)="handleYear($event)"
+    (countryToParent)="handleCountry($event)"
     (orderByTitleChange)="orderByTitleChange($event)"
-    ></app-sidebar></div>
-<div class="movieBloc"><app-movie-cards-details [genreClicked]="genreClicked"  [countryClicked]="countryClicked" [orderByTitle]="orderByTitle" ></app-movie-cards-details></div>
+  ></app-sidebar>
+</div>
+<div class="movieBloc">
+  <app-movie-cards-details
+    [genreClicked]="genreClicked"
+    [yearClicked]="yearClicked"
+    [countryClicked]="countryClicked"
+    [orderByTitle]="orderByTitle"
+  ></app-movie-cards-details>
+</div>

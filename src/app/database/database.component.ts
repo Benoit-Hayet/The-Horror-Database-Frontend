@@ -12,16 +12,21 @@ import { MovieCardsDetailsComponent } from '../movie-cards-details/movie-cards-d
 })
 export class DatabaseComponent {
   genreClicked: string = '';
+  yearClicked: { start: number; end: number } | null = null;
   countryClicked: string = '';
   orderByTitle: 'asc' = 'asc';
 
   handleGenre(genre: string) {
     this.genreClicked = genre;
   }
-  handleCountry(country:any) {
+  handleYear(event: { start: string; end: string }) {
+    const { start, end } = event;
+    this.yearClicked = { start: +start, end: +end }; // Convertit les années en nombres
+  }
+  
+  handleCountry(country: any) {
     this.countryClicked = country;
   }
-
   orderByTitleChange(order: 'asc') {
     this.orderByTitle = order;
   }

@@ -47,6 +47,7 @@ export class MovieCardsDetailsComponent {
         );
       }
     }
+    
     if (changes['yearClicked']) {
       if (!this.yearClicked || this.yearClicked === '') {
         // Si aucune année n'est sélectionnée, réaffiche tous les films
@@ -66,7 +67,6 @@ export class MovieCardsDetailsComponent {
         movie.country.includes(this.countryClicked),
       );
     }
-    
     if (changes['orderByTitle']) {
       this.orderTitles = this.movieCards.sort((a, b) => {
         return a.title < b.title ? -1 : a.title > b.title ? 1 : 0;

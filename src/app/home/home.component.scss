@@ -2,3 +2,11 @@ h2 {
     text-align: center;
     padding: 16px;
 }
+.homePic {
+    display: block;
+    width: 100%; /* L'image prendra toute la largeur disponible */
+    max-width: 1900px; /* Limite la largeur à 1800px */
+    height: 900px; /* Maintient les proportions */
+    margin: 20px auto;
+    object-fit: cover; /* Ajuste l'image si nécessaire pour remplir le conteneur */
+}

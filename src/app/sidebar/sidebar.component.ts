@@ -16,6 +16,11 @@ export class SidebarComponent {
   movieCards: movieCards[] = [];
   countryMap: country[] = countries;
 
+  activeButton: string = ''; // Stocke l'identifiant du bouton actif
+
+  setActiveButton(buttonName: string): void {
+    this.activeButton = buttonName;
+  }
 
   @Output() notifyParent: EventEmitter<string> = new EventEmitter<string>();
   @Output() dateFilter: EventEmitter<{ start: string; end: string }> = new EventEmitter();
@@ -35,6 +40,7 @@ export class SidebarComponent {
     this.orderByTitleChange.emit();
     console.log(this.orderByTitleChange.emit());
   }
+  
  
   showMoviesByCountry(country: string): void {
     console.log('Selected country:', country);

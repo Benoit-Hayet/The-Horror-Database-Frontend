@@ -8,19 +8,21 @@ import { AuthService } from './auth.service';
 export class MovieService {
   private movieUrl = 'http://localhost:8080/movies';
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+  ) {}
 
   addMovie(
     title: string,
     country: string,
-    releaseYear: any, // Correction du type
+    releaseYear: any,
     director: string,
     synopsis: string,
     status: string,
     posterUrl: string,
-    genres: any[], // Correction : Tableau de chaînes de caractères
+    genres: any[],
   ) {
-    // Mapper les genres pour correspondre au format attendu par l'API
     const formattedGenres = genres.map((genre) => ({ name: genre }));
 
     const body = {
@@ -31,33 +33,32 @@ export class MovieService {
       synopsis,
       status,
       posterUrl,
-      genres: formattedGenres, // Utilisation des genres formatés
+      genres: formattedGenres,
     };
 
-    // Log de l'objet envoyé
     console.log('Objet envoyé:', body);
 
     return this.http.post(this.movieUrl, body);
   }
   uploadImage(fileData: FormData): Observable<string> {
-    return this.http.post<{ url: string }>('https://votre-backend.com/upload', fileData).pipe(
-      map((response) => response.url) // Supposons que le backend retourne un objet avec `url`.
-    );
+    return this.http
+      .post<{ url: string }>('https://votre-backend.com/upload', fileData)
+      .pipe(
+        map((response) => response.url), // Supposons que le backend retourne un objet avec `url`.
+      );
   }
   getAddedMoviesByUserId(): Observable<movieCards[]> {
     const token = this.authService.getToken();
     const userId = this.authService.getUserId();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    
-    return this.http.get<movieCards[]>(`${this.movieUrl}/user/${userId}`, { headers }).pipe(
-      catchError((error) => {
-        console.error('Erreur lors de la récupération des films:', error);
-        return throwError(() => new Error('Erreur de requête'));
-      })
-    );
+
+    return this.http
+      .get<movieCards[]>(`${this.movieUrl}/user/${userId}`, { headers })
+      .pipe(
+        catchError((error) => {
+          console.error('Erreur lors de la récupération des films:', error);
+          return throwError(() => new Error('Erreur de requête'));
+        }),
+      );
   }
-  
-
 }
-
-  

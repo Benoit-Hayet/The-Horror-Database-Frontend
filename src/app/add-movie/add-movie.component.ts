@@ -1,10 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import {
-  FormBuilder,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { country } from '../model/country.model';
 import { countries } from '../data/country.data';
@@ -19,12 +15,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-movie',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    RouterLink,
-  ],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterLink],
   templateUrl: './add-movie.component.html',
   styleUrls: ['./add-movie.component.scss'],
 })
@@ -41,7 +32,6 @@ export class AddMovieComponent {
 
   constructor(private movieService: MovieService) {}
 
-  // Formulaire principal
   addMovieForm = this.formBuilder.group({
     title: [''],
     country: [''],
@@ -57,7 +47,7 @@ export class AddMovieComponent {
   onCountryChange(event: Event): void {
     const selectedId = (event.target as HTMLSelectElement).value;
     const selectedCountry = this.countryMap.find(
-      (item) => item.id === +selectedId
+      (item) => item.id === +selectedId,
     );
     if (selectedCountry) {
       this.addMovieForm.patchValue({ country: selectedCountry.name });
@@ -67,7 +57,7 @@ export class AddMovieComponent {
   onGenreChange(event: Event): void {
     const selectedId = (event.target as HTMLSelectElement).value;
     const selectedGenre = this.genreMap.find(
-      (genre) => genre.id === +selectedId
+      (genre) => genre.id === +selectedId,
     );
     if (selectedGenre) {
       this.addMovieForm.patchValue({ genreName: selectedGenre.name });
@@ -85,7 +75,7 @@ export class AddMovieComponent {
         },
         (error) => {
           console.error('Erreur lors de l’upload de l’image', error);
-        }
+        },
       );
     }
   }
@@ -112,7 +102,6 @@ export class AddMovieComponent {
         genreName = '',
       } = this.addMovieForm.value;
 
-      // Convertir genreName en tableau si ce n'est pas déjà un tableau
       const genres = genreName ? [genreName] : [];
 
       this.movieService
@@ -124,7 +113,7 @@ export class AddMovieComponent {
           synopsis || '',
           status || '',
           posterUrl || '',
-          genres // Envoyer un tableau
+          genres,
         )
         .subscribe(
           (response: any) => {
@@ -153,7 +142,7 @@ export class AddMovieComponent {
               icon: 'error',
               confirmButtonText: 'OK',
             });
-          }
+          },
         );
     }
   }

@@ -52,6 +52,16 @@ button {
 
 }
 
+button.active {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+
+
 @media screen and (min-width: 1200px) {
     .sidenav {
         margin: 1rem;

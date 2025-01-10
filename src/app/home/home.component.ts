@@ -12,5 +12,5 @@ import { MovieCardsComponent } from '../movie-cards/movie-cards.component';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
- 
+  home: string ="assets/Home.png";
 }

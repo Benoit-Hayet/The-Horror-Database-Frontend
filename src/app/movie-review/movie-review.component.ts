@@ -37,28 +37,6 @@ export class MovieReviewComponent implements OnInit {
     rating: [0, [Validators.required, Validators.min(1)]],
     movieId: [this.movieId]
   });
-  
-  onSubmit() {
-    if (this.reviewForm.valid) {
-
-      const review = this.reviewForm.value.review || '';
-      const rating = this.reviewForm.value.rating || 1;
-      const movieId = this.reviewForm.value.movieId || this.movieId;
-  
-      this.reviewService.addReview(review, rating, movieId).subscribe(
-        (response: any) => {
-          console.log('Review OK', response);
-        },
-        (error: Error) => {
-          console.error('Erreur lors de l\'ajout de la critique', error);
-        }
-      );
-    }
-  }
-  
-  isLoggedOk():  boolean {
-    return (this.authService.isLoggedIn()); 
-  }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -74,6 +52,39 @@ export class MovieReviewComponent implements OnInit {
         this.reviewForm.patchValue({ movieId: this.movieId });
       }
     });
+  }
+ 
+  onSubmit() {
+    if (this.reviewForm.valid) {
+      const review = this.reviewForm.value.review || '';
+      const rating = this.reviewForm.value.rating || 1;
+      const movieId = this.reviewForm.value.movieId || this.movieId;
+  
+      this.reviewService.addReview(review, rating, movieId).subscribe(
+        (response: any) => {
+          console.log('Review OK', response);
+  
+          // Recharger les données
+          this.movieDetails$ = this.apiService.getMoviesById(this.movieId);
+          this.reviewDetailsId$ = this.apiService.getReviewsByMovieId(this.movieId);
+  
+          // Réinitialiser le formulaire
+          this.reviewForm.reset({
+            review: '',
+            rating: 0,
+            movieId: this.movieId
+          });
+        },
+        (error: Error) => {
+          console.error("Erreur lors de l'ajout de la critique", error);
+        }
+      );
+    }
+  }
+  
+  
+  isLoggedOk():  boolean {
+    return (this.authService.isLoggedIn()); 
   }
   
 

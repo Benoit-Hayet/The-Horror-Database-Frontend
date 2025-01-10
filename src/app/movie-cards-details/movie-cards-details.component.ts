@@ -47,6 +47,7 @@ export class MovieCardsDetailsComponent {
         );
       }
     }
+    
     if (changes['yearClicked']) {
       if (!this.yearClicked || this.yearClicked === '') {
         // Si aucune année n'est sélectionnée, réaffiche tous les films

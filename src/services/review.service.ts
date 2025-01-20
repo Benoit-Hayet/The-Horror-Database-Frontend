@@ -36,6 +36,25 @@ export class ReviewService {
       })
     );
   }
+ 
+  updateReview(reviewId: number, updatedReview: { review: string; rating: number }): Observable<review> {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const body = {
+      review: updatedReview.review,
+      rating: updatedReview.rating
+    };
+    console.log('Body : ',body);
+  
+    return this.http.patch<review>(`${this.reviewUrl}/${reviewId}`, body, { headers }).pipe(
+      catchError((error) => {
+        console.error('Erreur lors de la mise à jour de la critique :', error);
+        return throwError(() => new Error('Erreur lors de la mise à jour de la critique.'));
+      })
+    );
+  }
+  
+  
   
   deleteReview(reviewId: number): Observable<any> {
     console.log('ID de la critique à supprimer:', reviewId);

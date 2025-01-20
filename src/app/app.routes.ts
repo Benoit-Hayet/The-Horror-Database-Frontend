@@ -13,6 +13,10 @@ import { MovieReviewComponent } from './movie-review/movie-review.component';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { AdminAddMovieComponent } from './admin-add-movie/admin-add-movie.component';
+import { AdminDatabaseComponent } from './admin-database/admin-database.component';
+import { AdminMembersComponent } from './admin-members/admin-members.component';
+import { AdminReviewsComponent } from './admin-reviews/admin-reviews.component';
 
 export const routes: Routes = [
   {
@@ -81,4 +85,20 @@ export const routes: Routes = [
       userType: 'admin',
     },
   },
+  { 
+  path: 'admin-add-movie',
+  component: AdminAddMovieComponent,
+},
+{ 
+  path: 'admin-database',
+  component: AdminDatabaseComponent,
+},
+{ 
+  path: 'admin-members',
+  component: AdminMembersComponent,
+},
+{ 
+  path: 'admin-reviews',
+  component: AdminReviewsComponent,
+},
 ];

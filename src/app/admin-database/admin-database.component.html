@@ -1,3 +1,24 @@
-<p>admin-database works!</p>
 <app-member-navbar></app-member-navbar>
 <app-admin-navbar></app-admin-navbar>
+<section>
+  <div class="movies-container">
+    <ng-container *ngFor="let item of sortedMoviesById">
+      <article *ngIf="item.id">
+        <header>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.releaseYear }}</p>
+          <img
+            [src]="item.posterUrl"
+            alt="{{ item.title }} poster"
+            class="img"
+          />
+        </header>
+        <div class="content">
+          <p class="synopsis">{{ item.synopsis }}</p>
+        </div>
+        <div class="btnbloc"class="btn-style" >Modifier</div>
+        <div class="btnbloc"class="btn-style" >Supprimer</div>
+      </article>
+    </ng-container>
+  </div>
+</section>

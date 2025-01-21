@@ -13,6 +13,11 @@ export class UserService {
 
   constructor(private http: HttpClient, private authService:AuthService) {}
 
+  getAllUsers(): Observable<any> {
+    return this.http.get('http://localhost:8080/users');
+  }
+  
+
   getToken(): string | null {
     const token = localStorage.getItem('authToken'); // Vérifiez la clé utilisée
     console.log('Token récupéré:', token); // Déboguez pour voir le contenu

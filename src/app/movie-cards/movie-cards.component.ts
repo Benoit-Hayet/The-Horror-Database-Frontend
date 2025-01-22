@@ -18,7 +18,7 @@ export class MovieCardsComponent {
 
   ngOnInit() {
     this.apiService.getAllMovies().subscribe((response) => {
-      this.movieCards = response;
+      this.movieCards = response.filter((movie : any) => movie.status === "APPROVED" );
     });
   }
 

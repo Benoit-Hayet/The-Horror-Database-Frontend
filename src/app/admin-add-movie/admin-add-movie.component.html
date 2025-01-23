@@ -1,0 +1,27 @@
+<app-admin-navbar></app-admin-navbar>
+<app-member-navbar></app-member-navbar>
+<section>
+  <div class="movies-container">
+    <ng-container *ngFor="let item of sortedMoviesById">
+      <article *ngIf="item.id">
+        <header>
+          <h3>{{ item.title }}</h3>
+          <div class="header-content">
+            <p>{{ item.releaseYear }}</p>
+            <p>{{ item.genreName }}</p>
+          </div>
+          <img
+            [src]="item.posterUrl"
+            alt="{{ item.title }} poster"
+            class="img"
+          />
+          <p class="synopsis">{{ item.synopsis }}</p>
+        </header>
+        <div class="content">
+          <a class="btn-style" href="#">Valider</a>
+          <a class="btn-style" href="#">Refuser</a>
+        </div>
+      </article>
+    </ng-container>
+  </div>
+</section>

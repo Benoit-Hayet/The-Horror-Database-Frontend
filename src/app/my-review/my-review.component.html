@@ -14,9 +14,13 @@
       </span>
     </div>
     <div class="content">
-      <p class="review">Ma critique : {{ review.review }}</p>
+      <p class="review">Ma critique :</p>
+      <textarea
+      id="synopsis"
+      formControlName="synopsis"
+    >{{ review.review }}</textarea>
     </div>
-    <a class="btn-style" href="#">Modifier</a>
+    <a class="btn-style" href="#" (click)="updateReview(review.id, review)">Modifier</a>
     <a class="btn-style" href="#" (click)="deleteReview(review.id)">Supprimer</a>
   </article>
 </div>

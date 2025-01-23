@@ -28,10 +28,10 @@ export class MovieCardsDetailsComponent {
 
   ngOnInit() {
     this.apiService.getAllMovies().subscribe((response) => {
-      this.movieCards = response;
-      this.filteredMovieCards = response;
-      this.filteredCountryCards = response;
-      this.orderTitles = response;
+      this.movieCards = response.filter((movie : any) => movie.status === "APPROVED" );
+      this.filteredMovieCards = response.filter((movie : any) => movie.status === "APPROVED" );
+      this.filteredCountryCards = response.filter((movie : any) => movie.status === "APPROVED" );
+      this.orderTitles = response.filter((movie : any) => movie.status === "APPROVED" );
       console.log(this.movieCards);
     });
   }

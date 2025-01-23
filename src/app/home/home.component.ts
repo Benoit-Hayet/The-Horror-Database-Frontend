@@ -7,7 +7,7 @@ import { MovieCardsComponent } from '../movie-cards/movie-cards.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,CarouselComponent,MovieCardsComponent],
+  imports: [CommonModule,MovieCardsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

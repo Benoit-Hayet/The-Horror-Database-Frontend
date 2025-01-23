@@ -26,22 +26,31 @@ export class CreateAccountComponent {
 
   });
 }
+onSubmit(): void {
+  if (this.registerForm.valid) {
+    // Récupération des valeurs du formulaire
+    const { firstName, lastName, birthdate, username, email, password } = this.registerForm.value;
+    const role = 'USER';
 
-  onSubmit():void {
-    if (this.registerForm.valid) { 
-      const {firstName, lastName, birthdate,username, email, password } = this.registerForm.value;
-      const role = 'USER';
-      this.authService.register(firstName, lastName, birthdate, username, email, password ,role).subscribe(
-        (response: any) => {
-          console.log('Inscription réussie', response);
+    // Appel au service d'inscription
+    this.authService.register(firstName, lastName, birthdate, username, email, password, role)
+      .subscribe(
+        (response: any) => { // Remplacez "any" par un type si possible
+          console.log('Inscription réussie :', response);
         },
-        (error: Error) => {
-          console.error('Erreur lors de l\'inscription', error.message);
+        (error: any) => {
+          console.error('Erreur lors de l\'inscription :', error.error || error.message);
         }
       );
-      
-    }
+
+    // Log des valeurs du formulaire
+    console.log('Valeurs du formulaire envoyées :', this.registerForm.value);
+  } else {
+    // Gestion des erreurs si le formulaire est invalide
+    console.log('Le formulaire est invalide :', this.registerForm.errors);
   }
+}
+
 
   dateValidator(control: AbstractControl): {[key: string]: any} | null {
     const dateRegex = /^\d{4}-\d{2}-\d{2}$/; // Format YYYY-MM-DD

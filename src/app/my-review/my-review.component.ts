@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { MemberNavbarComponent } from '../member-navbar/member-navbar.component';
 import { review } from '../model/review.model';
 import { ReviewService } from '../../services/review.service';
@@ -32,6 +32,38 @@ export class MyReviewComponent {
       });
     }
   }
+  /*updateReview(reviewId: number, updatedReview: { review: string; rating: number }): void {
+    this.reviewService.updateReview(reviewId, updatedReview).subscribe({
+      next: (response) => {
+        console.log('Critique mise à jour :', response);
+        // Mettre à jour les critiques affichées localement
+        const index = this.reviewMovieCards.findIndex((r) => r.id === reviewId);
+        if (index > -1) {
+          this.reviewMovieCards[index] = { ...this.reviewMovieCards[index], ...response };
+        }
+      },
+      error: (err) => {
+        console.error('Erreur lors de la mise à jour de la critique :', err);
+      }
+    });
+  }*/
+
+      updateReview(reviewId: number, updatedReview: { review: string; rating: number }): void {
+    this.reviewService.updateReview(reviewId, updatedReview).subscribe({
+      next: (response) => {
+        console.log('Critique mise à jour :', response);
+        // Mettre à jour les critiques affichées localement
+        const index = this.reviewMovieCards.findIndex((r) => r.id === reviewId);
+        if (index > -1) {
+          this.reviewMovieCards[index] = { ...this.reviewMovieCards[index], ...response };
+        }
+      },
+      error: (err) => {
+        console.error('Erreur lors de la mise à jour de la critique :', err);
+      }
+    });
+  }
+  
 
   deleteReview(reviewId: number): void {
     this.reviewService.deleteReview(reviewId).subscribe({
@@ -39,7 +71,7 @@ export class MyReviewComponent {
         console.log(`Critique avec l'ID ${reviewId} supprimée.`);
         // Met à jour la liste des critiques localement après suppression
         this.reviewMovieCards = this.reviewMovieCards.filter(
-          (review) => review.id !== reviewId
+          (review) => review.id !== reviewId,
         );
       },
       error: (err) => {
@@ -47,5 +79,4 @@ export class MyReviewComponent {
       },
     });
   }
-  
 }

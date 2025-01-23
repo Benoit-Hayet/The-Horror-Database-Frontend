@@ -1,141 +1,129 @@
+
 .movies-container {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    padding: 10px;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  
-    /* Styles pour la barre de défilement */
-    scrollbar-width: thin; /* Pour Firefox - rend la barre plus fine */
-    scrollbar-color: #888 #f1f1f1; /* Couleur de la barre et du fond */
-  
-    /* Pour Chrome, Edge, Safari */
-    &::-webkit-scrollbar {
-      height: 8px; /* Hauteur de la barre de défilement */
-    }
-  
-    &::-webkit-scrollbar-track {
-      background: #f1f1f1; /* Couleur de l'arrière-plan */
-      border-radius: 10px; /* Arrondi */
-    }
-  
-    &::-webkit-scrollbar-thumb {
-      background: #888; /* Couleur de la barre */
-      border-radius: 10px; /* Arrondi */
-      transition: background-color 0.3s ease;
-    }
-  
-    &::-webkit-scrollbar-thumb:hover {
-      background: #555; /* Couleur lorsqu'on survole la barre */
-    }
-  }
-  
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #e1dede;
+  background-color: #f9f9f8;
+  padding: 16px;
+  width: 200px;
+  max-width: 500px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px;
+  transition: transform 0.3s ease;
+}
+
+article:hover {
+  transform: scale(1.02);
+}
+
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 8px;
+  font-size: 0.9em;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 10px;
+  align-items: center;
+}
+
+
+.btn-style {
+  padding: 10px 20px;
+  color: #fff;
+  background-color: grey;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-style:hover {
+  background-color: black;
+}
+
+.img {
+  border-radius: 4px;
+  object-fit: cover;
+  height: 200px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.synopsis {
+  margin: 0;
+  font-size: 0.9em;
+  line-height: 1.2;
+  text-align: justify;
+}
+
+h3 {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+
+@media screen and (min-width: 1200px) {
   article {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #e1dede;
-    background-color: #f9f9f8;
-    box-sizing: border-box;
-    height: 300px;
-    width: 250px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-  
-    &:hover {
-      transform: scale(1.02);
-    }
+    width: calc(25% - 24px);
+    max-width: none;
   }
-  
-  
-  
-  section {
-    padding: 7px;
-  }
-  
-  .btn-style {
-    display: inline-block;
-    justify-content: center;
-    padding: 2px 3px;
-    color: #fff;
-    background-color: grey;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: black;
-    }
-  
-    .btnBloc {
-      display: flex;
-      justify-content: center;
-    }
-  }
-  
-  h3 {
-    text-align: center;
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
-  
-  p {
-    text-align: center;
-    font-size: 0.8rem;
-    padding: 3px;
-  }
-  
+
   .img {
-    border-radius: 2px;
-    width: 120px;
-    height: 200px;
-    object-fit: cover;
+    height: 500px; 
+  }
+
+  .synopsis {
+    max-height: 4.5em;
+    overflow-y: auto;
   }
   
-  @media screen and (min-width: 1200px) {
-    .movies-container {
-      display: flex;
-      gap: 24px;
-      overflow-x: auto;
-      padding: 16px;
-    }
   
-    article {
-      border: 2px solid #e1dede;
-      background-color: #f9f9f8;
-      padding: 16px;
-      width: 550px; /* Taille fixe */
-      height: 450px;
-      box-sizing: border-box;
-    }
-  
-    section {
-      padding: 8px;
-    }
-  
-    h3,
-    p {
-      text-align: center;
-      font-size: 1rem;
-    }
-  
-    .img {
-      border-radius: 2px;
-      width: 200px;
-      height: 300px;
-    }
-  
-    .btn-style {
-      display: inline-block;
-      justify-content: center;
-      padding: 10px 20px;
-      color: #fff;
-    }
+}
+
+@media screen and (max-width: 768px) {
+  .movies-container {
+    flex-direction: column;
+    gap: 16px;
   }
-  
+
+  article {
+    width: 100%;
+  }
+
+  .img {
+    height: auto;
+    width: 100%;
+  }
+}

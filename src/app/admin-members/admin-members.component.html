@@ -1,9 +1,9 @@
-<p>admin-members works!</p>
-<app-member-navbar></app-member-navbar>
 <app-admin-navbar></app-admin-navbar>
+<app-member-navbar></app-member-navbar>
+
 <section>
-    <div class="movies-container"></div>
-    <ng-container *ngFor="let member of sortedMemberById">
+  <div class="movies-container"></div>
+  <ng-container *ngFor="let member of sortedMemberById">
     <div class="profil">
       <div class="content">
         <img
@@ -12,14 +12,14 @@
           alt="Avatar de l'utilisateur"
           class="img"
         />
-        <p class="pseudo"><strong>Pseudo :</strong> {{member?.username}}</p>
-        <p class="createdAt"><strong>Inscription :</strong> {{member.createdAt}}</p>
-        <p class="role"><strong>Role :</strong> {{member.role}}</p>
-  
+        <p class="pseudo"><strong>Pseudo :</strong> {{ member?.username }}</p>
+        <p class="createdAt">
+          <strong>Inscription :</strong> {{ member.createdAt }}
+        </p>
+        <p class="role"><strong>Role :</strong> {{ member.role }}</p>
+
         <a class="btn-style" href="#">Supprimer</a>
       </div>
     </div>
-  
-    </ng-container>
-  </section>
-  
+  </ng-container>
+</section>

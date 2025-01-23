@@ -1,5 +1,5 @@
-<app-member-navbar></app-member-navbar>
 <app-admin-navbar></app-admin-navbar>
+<app-member-navbar></app-member-navbar>
 <section>
   <div class="movies-container">
     <ng-container *ngFor="let item of sortedMoviesById">
@@ -16,8 +16,8 @@
         <div class="content">
           <p class="synopsis">{{ item.synopsis }}</p>
         </div>
-        <div class="btnbloc"class="btn-style" >Modifier</div>
-        <div class="btnbloc"class="btn-style" >Supprimer</div>
+        <div class="btnbloc" class="btn-style">Modifier</div>
+        <div class="btnbloc" class="btn-style">Supprimer</div>
       </article>
     </ng-container>
   </div>

@@ -61,4 +61,9 @@ export class MovieService {
         }),
       );
   }
+  updateMovie(movie: movieCards): Observable<movieCards> {
+    return this.http.put<movieCards>(`http://localhost:8080/movies/${movie.id}`, movie);
+  }
+  
+  
 }

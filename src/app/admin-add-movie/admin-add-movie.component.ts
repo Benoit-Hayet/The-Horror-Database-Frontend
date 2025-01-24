@@ -4,7 +4,6 @@ import { MemberNavbarComponent } from '../member-navbar/member-navbar.component'
 import { movieCards } from '../model/movieCards.model';
 import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { MovieService } from '../../services/movie.service';
 
 @Component({

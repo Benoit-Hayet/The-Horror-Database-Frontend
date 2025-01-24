@@ -1,5 +1,5 @@
 .centered-paragraph {
-  display: flex; 
+  display: flex;
   justify-content: center;
   font-size: large;
   align-items: center;
@@ -14,7 +14,6 @@
 .spacer {
   margin: 0 5px;
 }
-
 
 .container {
   max-width: 400px;
@@ -35,8 +34,8 @@ h1 {
   text-align: center;
 }
 
-input, 
-textarea, 
+input,
+textarea,
 select {
   width: 100%;
   padding: 10px;
@@ -53,7 +52,7 @@ textarea {
   resize: none;
 }
 
-input{
+input {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px;
@@ -62,14 +61,12 @@ input{
 }
 
 button {
-    padding: 0.5rem;
-    font-size: 1rem;
-    margin: 10px;
-    background-color: black;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

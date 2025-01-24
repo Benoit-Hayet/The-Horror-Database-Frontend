@@ -1,3 +1,23 @@
-<p>admin-reviews works!</p>
 <app-member-navbar></app-member-navbar>
 <app-admin-navbar></app-admin-navbar>
+<app-member-navbar></app-member-navbar>
+<div class="movies-container">
+  <article *ngFor="let review of review">
+    <img
+      [src]="review.movieDTOS?.[0]?.posterUrl || 'assets/default-poster.jpg'"
+      alt="Affiche du film"
+      class="img"
+    />
+    <div class="header-content">
+      <h3>{{ review.movieDTOS?.[0]?.title }}</h3>
+    </div>
+    <div class="content">
+      <p class="review">Membre :</p>
+      <p>{{review.username}}</p>
+      <p class="review">La critique :</p>
+      <p>
+        {{ review.review }}
+      </p>
+    </div>
+  </article>
+</div>

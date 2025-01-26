@@ -8,23 +8,6 @@ section {
   max-height: 100vh;
 }
 
-app-member-navbar,
-app-admin-navbar {
-  flex: 1 1 calc(25% - 24px);
-  max-width: 300px;
-  border: 2px solid #e1dede;
-  background-color: #f9f9f8;
-  padding: 16px;
-  box-sizing: border-box;
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px;
-  transition: transform 0.3s ease;
-}
-
-app-member-navbar:hover,
-app-admin-navbar:hover {
-  transform: scale(1.02);
-}
 
 .movies-container {
   display: flex;

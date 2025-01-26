@@ -9,7 +9,7 @@ import { User } from '../app/model/user.model';
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:8080/users'; // URL du backend
+  private apiUrl = 'http://localhost:8080/users';
 
   constructor(private http: HttpClient, private authService:AuthService) {}
 
@@ -19,8 +19,8 @@ export class UserService {
   
 
   getToken(): string | null {
-    const token = localStorage.getItem('authToken'); // Vérifiez la clé utilisée
-    console.log('Token récupéré:', token); // Déboguez pour voir le contenu
+    const token = localStorage.getItem('authToken');
+    console.log('Token récupéré:', token);
     return token;
   }
   

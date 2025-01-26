@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { MemberNavbarComponent } from '../member-navbar/member-navbar.component';
 import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-account',
@@ -40,5 +41,20 @@ export class AccountComponent {
     } else {
       console.error('Aucun token trouvé');
     }
+  }
+
+  onDelete() {
+    Swal.fire({
+      title: "Etes vous certains de vouloir supprimer votre compte ?",
+      showDenyButton: true,
+      confirmButtonText: "Supprimer",
+      denyButtonText: `Ne pas supprimer`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Profil supprimé", "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("Te voilà de retour !", "", "info");
+      }
+    });
   }
 }

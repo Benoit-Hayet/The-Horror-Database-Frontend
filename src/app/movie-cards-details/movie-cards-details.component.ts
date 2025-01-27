@@ -32,7 +32,7 @@ export class MovieCardsDetailsComponent {
       this.filteredMovieCards = response.filter((movie : any) => movie.status === "APPROVED" );
       this.filteredCountryCards = response.filter((movie : any) => movie.status === "APPROVED" );
       this.orderTitles = response.filter((movie : any) => movie.status === "APPROVED" );
-      console.log(this.movieCards);
+      console.log("Mon tableau de films",this.movieCards);
     });
   }
   ngOnChanges(changes: SimpleChanges) {
@@ -72,6 +72,16 @@ export class MovieCardsDetailsComponent {
         return a.title < b.title ? -1 : a.title > b.title ? 1 : 0;
       });
     }
+  }
+  filterResults(search: string) {
+    if (!search) {
+      this.filteredMovieCards = this.movieCards;
+    }
+  
+    this.filteredMovieCards = this.movieCards.filter(
+      movieCards => movieCards?.title.toLowerCase().includes(search.toLowerCase()) ||
+      movieCards?.director.toLowerCase().includes(search.toLowerCase())
+    );
   }
   stars: number[] = [1, 2, 3, 4, 5];
   currentRating = 0;

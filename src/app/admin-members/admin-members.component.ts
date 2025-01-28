@@ -22,7 +22,21 @@ export class AdminMembersComponent {
        this.member = response;
      });
    }
-
+  
+   formatRole(role: string | string[]): string {
+    if (Array.isArray(role)) {
+      role = role[0];
+    }
+    
+    const roleMap: { [key: string]: string } = {
+      'ROLE_ADMIN': 'Admin',
+      'ROLE_USER': 'User'
+    };
+  
+    return roleMap[role] || role; 
+  }
+  
+  
   get sortedMemberById() : User[] {
     return this.member.sort((a, b) => b.id - a.id).slice(0, 15);
 }

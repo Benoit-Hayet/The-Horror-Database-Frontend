@@ -16,7 +16,8 @@
         <p class="createdAt">
           <strong>Inscription :</strong> {{ member.createdAt }}
         </p>
-        <p class="role"><strong>Role :</strong> {{ member.role }}</p>
+<p class="role"><strong>Role :</strong> {{ formatRole(member.role) }}</p>
+
 
         <a class="btn-style" href="#">Supprimer</a>
       </div>

@@ -80,7 +80,8 @@ export class MovieCardsDetailsComponent {
   
     this.filteredMovieCards = this.movieCards.filter(
       movieCards => movieCards?.title.toLowerCase().includes(search.toLowerCase()) ||
-      movieCards?.director.toLowerCase().includes(search.toLowerCase())
+      movieCards?.director.toLowerCase().includes(search.toLowerCase()) ||
+      movieCards?.releaseYear.toString().includes(search)
     );
   }
   stars: number[] = [1, 2, 3, 4, 5];

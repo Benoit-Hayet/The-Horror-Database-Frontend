@@ -13,11 +13,10 @@ import { RouterLink } from '@angular/router';
 })
 export class MovieCardsDetailsComponent {
   movieCards: movieCards[] = [];
-  filteredCountryCards: movieCards[] = [];
   filteredMovieCards: movieCards[] = [];
   orderTitles: movieCards[] = [];
-  rating: movieCards[] = [];
-  // ID utilisateur récupéré dynamiquement après connexion
+  averageScores: { [key: number]: number } = {}; // Stocke la moyenne de chaque film
+  stars: number[] = [1, 2, 3, 4, 5];
 
   @Input() genreClicked: string = '';
   @Input() yearClicked: any = '';
@@ -28,63 +27,76 @@ export class MovieCardsDetailsComponent {
 
   ngOnInit() {
     this.apiService.getAllMovies().subscribe((response) => {
-      this.movieCards = response.filter((movie : any) => movie.status === "APPROVED" );
-      this.filteredMovieCards = response.filter((movie : any) => movie.status === "APPROVED" );
-      this.filteredCountryCards = response.filter((movie : any) => movie.status === "APPROVED" );
-      this.orderTitles = response.filter((movie : any) => movie.status === "APPROVED" );
-      console.log("Mon tableau de films",this.movieCards);
+      this.movieCards = response.filter(
+        (movie: any) => movie.status === 'APPROVED',
+      );
+      this.filteredMovieCards = [...this.movieCards];
+      this.orderTitles = [...this.movieCards];
+
+      this.calculateAverageScores();
     });
   }
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['genreClicked']) {
-      if (this.genreClicked === '') {
-        // Si aucun genre n'est sélectionné, réaffiche tous les films
-        this.filteredMovieCards = [...this.movieCards];
-      } else {
-        // Sinon, filtre par genre
-        this.filteredMovieCards = this.movieCards.filter((movie) =>
-          movie.genreName.includes(this.genreClicked),
-        );
-      }
+      this.filteredMovieCards = this.genreClicked
+        ? this.movieCards.filter((movie) =>
+            movie.genreName.includes(this.genreClicked),
+          )
+        : [...this.movieCards];
     }
-    
+
     if (changes['yearClicked']) {
-      if (!this.yearClicked || this.yearClicked === '') {
-        // Si aucune année n'est sélectionnée, réaffiche tous les films
-        this.filteredMovieCards = [...this.movieCards];
-      } else {
-        // Filtre les films par plage d'années
-        this.filteredMovieCards = this.movieCards.filter(
-          (movie) =>
-            movie.releaseYear >= this.yearClicked.start &&
-            movie.releaseYear <= this.yearClicked.end,
-        );
-      }
+      this.filteredMovieCards = this.yearClicked
+        ? this.movieCards.filter(
+            (movie) =>
+              movie.releaseYear >= this.yearClicked.start &&
+              movie.releaseYear <= this.yearClicked.end,
+          )
+        : [...this.movieCards];
     }
+
     if (changes['countryClicked'] && this.countryClicked) {
-      console.log('Country changed:', this.countryClicked);
       this.filteredMovieCards = this.movieCards.filter((movie) =>
         movie.country.includes(this.countryClicked),
       );
     }
+
     if (changes['orderByTitle']) {
-      this.orderTitles = this.movieCards.sort((a, b) => {
-        return a.title < b.title ? -1 : a.title > b.title ? 1 : 0;
-      });
+      this.orderTitles = [...this.movieCards].sort((a, b) =>
+        this.orderByTitle === 'asc'
+          ? a.title.localeCompare(b.title)
+          : b.title.localeCompare(a.title),
+      );
     }
   }
+
+  calculateAverageScores() {
+    this.averageScores = {};
+
+    this.movieCards.forEach((movie) => {
+      const reviews = movie.userReview ?? [];
+
+      if (reviews.length > 0) {
+        const totalScore = reviews.reduce(
+          (sum, review) => sum + review.rating,
+          0,
+        );
+        this.averageScores[movie.id] = totalScore / reviews.length;
+      } else {
+        this.averageScores[movie.id] = 0;
+      }
+    });
+  }
+
   filterResults(search: string) {
-    if (!search) {
-      this.filteredMovieCards = this.movieCards;
-    }
-  
-    this.filteredMovieCards = this.movieCards.filter(
-      movieCards => movieCards?.title.toLowerCase().includes(search.toLowerCase()) ||
-      movieCards?.director.toLowerCase().includes(search.toLowerCase()) ||
-      movieCards?.releaseYear.toString().includes(search)
-    );
+    this.filteredMovieCards = search
+      ? this.movieCards.filter(
+          (movie) =>
+            movie.title.toLowerCase().includes(search.toLowerCase()) ||
+            movie.director.toLowerCase().includes(search.toLowerCase()) ||
+            movie.releaseYear.toString().includes(search),
+        )
+      : [...this.movieCards];
   }
-  stars: number[] = [1, 2, 3, 4, 5];
-  currentRating = 0;
-  hoverRatingState = 0;
 }

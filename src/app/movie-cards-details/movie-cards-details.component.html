@@ -3,38 +3,37 @@
     <input class="search" type="search" placeholder="Rechercher par titre, année ou réalisateur" #filter>
     <button class="search-btn" (click)="filterResults(filter.value)">Rechercher</button>
   </div>
-    <div class="movies-container">
-      <ng-container *ngFor="let item of filteredMovieCards">
-        <article *ngIf="item.id">
-          <header class="header">
-            <h3>{{ item.title }}</h3>
-            <div class="star-rating">
-                <span *ngFor="let star of stars; let i = index"
-                      [ngStyle]="{ color: i < currentRating || i < hoverRatingState ? 'gold' : 'gray' }">
-                  ★
-                </span>
-              </div>
-          </header>
-          <section class="header-content">
-            <p>{{ item.releaseYear }}</p>
-            <p>{{ item.genreName }}</p>
-            <p>{{ item.director }}</p>
-          </section>
-          <div class="content">
-            <img
-              [src]="item.posterUrl"
-              [alt]="item.title + ' poster'"
-              class="img"
-            />
-            <p class="synopsis">{{ item.synopsis }}</p>
+  <div class="movies-container">
+    <ng-container *ngFor="let item of filteredMovieCards">
+      <article *ngIf="item.id">
+        <header class="header">
+          <h3>{{ item.title }}</h3>
+          <div class="star-rating">
+            <span *ngFor="let star of stars; let i = index"
+                  [ngStyle]="{ color: i < (averageScores[item.id] || 0) ? 'gold' : 'gray' }">
+              ★
+            </span>
           </div>
-          <a
-            [routerLink]="['/movie-review', item.id]"
-            class="btn-style"
-            >Découvrir</a
-          >
-        </article>
-      </ng-container>
-    </div>
-  </section>
-  
+        </header>
+        <section class="header-content">
+          <p>{{ item.releaseYear }}</p>
+          <p>{{ item.genreName }}</p>
+          <p>{{ item.director }}</p>
+        </section>
+        <div class="content">
+          <img
+            [src]="item.posterUrl"
+            [alt]="item.title + ' poster'"
+            class="img"
+          />
+          <p class="synopsis">{{ item.synopsis }}</p>
+        </div>
+        <a
+          [routerLink]="['/movie-review', item.id]"
+          class="btn-style"
+          >Découvrir</a
+        >
+      </article>
+    </ng-container>
+  </div>
+</section>

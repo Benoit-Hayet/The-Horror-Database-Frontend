@@ -15,6 +15,7 @@ export class MovieCardsDetailsComponent {
   movieCards: movieCards[] = [];
   filteredMovieCards: movieCards[] = [];
   orderTitles: movieCards[] = [];
+  orderRating: movieCards[] = [];
   averageScores: { [key: number]: number } = {}; // Stocke la moyenne de chaque film
   stars: number[] = [1, 2, 3, 4, 5];
 
@@ -22,6 +23,7 @@ export class MovieCardsDetailsComponent {
   @Input() yearClicked: any = '';
   @Input() countryClicked: string = '';
   @Input() orderByTitle: 'asc' | 'desc' = 'asc';
+  @Input() orderByRating: 'asc' | 'desc' = 'asc';
 
   constructor(private apiService: ApiService) {}
 
@@ -32,6 +34,7 @@ export class MovieCardsDetailsComponent {
       );
       this.filteredMovieCards = [...this.movieCards];
       this.orderTitles = [...this.movieCards];
+      this.orderRating = [...this.movieCards];
 
       this.calculateAverageScores();
     });
@@ -69,6 +72,20 @@ export class MovieCardsDetailsComponent {
           : b.title.localeCompare(a.title),
       );
     }
+
+    if (changes['orderByRating']) {
+      this.orderRating = [...this.movieCards].sort((a, b) =>
+        this.orderByRating === 'asc'
+          ? this.getRating(a) - this.getRating(b) // Trie par la notation des films en ordre croissant
+          : this.getRating(b) - this.getRating(a) // Trie par la notation des films en ordre décroissant
+      );
+    }
+  }
+
+  // ✅ Déplacé en dehors de ngOnChanges
+  getRating(movie: movieCards): number {
+    const reviews = movie.userReview ?? [];
+    return reviews.length > 0 ? reviews[0].rating : 0; // Prend la note du premier utilisateur, sinon 0
   }
 
   calculateAverageScores() {

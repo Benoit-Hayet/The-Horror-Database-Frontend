@@ -15,6 +15,7 @@ export class DatabaseComponent {
   yearClicked: { start: number; end: number } | null = null;
   countryClicked: string = '';
   orderByTitle: 'asc' = 'asc';
+  orderByRating: 'asc' = 'asc';
 
   handleGenre(genre: string) {
     this.genreClicked = genre;
@@ -31,5 +32,9 @@ export class DatabaseComponent {
 
   orderByTitleChange(order: 'asc') {
     this.orderByTitle = order;
+  }
+
+  orderByRatingChange(order: 'asc') {
+    this.orderByRating = order;
   }
 }

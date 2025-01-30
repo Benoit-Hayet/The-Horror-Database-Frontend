@@ -1,0 +1,22 @@
+<section>
+    <div class="movies-container">
+      <ng-container *ngFor="let item of sortedMoviesByReview">
+        <article *ngIf="item.id">
+          <header>
+            <h3>{{ item.movieDTOS?.[0]?.title }}</h3>
+            <img
+            [src]="item.movieDTOS?.[0]?.posterUrl"
+            alt="{{ item.title }} poster"
+            class="img"
+          />
+          <p>{{ item. review}}</p>
+          </header>
+          <div class="btnbloc"><a [routerLink]="['/movie-review', item.movieDTOS?.[0]?.id]" class="btn-style"
+            >Découvrir</a
+          ></div>
+          
+        </article>
+      </ng-container>
+    </div>
+  </section>
+  

@@ -5,6 +5,7 @@
     (dateFilter)="handleYear($event)"
     (countryToParent)="handleCountry($event)"
     (orderByTitleChange)="orderByTitleChange($event)"
+    (orderByTitleChange)="orderByRatingChange($event)"
   ></app-sidebar>
 </div>
 <div class="movieBloc">
@@ -13,5 +14,6 @@
     [yearClicked]="yearClicked"
     [countryClicked]="countryClicked"
     [orderByTitle]="orderByTitle"
+    [orderByRating]="orderByRating"
   ></app-movie-cards-details>
 </div>

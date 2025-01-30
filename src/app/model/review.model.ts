@@ -5,11 +5,11 @@ export interface review {
   username: string;
   rating: number;
   review: string;
-  title?: string;          // Ajouté pour compatibilité
-  releaseYear?: number;    // Ajouté pour compatibilité
-  genreName?: string;      // Ajouté pour compatibilité
-  posterUrl?: string;      // Ajouté pour compatibilité
-  synopsis?: string;       // Ajouté pour compatibilité
+  title?: string;          
+  releaseYear?: number;    
+  genreName?: string;      
+  posterUrl?: string;      
+  synopsis?: string;       
   movieDTOS?: Array<{
     id: number;
     title: string;

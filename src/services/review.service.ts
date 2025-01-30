@@ -26,10 +26,7 @@ export class ReviewService {
   }
 
   getAllReviews(): Observable<review[]> {
-    const token = this.authService.getToken();
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-    return this.http.get<review[]>(`${this.reviewUrl}`, { headers }).pipe(
+    return this.http.get<review[]>(`${this.reviewUrl}`).pipe(
       catchError((error) => {
         console.error('Erreur lors de la récupération des critiques:', error);
         return throwError(() => new Error('Erreur de requête'));

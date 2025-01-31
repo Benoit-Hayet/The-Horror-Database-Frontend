@@ -5,11 +5,12 @@ import { review } from '../model/review.model';
 import { ReviewService } from '../../services/review.service';
 import { AuthService } from '../../services/auth.service';
 import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
+import { FormsModule, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-my-review',
   standalone: true,
-  imports: [CommonModule, MemberNavbarComponent, AdminNavbarComponent],
+  imports: [CommonModule, MemberNavbarComponent, AdminNavbarComponent,FormsModule],
   templateUrl: './my-review.component.html',
   styleUrl: './my-review.component.scss',
 })
@@ -39,27 +40,23 @@ export class MyReviewComponent {
     }
   }
 
-  updateReview(
-    reviewId: number,
-    updatedReview: { review: string; rating: number },
-  ): void {
-    this.reviewService.updateReview(reviewId, updatedReview).subscribe({
+  updateReview(review: review, newRating: string): void {
+    const updatedReview = { ...review, review: review.review }; // La nouvelle critique est déjà dans review.review
+  
+    this.reviewService.updateReview(updatedReview).subscribe({
       next: (response) => {
-        console.log('Critique mise à jour :', response);
-        // Mettre à jour les critiques affichées localement
-        const index = this.reviewMovieCards.findIndex((r) => r.id === reviewId);
-        if (index > -1) {
-          this.reviewMovieCards[index] = {
-            ...this.reviewMovieCards[index],
-            ...response,
-          };
-        }
+        console.log('Mise à jour réussie :', response);
+  
+        this.reviewMovieCards = this.reviewMovieCards.map((m) =>
+          m.id === updatedReview.id ? response : m
+        );
       },
-      error: (err) => {
-        console.error('Erreur lors de la mise à jour de la critique :', err);
+      error: (error) => {
+        console.error('Erreur lors de la mise à jour :', error);
       },
     });
   }
+
 
   deleteReview(reviewId: number): void {
     this.reviewService.deleteReview(reviewId).subscribe({

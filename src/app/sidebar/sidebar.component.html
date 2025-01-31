@@ -5,6 +5,12 @@
   <div>
     <h3>Trier Par</h3>
     <ul>
+      <li> <button 
+        (click)="showMoviesByGenre('')" 
+        [ngClass]="{'active': activeButton === 'Tous'}" 
+        (click)="setActiveButton('Tous')">
+        Tous
+      </button>l</li>
       <li><button (click)="sortByTitle()" [ngClass]="{'active': activeButton === 'Ordre Alphabetique'}">Ordre Alphabétique</button></li>
       <li><button (click)="sortByRating()" [ngClass]="{'active': activeButton === 'Notes'}">Notes</button></li>
       <li><button [ngClass]="{'active': activeButton === 'Années'}">Années</button></li>

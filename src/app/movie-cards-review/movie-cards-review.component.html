@@ -1,17 +1,26 @@
-<section>
+<section class="last-movie-review">
     <div class="movies-container">
-      <ng-container *ngFor="let item of sortedMoviesByReview">
-        <article *ngIf="item.id">
+      <ng-container *ngFor="let review of sortedMoviesByReview">
+        <article *ngIf="review.id">
           <header>
-            <h3>{{ item.movieDTOS?.[0]?.title }}</h3>
+            <h3>{{ review.movieDTOS?.[0]?.title }}</h3>
             <img
-            [src]="item.movieDTOS?.[0]?.posterUrl"
-            alt="{{ item.title }} poster"
+            [src]="review.movieDTOS?.[0]?.posterUrl"
+            alt="{{ review.title }} poster"
             class="img"
           />
-          <p>{{ item. review}}</p>
+          <div class="review-header">
+            <img
+                [src]="review.avatarUrl"
+                alt="{{ review.avatarUrl }}"
+                class="avatar"
+              />
+            <strong class="username">{{ review.username }}</strong>
+          </div>
+          <p class="userReview">{{ review.review }}</p>
+      
           </header>
-          <div class="btnbloc"><a [routerLink]="['/movie-review', item.movieDTOS?.[0]?.id]" class="btn-style"
+          <div class="btnbloc"><a [routerLink]="['/movie-review', review.movieDTOS?.[0]?.id]" class="btn-style"
             >Découvrir</a
           ></div>
           

@@ -19,6 +19,12 @@ export class HeaderComponent {
 logo: string ="assets/Logo.gif";
 user:string="assets/User.png";
 
+activeButton: string = '';
+
+setActiveButton(buttonName: string): void {
+  this.activeButton = buttonName;
+}
+
 isLoggedOk():  boolean {
   return (this.authService.isLoggedIn()); 
 }

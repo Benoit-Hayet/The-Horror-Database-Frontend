@@ -6,6 +6,18 @@ header {
   margin-block-end: 10px;
 }
 
+a.active {
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+a.active img {
+  filter: invert(1);
+}
+
 header {
   display: block;
   background-color: black;

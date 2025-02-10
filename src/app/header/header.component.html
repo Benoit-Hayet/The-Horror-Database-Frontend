@@ -7,10 +7,13 @@
     <nav>
       <ul>
         <li>
-          <a [routerLink]="'/home'">Accueil</a>
-          <a [routerLink]="'/database'">La Database</a>
+          <a [routerLink]="'/home'" (click)="setActiveButton('home')" 
+          [ngClass]="{'active': activeButton === 'home'}">Accueil</a>
+          <a [routerLink]="'/database'" (click)="setActiveButton('database')" 
+          [ngClass]="{'active': activeButton === 'database'}">La Database</a>
 
-          <a *ngIf="!isLoggedOk()" [routerLink]="'/login'">
+          <a *ngIf="!isLoggedOk()" [routerLink]="'/login'" (click)="setActiveButton('login')" 
+          [ngClass]="{'active': activeButton === 'login'}">
             <img [src]="user" alt="user connexion logo" class="user-logo" />
           </a>
           <a *ngIf="isLoggedOk()" [routerLink]="'/account'">Mon Profil</a>

@@ -17,13 +17,13 @@
     display: flex;
     margin-right: 10px;
     height: 30px;
-    width: 300px;
+    width: 110px;
 
   }
 
   .search-btn {
     color: #fff;
-    width: 100px;
+    width: 105px;
     background-color: grey;
     text-decoration: none;
     border-radius: 5px;
@@ -139,6 +139,25 @@
     .synopsis {
       font-size: 1em;
       line-height: 1.5;
+    }
+    .search-btn {
+      color: #fff;
+      width: 100px;
+      background-color: grey;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.3s ease;
+  
+    }
+    .search {
+      display: flex;
+      margin-right: 10px;
+      height: 30px;
+      width: 300px;
+  
     }
   }
   

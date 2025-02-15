@@ -10,7 +10,7 @@
         [ngClass]="{'active': activeButton === 'Tous'}" 
         (click)="setActiveButton('Tous')">
         Tous
-      </button>l</li>
+      </button></li>
       <li><button (click)="sortByTitle()" [ngClass]="{'active': activeButton === 'Ordre Alphabetique'}">Ordre Alphabétique</button></li>
       <li><button (click)="sortByRating()" [ngClass]="{'active': activeButton === 'Notes'}">Notes</button></li>
       <li><button [ngClass]="{'active': activeButton === 'Années'}">Années</button></li>
@@ -128,7 +128,7 @@
     </ng-container>
   </div>
   <div class="addAMovie">
-    <a href="add-movie"><img src="assets/icon/add.png" class="addIcon"></a>
+    <a href="add-movie"><img src="assets/icon/add.png" class="addIcon" alt="Ajouter un film"></a>
     <button><a href="add-movie">Ajouter un film</a></button>
   </div>
 </section>

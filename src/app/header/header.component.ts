@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { CommonEngine } from '@angular/ssr';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 
@@ -16,7 +15,7 @@ export class HeaderComponent {
   authService: AuthService = inject(AuthService);
   userService: UserService = inject(UserService);
 
-logo: string ="assets/Logo.gif";
+logo: string ="assets/Logo.webp";
 user:string="assets/User.png";
 
 activeButton: string = '';

@@ -7,6 +7,28 @@
   margin: 35px;
 }
 
+h1,
+a,
+p,
+label {
+  color: white;
+}
+
+.formControleName {
+  color: white;
+}
+
+input::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+input {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+}
+
 h1 {
   margin-bottom: 1rem;
 }

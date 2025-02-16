@@ -8,6 +8,10 @@
   max-height: 100vh;
 }
 
+h1,h3,textarea,p {
+  color: white;
+}
+
 .star-rating {
   display: flex;
   flex-direction: row;
@@ -28,7 +32,6 @@ article {
   justify-content: center;
   align-items: center;
   border: 2px solid #e1dede;
-  background-color: #f9f9f8;
   padding: 16px;
   width: 200px;
   max-width: 500px;

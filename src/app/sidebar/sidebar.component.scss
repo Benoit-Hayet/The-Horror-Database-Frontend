@@ -4,6 +4,9 @@
   text-align: center;
 }
 
+a {
+    color: white;
+}
 .filtres {
   background-color: #d9d9d9;
 }
@@ -11,7 +14,6 @@
 .addAMovie {
   display: flex;
   align-items: normal;
-  background-color: #f9f9f8;
   border: 1px solid #e1dede;
   margin-top: 7px;
 }

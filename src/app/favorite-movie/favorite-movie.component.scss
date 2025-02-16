@@ -7,6 +7,9 @@
   overflow-y: auto;
   max-height: 100vh;
 }
+h1,h3,textarea,p {
+  color: white;
+}
 
 .star-rating {
   display: flex;
@@ -27,7 +30,6 @@ article {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f9f9f8;
   padding: 16px;
   width: 200px;
   max-width: 500px;

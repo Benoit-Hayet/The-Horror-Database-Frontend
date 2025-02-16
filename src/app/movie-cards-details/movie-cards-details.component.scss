@@ -36,6 +36,7 @@
 
   .star-rating {
     display: flex;
+    align-items:baseline;
     flex-direction: row;
     gap: 2px;
     font-size: 12px;
@@ -48,6 +49,9 @@
     color: gray;
   }
   
+  .averageNumber {
+    padding-right: 5px;
+  }
   
   article {
     display: flex;

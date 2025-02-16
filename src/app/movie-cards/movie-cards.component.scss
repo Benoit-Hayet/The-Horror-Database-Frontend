@@ -1,140 +1,64 @@
+.movies-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .movies-container {
   display: flex;
   gap: 12px;
-  overflow-x: auto;
+  overflow-x: hidden; // Cache la barre de scroll
   padding: 10px;
   box-sizing: border-box;
   scroll-behavior: smooth;
-
-  /* Styles pour la barre de défilement */
-  scrollbar-width: thin; /* Pour Firefox - rend la barre plus fine */
-  scrollbar-color: #888 #f1f1f1; /* Couleur de la barre et du fond */
-
-  /* Pour Chrome, Edge, Safari */
-  &::-webkit-scrollbar {
-    height: 8px; /* Hauteur de la barre de défilement */
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Couleur de l'arrière-plan */
-    border-radius: 10px; /* Arrondi */
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #888; /* Couleur de la barre */
-    border-radius: 10px; /* Arrondi */
-    transition: background-color 0.3s ease;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Couleur lorsqu'on survole la barre */
-  }
+  white-space: nowrap; // Empêche le retour à la ligne des films
+ 
 }
-
 
 article {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #e1dede;
-  background-color: #f9f9f8;
-  box-sizing: border-box;
-  height: 300px;
-  width: 250px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.02);
-  }
-}
-
-
-
-section {
-  padding: 7px;
-}
-
-.btn-style {
-  display: inline-block;
-  justify-content: center;
-  padding: 2px 3px;
-  color: #fff;
-  background-color: #000000;;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #000000;
-  }
-
-  .btnBloc {
-    display: flex;
-    justify-content: center;
-  }
-}
-
-h3 {
-  text-align: center;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
-p {
-  text-align: center;
-  font-size: 0.8rem;
-  padding: 3px;
+  flex: 0 0 auto; // Permet de conserver la taille des articles
 }
 
 .img {
   border-radius: 5px;
-  width: 120px;
-  height: 200px;
-  object-fit: cover;
+  width: 250px;
+  height: 300px;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.left {
+  left: 40px;
+}
+
+.right {
+  right: 40px;
 }
 
 @media screen and (min-width: 1200px) {
   .movies-container {
-    display: flex;
     gap: 24px;
-    overflow-x: auto;
-    padding: 16px;
-  }
-
-  article {
-    border: 2px solid #e1dede;
-    background-color: #f9f9f8;
-    padding: 16px;
-    width: 550px; /* Taille fixe */
-    height: 450px;
-    box-sizing: border-box;
-  }
-
-  section {
-    padding: 8px;
-  }
-
-  h3,
-  p {
-    text-align: center;
-    font-size: 1rem;
   }
 
   .img {
-    border-radius: 5px;
-    width: 200px;
-    height: 300px;
-  }
-
-  .btn-style {
-    display: inline-block;
-    justify-content: center;
-    padding: 10px 20px;
-    color: #fff;
+    width: 300px;
+    height: 500px;
   }
 }

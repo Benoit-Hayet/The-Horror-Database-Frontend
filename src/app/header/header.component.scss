@@ -3,7 +3,6 @@ header {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  margin-block-end: 10px;
 }
 
 a.active {
@@ -45,13 +44,10 @@ section {
   height: 20px;
 }
 
-
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .Section2 {
     text-align: center;
     margin-right: 10rem;
-    margin-left:10rem; 
+    margin-left: 10rem;
   }
-
- 
 }

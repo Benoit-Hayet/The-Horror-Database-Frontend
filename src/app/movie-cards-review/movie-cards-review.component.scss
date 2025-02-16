@@ -35,6 +35,10 @@
   }
 }
 
+a,p {
+  color: white;
+}
+
 .avatar {
   border-radius: 50%;
   width: 40px;
@@ -59,7 +63,7 @@ article {
   justify-content: center;
   align-items: center;
   border: 1px solid #e1dede;
-  background-color: #f9f9f8;
+  background-color:#141414;
   box-sizing: border-box;
   height: 300px;
   width: 250px;
@@ -70,6 +74,9 @@ article {
   &:hover {
     transform: scale(1.02);
   }
+}
+strong {
+  color:white;
 }
 
 section {
@@ -102,12 +109,14 @@ h3 {
   text-align: center;
   font-weight: bold;
   font-size: 0.9rem;
+  color: white;
 }
 
 p {
   text-align: center;
   font-size: 0.8rem;
   padding: 3px;
+  color: white;
 }
 
 .img {
@@ -127,7 +136,6 @@ p {
 
   article {
     border: 2px solid #e1dede;
-    background-color: #f9f9f8;
     padding: 16px;
     width: 550px;
     height: 500px;

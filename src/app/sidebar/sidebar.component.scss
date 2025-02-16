@@ -1,95 +1,104 @@
 .sidenav {
-    margin: 0.7rem;
-    width: 125px;
-    text-align: center;
+  margin: 0.7rem;
+  width: 125px;
+  text-align: center;
 }
 
 .filtres {
-    background-color:#d9d9d9;
-  
+  background-color: #d9d9d9;
 }
 
 .addAMovie {
-    display: flex;
-    align-items:normal;
-    background-color: #f9f9f8;
-    border: 1px solid #e1dede ;
-    margin-top: 7px;
-    
+  display: flex;
+  align-items: normal;
+  background-color: #f9f9f8;
+  border: 1px solid #e1dede;
+  margin-top: 7px;
 }
-.addAMovie  button{
-padding:10px ;
+.addAMovie button {
+  padding: 10px;
 }
 .addIcon {
-    margin-top: 6px;
-    width: 30px;
-    height:30px;
+  margin-top: 6px;
+  width: 30px;
+  height: 30px;
 }
 
 h3 {
-    background-color: #f9f9f8;
-    border: 1px solid #e1dede ;
-    margin-top: 7px;
+  color: white;
+  border: 1px solid #e1dede;
+  border-radius: 4px;
+  margin-top: 7px;
 }
 
 .country {
-    max-height: 100px; 
-    overflow-y: auto; 
+  max-height: 100px;
+  overflow-y: auto;
 }
 
 .countryList {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 li {
-    padding: 6px 0;
+  color: white;
+  padding: 6px 0;
 }
 
 button {
-    all:unset
-
+  all: unset;
 }
 
 button.active {
-    background-color: black;
-    color: white;
-    padding: 5px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
 @media screen and (min-width: 1200px) {
-    .sidenav {
-        margin: 1rem;
-        width: 250px;
-        text-align: center;
-    }
-    
-    .filtres {
-        background-color:#d9d9d9;
-      
-    }
-    
-    h3 {
-        margin-top: 10px;
-    }
-    
-    .country {
-        max-height: 200px; 
-        overflow-y: auto; 
-    }
-    
-    .countryList {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-    }
-    
-    li {
-        padding: 8px 0;
-    }  
+  .sidenav {
+    margin: 1rem;
+    width: 250px;
+    text-align: center;
+  }
+
+  .filtres {
+    background-color: #d9d9d9;
+  }
+
+  h3 {
+    margin-top: 10px;
+  }
+
+  .country {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .countryList {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .genresGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4px;
+    grid-auto-rows: minmax(10px, auto);
+  }
+
+  .releaseGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4px;
+    grid-auto-rows: minmax(10px, auto);
+  }
+  li {
+    padding: 8px 0;
+  }
 }

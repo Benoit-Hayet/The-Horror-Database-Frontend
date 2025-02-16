@@ -4,10 +4,13 @@ section {
     align-items: center;
     gap: 2rem;
     padding: 2rem;
-    background-color: #f9f9f9;
+    background-color: #141414;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   
+    h1,a,label {
+      color: white;
+    }
     .profil,
     .password {
       width: 100%;
@@ -33,7 +36,7 @@ section {
         label {
           font-size: 1rem;
           font-weight: bold;
-          color: #333;
+          color:white;
         }
   
         input {
@@ -62,7 +65,7 @@ section {
       .passwordTitle {
         font-size: 1.2rem;
         font-weight: bold;
-        color: #333;
+        color: white;
         margin-bottom: 0.5rem;
       }
   

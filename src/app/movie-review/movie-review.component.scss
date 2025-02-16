@@ -4,13 +4,17 @@ h1 {
 }
 article {
   border: 2px solid #e1dede;
-  background-color: #f9f9f8;
+  background-color:#141414;
   padding: 16px;
   width: 95%;
   max-width: 1000px;
   height: 420px;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+
+h3,h1,strong,a,p {
+  color: white;
 }
 
 .avatar {
@@ -61,7 +65,7 @@ h3 {
 
 .review-card {
   border: 2px solid #dcd8d8;
-  background-color: #f9f9f8;
+  background-color:#141414;
   padding: 16px;
   width: 100%;
   max-width: 800px;
@@ -120,7 +124,7 @@ button:hover {
 
 .new-review-card {
   border: 2px solid gainsboro;
-  background-color: #f9f9f8;
+  background-color:#141414;
   padding: 16px;
   width: 100%;
   max-width: 2000px;

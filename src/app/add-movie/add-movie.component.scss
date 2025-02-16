@@ -47,6 +47,32 @@ select {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+input::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+input {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+select {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+select option {
+  color: white;
+}
+
+select option:disabled {
+  color: white;
+}
+
+
 textarea {
   height: 80px;
   resize: none;

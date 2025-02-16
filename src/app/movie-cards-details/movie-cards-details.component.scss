@@ -1,11 +1,16 @@
 .movies-container {
     display: flex;
     flex-wrap: wrap;
+    background-color: #141414;
     gap: 24px;
     padding: 16px;
     box-sizing: border-box;
     overflow-y: auto;
     max-height: 100vh;
+  }
+
+  h3,a,p {
+    color: white;
   }
 
   .search-bar {
@@ -17,14 +22,14 @@
     display: flex;
     margin-right: 10px;
     height: 30px;
-    width: 300px;
+    width: 110px;
 
   }
 
   .search-btn {
     color: #fff;
-    width: 100px;
-    background-color: grey;
+    width: 105px;
+    background-color: black;
     text-decoration: none;
     border-radius: 5px;
     border: none;
@@ -36,6 +41,7 @@
 
   .star-rating {
     display: flex;
+    align-items:baseline;
     flex-direction: row;
     gap: 2px;
     font-size: 12px;
@@ -48,6 +54,9 @@
     color: gray;
   }
   
+  .averageNumber {
+    padding-right: 5px;
+  }
   
   article {
     display: flex;
@@ -55,7 +64,7 @@
     justify-content: center;
     align-items: center;
     border: 2px solid #e1dede;
-    background-color: #f9f9f8;
+    background-color: #141414;
     padding: 16px;
     width: 200px;
     max-width: 500px;
@@ -101,7 +110,7 @@
     margin-top: 10px;
     padding: 10px 20px;
     color: #fff;
-    background-color: grey;
+    background-color: #141414;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
@@ -139,6 +148,25 @@
     .synopsis {
       font-size: 1em;
       line-height: 1.5;
+    }
+    .search-btn {
+      color: #fff;
+      width: 100px;
+      background-color: black;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.3s ease;
+  
+    }
+    .search {
+      display: flex;
+      margin-right: 10px;
+      height: 30px;
+      width: 300px;
+  
     }
   }
   

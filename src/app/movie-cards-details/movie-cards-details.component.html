@@ -9,6 +9,7 @@
         <header class="header">
           <h3>{{ item.title }}</h3>
           <div class="star-rating">
+            <p class="averageNumber">{{(averageScores[item.id] || 0)}}</p>
             <span *ngFor="let star of stars; let i = index"
                   [ngStyle]="{ color: i < (averageScores[item.id] || 0) ? 'gold' : 'gray' }">
               ★

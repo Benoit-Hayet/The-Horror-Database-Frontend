@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
 import { ApiService } from '../../services/api.service';
 import { RouterLink } from '@angular/router';
@@ -15,6 +15,16 @@ export class MovieCardsComponent {
   movieCards : movieCards[] =  [];
 
   constructor(private apiService: ApiService) {}
+
+  @ViewChild('moviesContainer', { static: false }) moviesContainer!: ElementRef;
+
+  scrollLeft() {
+    this.moviesContainer.nativeElement.scrollBy({ left: -300, behavior: 'smooth' });
+  }
+
+  scrollRight() {
+    this.moviesContainer.nativeElement.scrollBy({ left: 300, behavior: 'smooth' });
+  }
 
   ngOnInit() {
     this.apiService.getAllMovies().subscribe((response) => {

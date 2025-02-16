@@ -10,7 +10,7 @@
         [ngClass]="{'active': activeButton === 'Tous'}" 
         (click)="setActiveButton('Tous')">
         Tous
-      </button>l</li>
+      </button></li>
       <li><button (click)="sortByTitle()" [ngClass]="{'active': activeButton === 'Ordre Alphabetique'}">Ordre Alphabétique</button></li>
       <li><button (click)="sortByRating()" [ngClass]="{'active': activeButton === 'Notes'}">Notes</button></li>
       <li><button [ngClass]="{'active': activeButton === 'Années'}">Années</button></li>
@@ -18,9 +18,9 @@
   </div>
   <div class="genres">
     <h3>Par genres</h3>
-    <ul>
+    <ul class="genresGrid">
       <li>
-        <button 
+        <button
           (click)="showMoviesByGenre('')" 
           [ngClass]="{'active': activeButton === 'Tous'}" 
           (click)="setActiveButton('Tous')">
@@ -28,7 +28,7 @@
         </button>
       </li>
       <li>
-        <button 
+        <button
           (click)="showMoviesByGenre('Gore')" 
           [ngClass]="{'active': activeButton === 'Gore'}" 
           (click)="setActiveButton('Gore')">
@@ -103,13 +103,20 @@
   </div>
   <div class="release">
     <h3>Années de sorties</h3>
-    <ul>
+    <ul class="releaseGrid">
       <li><button (click)="showMoviesByYear('2020','2029')" [ngClass]="{'active': activeButton === '2020-2029'}" (click)="setActiveButton('2020-2029')">2020-2029</button></li>
       <li><button (click)="showMoviesByYear('2010','2019')" [ngClass]="{'active': activeButton === '2010-2019'}" (click)="setActiveButton('2010-2019')">2010-2019</button></li>
       <li><button (click)="showMoviesByYear('2000','2009')" [ngClass]="{'active': activeButton === '2000-2009'}" (click)="setActiveButton('2000-2009')">2000-2009</button></li>
       <li><button (click)="showMoviesByYear('1990','1999')" [ngClass]="{'active': activeButton === '1990-1999'}" (click)="setActiveButton('1990-1999')">1990-1999</button></li>
       <li><button (click)="showMoviesByYear('1980','1989')" [ngClass]="{'active': activeButton === '1980-1989'}" (click)="setActiveButton('1980-1989')">1980-1989</button></li>
       <li><button (click)="showMoviesByYear('1970','1979')" [ngClass]="{'active': activeButton === '1970-1979'}" (click)="setActiveButton('1970-1979')">1970-1979</button></li>
+      <li><button (click)="showMoviesByYear('1960','1969')" [ngClass]="{'active': activeButton === '1960-1969'}" (click)="setActiveButton('1960-1969')">1960-1969</button></li>
+      <li><button (click)="showMoviesByYear('1950','1959')" [ngClass]="{'active': activeButton === '1950-1959'}" (click)="setActiveButton('1950-1959')">1950-1959</button></li>
+      <li><button (click)="showMoviesByYear('1940','1949')" [ngClass]="{'active': activeButton === '1940-1949'}" (click)="setActiveButton('1940-1949')">1940-1949</button></li>
+      <li><button (click)="showMoviesByYear('1930','1939')" [ngClass]="{'active': activeButton === '1930-1939'}" (click)="setActiveButton('1930-1939')">1930-1939</button></li>
+      <li><button (click)="showMoviesByYear('1920','1929')" [ngClass]="{'active': activeButton === '1920-1929'}" (click)="setActiveButton('1920-1929')">1920-1929</button></li>
+      <li><button (click)="showMoviesByYear('1910','1919')" [ngClass]="{'active': activeButton === '1910-1919'}" (click)="setActiveButton('1910-1919')">1910-1919</button></li>
+      <li><button (click)="showMoviesByYear('1900','1909')" [ngClass]="{'active': activeButton === '1900-1909'}" (click)="setActiveButton('1950-1959')">1900-1909</button></li>
     </ul>
   </div>
   <h3>Par Pays</h3>
@@ -128,7 +135,7 @@
     </ng-container>
   </div>
   <div class="addAMovie">
-    <a href="add-movie"><img src="assets/icon/add.png" class="addIcon"></a>
+    <a href="add-movie"><img src="assets/icon/add.png" class="addIcon" alt="Ajouter un film"></a>
     <button><a href="add-movie">Ajouter un film</a></button>
   </div>
 </section>

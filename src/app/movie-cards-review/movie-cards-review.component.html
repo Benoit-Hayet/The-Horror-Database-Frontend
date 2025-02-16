@@ -1,9 +1,8 @@
 <section class="last-movie-review">
     <div class="movies-container">
       <ng-container *ngFor="let review of sortedMoviesByReview">
-        <article *ngIf="review.id">
+        <article *ngIf="review.id" [routerLink]="['/movie-review', review.movieDTOS?.[0]?.id]" >
           <header>
-            <h3>{{ review.movieDTOS?.[0]?.title }}</h3>
             <img
             [src]="review.movieDTOS?.[0]?.posterUrl"
             alt="{{ review.title }} poster"
@@ -20,9 +19,6 @@
           <p class="userReview">{{ review.review }}</p>
       
           </header>
-          <div class="btnbloc"><a [routerLink]="['/movie-review', review.movieDTOS?.[0]?.id]" class="btn-style"
-            >Découvrir</a
-          ></div>
           
         </article>
       </ng-container>

@@ -16,18 +16,18 @@
           [ngClass]="{'active': activeButton === 'login'}">
             <img [src]="user" alt="user connexion logo" class="user-logo" />
           </a>
-          <a *ngIf="isLoggedOk()" [routerLink]="'/account'">Mon Profil</a>
+          <a *ngIf="isLoggedOk()" [routerLink]="'/account'" (click)="setActiveButton('account')" [ngClass]="{'active': activeButton === 'account'}">Mon Profil</a>
           <a *ngIf="isLoggedOk()" (click)="logOut()">Me Déconnecter</a>
         </li>
       </ul>
 
-      <button class="header-button" (click)="isLogged()">Is Logged ?</button>
+     <!---- <button class="header-button" (click)="isLogged()">Is Logged ?</button>
       <button class="header-button" (click)="whoIsLogged()">
         Decode Token
       </button>
       <button class="header-button" (click)="getRole()">Get Role</button>
       <button class="header-button" (click)="readToken()">Read Token</button>
-      <button class="header-button" (click)="getUserId()">UserId</button>
+      <button class="header-button" (click)="getUserId()">UserId</button> -->
     </nav>
   </section>
 </header>

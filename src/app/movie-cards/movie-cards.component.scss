@@ -7,18 +7,19 @@
 .movies-container {
   display: flex;
   gap: 12px;
-  overflow-x: hidden; // Cache la barre de scroll
+  overflow-x: hidden;
   padding: 10px;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  white-space: nowrap; // Empêche le retour à la ligne des films
+  white-space: nowrap;
  
 }
-
 article {
-  flex: 0 0 auto; // Permet de conserver la taille des articles
+  flex: 0 0 auto; 
 }
-
+article:hover {
+  transform: scale(1.04);
+}
 .img {
   border-radius: 5px;
   width: 250px;

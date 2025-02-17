@@ -9,5 +9,4 @@ import { RouterLink } from '@angular/router';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-Pinhead:string = "assets/Pinhead.png";
 }

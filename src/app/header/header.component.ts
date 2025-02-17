@@ -17,6 +17,7 @@ export class HeaderComponent {
 
 logo: string ="assets/Logo.png";
 user:string="assets/User.png";
+home: string ="assets/Home.png";
 
 activeButton: string = '';
 

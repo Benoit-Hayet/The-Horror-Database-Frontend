@@ -1,5 +1,5 @@
 <app-admin-navbar *ngIf="isAdmin"></app-admin-navbar>
-<app-member-navbar></app-member-navbar>
+<app-member-navbar *ngIf="!isAdmin"></app-member-navbar>
 <h1>Mes films favoris</h1>
 <div class="movies-container">
   <article *ngFor="let movie of favoriteMovieCards">

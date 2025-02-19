@@ -1,6 +1,7 @@
 h1 {
   text-align: center;
   margin-bottom: 10px;
+  padding: 15px;
 }
 section {
   display: flex;
@@ -12,6 +13,10 @@ section {
   max-height: 100vh;
 }
 
+h1,h3,textarea,p {
+  color: white;
+}
+
 .profil,
 .password {
   display: flex;
@@ -19,7 +24,6 @@ section {
   justify-content: center;
   align-items: center;
   border: 2px solid #e1dede;
-  background-color: #f9f9f8;
   padding: 16px;
   width: 200px;
   max-width: 500px;

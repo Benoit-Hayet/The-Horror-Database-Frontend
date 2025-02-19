@@ -1,6 +1,11 @@
 h1 {
   text-align: center;
   margin-bottom: 10px;
+  padding: 15px;
+}
+
+h1,h3,textarea,p {
+  color: white;
 }
 
 .movies-container {
@@ -19,7 +24,6 @@ article {
   justify-content: center;
   align-items: center;
   border: 2px solid #e1dede;
-  background-color: #f9f9f8;
   padding: 16px;
   width: 200px;
   max-width: 500px;
@@ -124,4 +128,5 @@ p {
     height: auto;
     width: 100%;
   }
+
 }

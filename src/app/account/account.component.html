@@ -1,5 +1,5 @@
 <app-admin-navbar *ngIf="isAdmin"></app-admin-navbar>
-<app-member-navbar></app-member-navbar>
+<app-member-navbar *ngIf="!isAdmin"></app-member-navbar>
 
 <section>
   <div class="profil">

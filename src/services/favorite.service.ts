@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
-import { movieCards } from '../app/model/movieCards.model';
-import { AuthService } from './auth.service';
 import { favorite } from '../app/model/favorite.model';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,25 +12,42 @@ export class FavoriteService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  getFavoritesByUserId(): Observable<favorite[]> {
+  private getHeaders(): HttpHeaders {
     const token = this.authService.getToken();
-        const userId = this.authService.getUserId();
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-        
-    return this.http.get<favorite[]>(`${this.favoriteUrl}/user/${userId}`, { headers }).pipe(
-          catchError((error) => {
-            console.error('Erreur lors de la récupération des films:', error);
-            return throwError(() => new Error('Erreur de requête'));
-          })
-        );
-      }
-  
+    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  }
+
+  getFavoritesByUserId(): Observable<favorite[]> {
+    const userId = this.authService.getUserId();
+    return this.http
+      .get<favorite[]>(`${this.favoriteUrl}/user/${userId}`, { headers: this.getHeaders() })
+      .pipe(
+        catchError((error) => {
+          console.error('Erreur lors de la récupération des favoris:', error);
+          return throwError(() => new Error('Erreur de requête'));
+        })
+      );
+  }
 
   addFavorite(userId: number, movieId: number): Observable<any> {
-    return this.http.post(`${this.favoriteUrl}`, { userId, movieId });
+    return this.http
+      .post(`${this.favoriteUrl}`, { userId, movieId }, { headers: this.getHeaders() })
+      .pipe(
+        catchError((error) => {
+          console.error('Erreur lors de l\'ajout du favori:', error);
+          return throwError(() => new Error('Erreur de requête'));
+        })
+      );
   }
 
   removeFavorite(userId: number, movieId: number): Observable<any> {
-    return this.http.delete(`${this.favoriteUrl}/${movieId}`);
+    return this.http
+      .delete(`${this.favoriteUrl}/${userId}/${movieId}`, { headers: this.getHeaders() })
+      .pipe(
+        catchError((error) => {
+          console.error('Erreur lors de la suppression du favori:', error);
+          return throwError(() => new Error('Erreur de requête'));
+        })
+      );
   }
 }

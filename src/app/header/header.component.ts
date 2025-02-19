@@ -15,8 +15,9 @@ export class HeaderComponent {
   authService: AuthService = inject(AuthService);
   userService: UserService = inject(UserService);
 
-logo: string ="assets/Logo.webp";
+logo: string ="assets/Logo.png";
 user:string="assets/User.png";
+home: string ="assets/Home.png";
 
 activeButton: string = '';
 

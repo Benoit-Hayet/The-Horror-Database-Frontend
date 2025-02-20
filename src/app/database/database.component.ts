@@ -31,6 +31,7 @@ export class DatabaseComponent {
   }
 
   orderByTitleChange(order: 'asc') {
+    console.log("Tri reçu :", order);
     this.orderByTitle = order;
   }
 

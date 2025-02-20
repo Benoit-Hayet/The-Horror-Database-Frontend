@@ -23,11 +23,12 @@ export class SidebarComponent {
   }
 
   @Output() notifyParent: EventEmitter<string> = new EventEmitter<string>();
-  @Output() dateFilter: EventEmitter<{ start: string; end: string }> = new EventEmitter();
+  @Output() dateFilter: EventEmitter<{ start: string; end: string }> =
+    new EventEmitter();
   @Output() countryToParent: EventEmitter<string> = new EventEmitter<string>();
-  @Output() orderByTitleChange:EventEmitter<'asc'> = new EventEmitter<'asc'>();
-  @Output() orderByRatingChange:EventEmitter<'asc'> = new EventEmitter<'asc'>();
-  
+  @Output() orderByTitleChange: EventEmitter<'asc'> = new EventEmitter<'asc'>();
+  @Output() orderByRatingChange: EventEmitter<'asc'> =
+    new EventEmitter<'asc'>();
 
   showMoviesByGenre(genre: string): void {
     this.notifyParent.emit(genre);
@@ -36,12 +37,11 @@ export class SidebarComponent {
     console.log(dtStart, dtEnd);
     this.dateFilter.emit({ start: dtStart, end: dtEnd });
   }
-  
+
   sortByTitle(): void {
-    this.orderByTitleChange.emit();
-    console.log(this.orderByTitleChange.emit());
+    this.orderByTitleChange.emit('asc');
   }
-  
+
   sortByRating(): void {
     this.orderByRatingChange.emit();
     console.log(this.orderByTitleChange.emit());
@@ -51,7 +51,4 @@ export class SidebarComponent {
     console.log('Selected country:', country);
     this.countryToParent.emit(country);
   }
-
 }
-
-

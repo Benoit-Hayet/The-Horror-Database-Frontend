@@ -22,7 +22,7 @@ export class MovieCardsDetailsComponent {
   @Input() genreClicked: string = '';
   @Input() yearClicked: any = '';
   @Input() countryClicked: string = '';
-  @Input() orderByTitle: 'asc' | 'desc' = 'asc';
+  @Input() orderByTitle: string = '';
   @Input() orderByRating: 'asc' | 'desc' = 'asc';
 
   constructor(private apiService: ApiService) {}
@@ -66,12 +66,13 @@ export class MovieCardsDetailsComponent {
     }
 
     if (changes['orderByTitle']) {
-      this.orderTitles = [...this.movieCards].sort((a, b) =>
+      this.filteredMovieCards.sort((a, b) =>
         this.orderByTitle === 'asc'
           ? a.title.localeCompare(b.title)
           : b.title.localeCompare(a.title),
       );
     }
+  
 
     if (changes['orderByRating']) {
       this.orderRating = [...this.movieCards].sort((a, b) =>

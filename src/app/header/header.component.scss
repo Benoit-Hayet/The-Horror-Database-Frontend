@@ -5,12 +5,17 @@ header {
   overflow-x: hidden;
 }
 
+.logo {
+  width: 300px;
+  height: 90px;
+}
+
 .Section2 {
   height: 90px;
 }
 
 a.active {
-  color: #F57F93;
+  color: #f57f93;
   padding: 5px 10px;
   border-radius: 4px;
   text-decoration: none;
@@ -33,7 +38,8 @@ nav ul li img {
 }
 
 a,
-p, button {
+p,
+button {
   color: whitesmoke;
   line-height: 2.5;
 }
@@ -52,5 +58,12 @@ section {
     text-align: center;
     margin-right: 10rem;
     margin-left: 10rem;
+  }}
+
+  @media screen and (min-width: 1200px) {
+    .logo {
+      width: 470px;
+      height: 150px;
+    }
   }
-}
+

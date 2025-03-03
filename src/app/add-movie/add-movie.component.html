@@ -8,25 +8,21 @@
   </p>
 </div>
 
-
-<div class="container" *ngIf="isLoggedOk()" >
- 
+<div class="container" *ngIf="isLoggedOk()">
   <form class="form1" [formGroup]="addMovieForm" (ngSubmit)="onSubmit()">
-
     <input type="text" id="title" formControlName="title" placeholder="Titre" />
 
     <select
-    [formControl]="addMovieForm.controls['country']"
-    (change)="onCountryChange($event)"
-  >
-    <option value="" disabled selected>Pays</option>
-    <ng-container *ngFor="let item of countryMap">
-      <option [value]="item.name">{{ item.name }}</option>
-    </ng-container>
-  </select>
-  
+      [formControl]="addMovieForm.controls['country']"
+      (change)="onCountryChange($event)"
+    >
+      <option value="" disabled selected>Pays</option>
+      <ng-container *ngFor="let item of countryMap">
+        <option [value]="item.name">{{ item.name }}</option>
+      </ng-container>
+    </select>
 
-  <input
+    <input
       type="number"
       id="releaseYear"
       formControlName="releaseYear"
@@ -48,7 +44,7 @@
 
     <label for="poster">Affiche</label>
     <input id="poster" type="file" (change)="onFileSelected($event)" />
-  
+
     <input
       type="url"
       id="posterUrl"
@@ -57,16 +53,15 @@
     />
 
     <select
-    [formControl]="addMovieForm.controls['genreName']"
-    (change)="onGenreChange($event)"
-  >
-    <option value="" disabled selected>Genre</option>
-    <ng-container *ngFor="let genre of genreMap">
-      <option [value]="genre.name">{{ genre.name }}</option>
-    </ng-container>
-  </select>
+      [formControl]="addMovieForm.controls['genreName']"
+      (change)="onGenreChange($event)"
+    >
+      <option value="" disabled selected>Genre</option>
+      <ng-container *ngFor="let genre of genreMap">
+        <option [value]="genre.name">{{ genre.name }}</option>
+      </ng-container>
+    </select>
 
-  
     <button type="submit">Valider</button>
   </form>
   <div class="create-account">

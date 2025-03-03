@@ -8,10 +8,9 @@ describe('AdminAddMovieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdminAddMovieComponent]
-    })
-    .compileComponents();
-    
+      imports: [AdminAddMovieComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(AdminAddMovieComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -7,7 +7,7 @@
           <div class="header-content">
             <p>{{ movieDetails.releaseYear }}</p>
             <p>{{ movieDetails.genreName }}</p>
-            <p class="director">De {{movieDetails.director}}</p>
+            <p class="director">De {{ movieDetails.director }}</p>
           </div>
         </header>
         <div class="content">
@@ -28,10 +28,10 @@
     <div *ngFor="let review of reviewDetails" class="review-card">
       <div class="review-header">
         <img
-            [src]="review.avatarUrl"
-            alt="{{ review.avatarUrl }}"
-            class="avatar"
-          />
+          [src]="review.avatarUrl"
+          alt="{{ review.avatarUrl }}"
+          class="avatar"
+        />
         <strong class="username">{{ review.username }}</strong>
         <span class="rating">Rating: {{ review.rating }}</span>
       </div>
@@ -49,20 +49,29 @@
 </div>
 <section class="new-review" *ngIf="isLoggedOk()">
   <div class="new-review-card">
-  <form class="formReview" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
-    <label for="review"></label>
-    <textarea class="reviewText"  type="text" id="review" formControlName="review" placeholder="Ajouter ma critique"></textarea>
-    <div class="star-rating">
-      <span *ngFor="let star of stars; let i = index"
-            (click)="selectRating(i + 1)"
-            (mouseenter)="hoverRating(i + 1)"
-            (mouseleave)="hoverRating(0)"
-            [ngStyle]="{ color: i < currentRating || i < hoverRatingState ? 'gold' : 'gray' }">
-        ★
-      </span>
-    </div>
-    <button >Publier</button>
-  </form>
-</div>
+    <form class="formReview" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+      <label for="review"></label>
+      <textarea
+        class="reviewText"
+        type="text"
+        id="review"
+        formControlName="review"
+        placeholder="Ajouter ma critique"
+      ></textarea>
+      <div class="star-rating">
+        <span
+          *ngFor="let star of stars; let i = index"
+          (click)="selectRating(i + 1)"
+          (mouseenter)="hoverRating(i + 1)"
+          (mouseleave)="hoverRating(0)"
+          [ngStyle]="{
+            color: i < currentRating || i < hoverRatingState ? 'gold' : 'gray',
+          }"
+        >
+          ★
+        </span>
+      </div>
+      <button>Publier</button>
+    </form>
+  </div>
 </section>
-

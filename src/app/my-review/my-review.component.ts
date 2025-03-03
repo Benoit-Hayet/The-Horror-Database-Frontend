@@ -1,20 +1,25 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MemberNavbarComponent } from '../member-navbar/member-navbar.component';
 import { review } from '../model/review.model';
 import { ReviewService } from '../../services/review.service';
 import { AuthService } from '../../services/auth.service';
 import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-my-review',
   standalone: true,
-  imports: [CommonModule, MemberNavbarComponent, AdminNavbarComponent,FormsModule],
+  imports: [
+    CommonModule,
+    MemberNavbarComponent,
+    AdminNavbarComponent,
+    FormsModule,
+  ],
   templateUrl: './my-review.component.html',
   styleUrl: './my-review.component.scss',
 })
-export class MyReviewComponent {
+export class MyReviewComponent implements OnInit {
   reviewMovieCards: review[] = [];
   stars: number[] = [1, 2, 3, 4, 5];
   isAdmin: boolean = false;
@@ -27,7 +32,7 @@ export class MyReviewComponent {
   ngOnInit() {
     const decodedToken = this.authService.getDecodedToken(); // Convertir en nombre
     if (decodedToken) {
-      const userId = decodedToken.id;
+      //const userId = decodedToken.id;
 
       this.isAdmin = decodedToken.roles.some(
         (role: any) => role.authority === 'ROLE_ADMIN',
@@ -42,13 +47,13 @@ export class MyReviewComponent {
 
   updateReview(review: review, newRating: string): void {
     const updatedReview = { ...review, review: review.review }; // La nouvelle critique est déjà dans review.review
-  
+
     this.reviewService.updateReview(updatedReview).subscribe({
       next: (response) => {
         console.log('Mise à jour réussie :', response);
-  
+
         this.reviewMovieCards = this.reviewMovieCards.map((m) =>
-          m.id === updatedReview.id ? response : m
+          m.id === updatedReview.id ? response : m,
         );
       },
       error: (error) => {
@@ -56,7 +61,6 @@ export class MyReviewComponent {
       },
     });
   }
-
 
   deleteReview(reviewId: number): void {
     this.reviewService.deleteReview(reviewId).subscribe({

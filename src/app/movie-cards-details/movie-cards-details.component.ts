@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './movie-cards-details.component.html',
   styleUrl: './movie-cards-details.component.scss',
 })
-export class MovieCardsDetailsComponent {
+export class MovieCardsDetailsComponent implements OnInit {
   movieCards: movieCards[] = [];
   filteredMovieCards: movieCards[] = [];
   orderTitles: movieCards[] = [];
@@ -72,13 +72,13 @@ export class MovieCardsDetailsComponent {
           : b.title.localeCompare(a.title),
       );
     }
-  
 
     if (changes['orderByRating']) {
-      this.orderRating = [...this.movieCards].sort((a, b) =>
-        this.orderByRating === 'asc'
-          ? this.getRating(a) - this.getRating(b) // Trie par la notation des films en ordre croissant
-          : this.getRating(b) - this.getRating(a) // Trie par la notation des films en ordre décroissant
+      this.orderRating = [...this.movieCards].sort(
+        (a, b) =>
+          this.orderByRating === 'asc'
+            ? this.getRating(a) - this.getRating(b) // Trie par la notation des films en ordre croissant
+            : this.getRating(b) - this.getRating(a), // Trie par la notation des films en ordre décroissant
       );
     }
   }

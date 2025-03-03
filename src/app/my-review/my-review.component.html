@@ -11,7 +11,10 @@
     <div class="header-content">
       <h3>{{ review.movieDTOS?.[0]?.title }}</h3>
       <span class="star-rating">
-        <i *ngFor="let star of [1, 2, 3, 4, 5]" [class]="star <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+        <i
+          *ngFor="let star of [1, 2, 3, 4, 5]"
+          [class]="star <= review.rating ? 'fas fa-star' : 'far fa-star'"
+        ></i>
       </span>
     </div>
     <div class="content">
@@ -20,10 +23,15 @@
       <textarea
         id="synopsis"
         [(ngModel)]="review.review"
-        [ngModelOptions]="{standalone: true}">
+        [ngModelOptions]="{ standalone: true }"
+      >
       </textarea>
     </div>
-    <a class="btn-style" (click)="updateReview(review, review.rating.toString())">Modifier</a>
+    <a
+      class="btn-style"
+      (click)="updateReview(review, review.rating.toString())"
+      >Modifier</a
+    >
     <a class="btn-style" (click)="deleteReview(review.id)">Supprimer</a>
   </article>
 </div>

@@ -10,18 +10,24 @@
           <h3>{{ movie.title }}</h3>
           <div class="header-content">
             <p>{{ movie.releaseYear }}</p>
-            <p>{{ movie.genreName.join(', ') }}</p> <!-- Afficher les genres sous forme de liste -->
+            <p>{{ movie.genreName.join(", ") }}</p>
+            <!-- Afficher les genres sous forme de liste -->
             <p class="director">De {{ movie.director }}</p>
             <p>Status :</p>
-            <p>{{movie.status}}</p>
+            <p>{{ movie.status }}</p>
           </div>
         </header>
         <div class="content">
-          <img [src]="movie.posterUrl" alt="{{ movie.title }} poster" class="img" />
+          <img
+            [src]="movie.posterUrl"
+            alt="{{ movie.title }} poster"
+            class="img"
+          />
           <p class="synopsis">{{ movie.synopsis }}</p>
         </div>
       </article>
     </ng-container>
-    <p *ngIf="addedMovieCards.length === 0">Aucun film ajouté.</p> <!-- Message si aucun film -->
+    <p *ngIf="addedMovieCards.length === 0">Aucun film ajouté.</p>
+    <!-- Message si aucun film -->
   </div>
 </section>

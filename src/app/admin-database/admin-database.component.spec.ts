@@ -8,10 +8,9 @@ describe('AdminDatabaseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdminDatabaseComponent]
-    })
-    .compileComponents();
-    
+      imports: [AdminDatabaseComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(AdminDatabaseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -53,9 +53,11 @@ export class ReviewService {
       rating: review.rating,
       // Si d'autres champs sont nécessaires, assure-toi de les inclure
     };
-    return this.http.put<review>(`http://localhost:8080/reviews/${review.id}`, updatedReview);
+    return this.http.put<review>(
+      `http://localhost:8080/reviews/${review.id}`,
+      updatedReview,
+    );
   }
-  
 
   deleteReview(reviewId: number): Observable<any> {
     console.log('ID de la critique à supprimer:', reviewId);

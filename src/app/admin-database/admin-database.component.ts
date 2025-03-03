@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
-import { MemberNavbarComponent } from '../member-navbar/member-navbar.component';
 import { movieCards } from '../model/movieCards.model';
 import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
@@ -8,11 +7,11 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-admin-database',
   standalone: true,
-  imports: [AdminNavbarComponent, MemberNavbarComponent, CommonModule],
+  imports: [AdminNavbarComponent, CommonModule],
   templateUrl: './admin-database.component.html',
   styleUrl: './admin-database.component.scss',
 })
-export class AdminDatabaseComponent {
+export class AdminDatabaseComponent implements OnInit {
   movieCards: movieCards[] = [];
 
   constructor(private apiService: ApiService) {}

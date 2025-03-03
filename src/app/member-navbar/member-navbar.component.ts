@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './member-navbar.component.html',
-  styleUrl: './member-navbar.component.scss'
+  styleUrl: './member-navbar.component.scss',
 })
-export class MemberNavbarComponent {
-
-}
+export class MemberNavbarComponent {}

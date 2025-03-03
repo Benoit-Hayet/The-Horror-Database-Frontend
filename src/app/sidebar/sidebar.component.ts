@@ -3,7 +3,6 @@ import { country } from '../model/country.model';
 import { countries } from '../data/country.data';
 import { CommonModule } from '@angular/common';
 import { movieCards } from '../model/movieCards.model';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',

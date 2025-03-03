@@ -5,11 +5,11 @@ export interface review {
   username: string;
   rating: number;
   review: string;
-  title?: string;          
-  releaseYear?: number;    
-  genreName?: string;      
-  posterUrl?: string;      
-  synopsis?: string;       
+  title?: string;
+  releaseYear?: number;
+  genreName?: string;
+  posterUrl?: string;
+  synopsis?: string;
   movieDTOS?: Array<{
     id: number;
     title: string;

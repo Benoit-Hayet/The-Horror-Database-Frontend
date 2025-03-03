@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -16,12 +16,12 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
- loginForm: FormGroup;
+  loginForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -35,11 +35,11 @@ export class LoginComponent {
         (response) => {
           this.authService.saveToken(response);
           this.authService.isLoggedIn();
-          console.log(this.authService.getDecodedToken())
+          console.log(this.authService.getDecodedToken());
           this.router.navigate(['/account']);
         },
         (error) => {
-          console.error("Erreur lors de la connexion", error);
+          console.error('Erreur lors de la connexion', error);
         },
       );
     }

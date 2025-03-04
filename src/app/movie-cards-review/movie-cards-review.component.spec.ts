@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing'; // Importer HttpClientTestingModule
 import { MovieCardsReviewComponent } from './movie-cards-review.component';
 
 describe('MovieCardsReviewComponent', () => {
@@ -8,7 +8,7 @@ describe('MovieCardsReviewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MovieCardsReviewComponent],
+      imports: [HttpClientTestingModule, MovieCardsReviewComponent], // Ajouter HttpClientTestingModule ici
     }).compileComponents();
 
     fixture = TestBed.createComponent(MovieCardsReviewComponent);

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { review } from '../model/review.model';
 import { ReviewService } from '../../services/review.service';
@@ -11,7 +11,7 @@ import { ReviewService } from '../../services/review.service';
   templateUrl: './movie-cards-review.component.html',
   styleUrl: './movie-cards-review.component.scss',
 })
-export class MovieCardsReviewComponent {
+export class MovieCardsReviewComponent implements OnInit {
   reviews: review[] = [];
 
   constructor(private reviewService: ReviewService) {}

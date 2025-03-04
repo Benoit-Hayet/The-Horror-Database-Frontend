@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { movieCards } from '../model/movieCards.model';
 import { ApiService } from '../../services/api.service';
 import { RouterLink } from '@angular/router';
@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './movie-cards.component.html',
   styleUrl: './movie-cards.component.scss',
 })
-export class MovieCardsComponent {
+export class MovieCardsComponent implements OnInit {
   movieCards: movieCards[] = [];
 
   constructor(private apiService: ApiService) {}

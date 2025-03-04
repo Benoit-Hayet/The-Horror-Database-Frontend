@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ApiService } from '../../services/api.service';
-import { movieCards } from '../model/movieCards.model';
 import { review } from '../model/review.model';
 import { ReviewService } from '../../services/review.service';
 
@@ -13,18 +11,24 @@ import { ReviewService } from '../../services/review.service';
   templateUrl: './movie-cards-review.component.html',
   styleUrl: './movie-cards-review.component.scss',
 })
-export class MovieCardsReviewComponent {
+export class MovieCardsReviewComponent implements OnInit {
   reviews: review[] = [];
 
   constructor(private reviewService: ReviewService) {}
- @ViewChild('moviesContainer', { static: false }) moviesContainer!: ElementRef;
+  @ViewChild('moviesContainer', { static: false }) moviesContainer!: ElementRef;
 
   scrollLeft() {
-    this.moviesContainer.nativeElement.scrollBy({ left: -300, behavior: 'smooth' });
+    this.moviesContainer.nativeElement.scrollBy({
+      left: -300,
+      behavior: 'smooth',
+    });
   }
 
   scrollRight() {
-    this.moviesContainer.nativeElement.scrollBy({ left: 300, behavior: 'smooth' });
+    this.moviesContainer.nativeElement.scrollBy({
+      left: 300,
+      behavior: 'smooth',
+    });
   }
   ngOnInit() {
     this.reviewService.getAllReviews().subscribe((response) => {
@@ -34,8 +38,6 @@ export class MovieCardsReviewComponent {
   }
 
   get sortedMoviesByReview(): review[] {
-   
     return this.reviews.sort((a, b) => b.id - a.id).slice(0, 15);
-    
   }
 }

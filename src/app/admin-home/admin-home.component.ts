@@ -6,8 +6,6 @@ import { MemberNavbarComponent } from '../member-navbar/member-navbar.component'
   standalone: true,
   imports: [MemberNavbarComponent],
   templateUrl: './admin-home.component.html',
-  styleUrl: './admin-home.component.scss'
+  styleUrl: './admin-home.component.scss',
 })
-export class AdminHomeComponent {
-
-}
+export class AdminHomeComponent {}

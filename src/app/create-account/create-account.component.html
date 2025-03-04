@@ -1,31 +1,53 @@
 <div class="registerContainer">
-    <h1>Créer un compte</h1>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <h1>Créer un compte</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="name-container">
+      <label for="lastName"></label>
+      <input
+        type="text"
+        id="lastName"
+        formControlName="lastName"
+        placeholder="Nom"
+      />
 
-        <div class="name-container">
-        <label for="lastName"></label>
-        <input type="text" id="lastName" formControlName="lastName" placeholder="Nom">
+      <label for="firstName"></label>
+      <input
+        type="text"
+        id="firstName"
+        formControlName="firstName"
+        placeholder="Prénom"
+      />
 
-        <label for="firstName"></label>
-        <input type="text" id="firstName" formControlName="firstName"placeholder="Prénom">
-
-        <label for="username"></label>
-        <input type="text" id="username" formControlName="username"placeholder="Pseudo">
+      <label for="username"></label>
+      <input
+        type="text"
+        id="username"
+        formControlName="username"
+        placeholder="Pseudo"
+      />
     </div>
 
     <label for="birthdate"></label>
-        <input type="date" id="birthdate" formControlName="birthdate"placeholder="Date de naissance JJ/MM/AAAA"
-        >
+    <input
+      type="date"
+      id="birthdate"
+      formControlName="birthdate"
+      placeholder="Date de naissance JJ/MM/AAAA"
+    />
 
-        <label for="email"></label>
-        <input type="text" id="email" formControlName="email" placeholder="Email">
-        
-        <label for="password"></label>
-        <input type="password" id="password" formControlName="password"placeholder="Mot de passe">
-        
-        <button >Suivant</button>
-    </form>
-    <div class="create-account">
+    <label for="email"></label>
+    <input type="text" id="email" formControlName="email" placeholder="Email" />
+
+    <label for="password"></label>
+    <input
+      type="password"
+      id="password"
+      formControlName="password"
+      placeholder="Mot de passe"
+    />
+
+    <button>Suivant</button>
+  </form>
+  <div class="create-account"></div>
+  <a [routerLink]="'/login'" class="buttonBack">Retour</a>
 </div>
-<a [routerLink]="'/login'" class="buttonBack">Retour</a>
-  </div>

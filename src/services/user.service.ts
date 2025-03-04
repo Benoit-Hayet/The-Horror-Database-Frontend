@@ -8,37 +8,35 @@ import { User } from '../app/model/user.model';
   providedIn: 'root',
 })
 export class UserService {
-
   private apiUrl = 'http://localhost:8080/users';
 
-  constructor(private http: HttpClient, private authService:AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+  ) {}
 
-  getAllUsers(): Observable<any> {
-    return this.http.get('http://localhost:8080/users');
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>('http://localhost:8080/users');
   }
-  
 
   getToken(): string | null {
     const token = localStorage.getItem('authToken');
     console.log('Token récupéré:', token);
     return token;
   }
-  
 
-getUserProfile(): Observable<User> {
-  const token = this.authService.getToken()
-  console.log('Token récupéré:', token); // Centralisé dans AuthService
-  const id = this.authService.getUserId();
+  getUserProfile(): Observable<User> {
+    const token = this.authService.getToken();
+    console.log('Token récupéré:', token); // Centralisé dans AuthService
+    const id = this.authService.getUserId();
 
-  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  console.log('Headers envoyés:', headers);
-  return this.http.get<User>(`${this.apiUrl}/${id}`, { headers }).pipe(
-    catchError(error => {
-      console.error('Error fetching user profile:', error);
-      return throwError(() => error); // Utilisation de la syntaxe moderne
-    })
-  );
-}
-
-  
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    console.log('Headers envoyés:', headers);
+    return this.http.get<User>(`${this.apiUrl}/${id}`, { headers }).pipe(
+      catchError((error) => {
+        console.error('Error fetching user profile:', error);
+        return throwError(() => error); // Utilisation de la syntaxe moderne
+      }),
+    );
+  }
 }

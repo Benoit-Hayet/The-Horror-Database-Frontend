@@ -26,12 +26,12 @@ export class DatabaseComponent {
   }
 
   handleCountry(country: string): void {
-    console.log(country)
+    console.log(country);
     this.countryClicked = country;
   }
 
   orderByTitleChange(order: 'asc') {
-    console.log("Tri reçu :", order);
+    console.log('Tri reçu :', order);
     this.orderByTitle = order;
   }
 

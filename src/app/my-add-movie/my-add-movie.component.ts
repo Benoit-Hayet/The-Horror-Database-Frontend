@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MemberNavbarComponent } from '../member-navbar/member-navbar.component';
 import { AuthService } from '../../services/auth.service';
 import { ReviewService } from '../../services/review.service';
@@ -14,7 +14,7 @@ import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
   templateUrl: './my-add-movie.component.html',
   styleUrl: './my-add-movie.component.scss',
 })
-export class MyAddMovieComponent {
+export class MyAddMovieComponent implements OnInit {
   addedMovieCards: movieCards[] = [];
   stars: number[] = [1, 2, 3, 4, 5];
   isAdmin: boolean = false;
@@ -28,7 +28,7 @@ export class MyAddMovieComponent {
   ngOnInit() {
     const decodedToken = this.authService.getDecodedToken();
     if (decodedToken) {
-      const userId = decodedToken.id;
+      //const userId = decodedToken.id;
 
       this.isAdmin = decodedToken.roles.some(
         (role: any) => role.authority === 'ROLE_ADMIN',

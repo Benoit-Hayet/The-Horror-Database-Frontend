@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './star-rating.component.html',
-  styleUrl: './star-rating.component.scss'
+  styleUrl: './star-rating.component.scss',
 })
 export class StarRatingComponent {
   stars: number[] = [1, 2, 3, 4, 5];

@@ -5,10 +5,8 @@ import { MemberNavbarComponent } from '../member-navbar/member-navbar.component'
 @Component({
   selector: 'app-member-home',
   standalone: true,
-  imports: [CommonModule,MemberNavbarComponent],
+  imports: [CommonModule, MemberNavbarComponent],
   templateUrl: './member-home.component.html',
-  styleUrl: './member-home.component.scss'
+  styleUrl: './member-home.component.scss',
 })
-export class MemberHomeComponent {
-
-}
+export class MemberHomeComponent {}

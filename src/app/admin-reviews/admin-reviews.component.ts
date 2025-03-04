@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
-import { MemberNavbarComponent } from '../member-navbar/member-navbar.component';
 import { ReviewService } from '../../services/review.service';
 import { review } from '../model/review.model';
 import { CommonModule } from '@angular/common';
@@ -8,11 +7,11 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-admin-reviews',
   standalone: true,
-  imports: [AdminNavbarComponent,MemberNavbarComponent,CommonModule],
+  imports: [AdminNavbarComponent, CommonModule],
   templateUrl: './admin-reviews.component.html',
-  styleUrl: './admin-reviews.component.scss'
+  styleUrl: './admin-reviews.component.scss',
 })
-export class AdminReviewsComponent {
+export class AdminReviewsComponent implements OnInit {
   review: review[] = [];
 
   constructor(private reviewService: ReviewService) {}
@@ -20,7 +19,6 @@ export class AdminReviewsComponent {
   ngOnInit() {
     this.reviewService.getAllReviews().subscribe((response) => {
       this.review = response;
-    })
-
+    });
   }
 }

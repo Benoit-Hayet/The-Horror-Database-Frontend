@@ -6,13 +6,13 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.scss']
+  styleUrls: ['./carousel.component.scss'],
 })
 export class CarouselComponent {
   images: string[] = [
     'assets/Wpp/Wpp1.jpg',
     'assets/Wpp/Wpp2.jpg',
-    'assets/Wpp/Wpp3.jpg'
+    'assets/Wpp/Wpp3.jpg',
   ];
   currentIndex = 0;
 
@@ -21,7 +21,7 @@ export class CarouselComponent {
   }
 
   prevSlide() {
-    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+    this.currentIndex =
+      (this.currentIndex - 1 + this.images.length) % this.images.length;
   }
 }
-  

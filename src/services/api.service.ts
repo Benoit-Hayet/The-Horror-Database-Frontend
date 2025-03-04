@@ -8,28 +8,31 @@ import { review } from '../app/model/review.model';
   providedIn: 'root',
 })
 export class ApiService {
-
   private apiUrl = 'http://localhost:8080/movies';
-  
+
   movieCards: movieCards[] = [];
 
   constructor(private http: HttpClient) {}
 
-  getAllMovies(): Observable<any> {
-    return this.http.get('http://localhost:8080/movies');
-  }
-  
-
-  getMoviesById(movieId: number): Observable<any> {
-    return this.http.get(`http://localhost:8080/movies/${movieId}`);
+  getAllMovies(): Observable<movieCards[]> {
+    return this.http.get<movieCards[]>('http://localhost:8080/movies');
   }
 
-  getAllReviews(): Observable<any> {
-    return this.http.get('http://localhost:8080/reviews');
+  getMoviesById(movieId: number): Observable<movieCards> {
+    return this.http.get<movieCards>(`http://localhost:8080/movies/${movieId}`);
+  }
+
+  getAllReviews(): Observable<review[]> {
+    return this.http.get<review[]>('http://localhost:8080/reviews');
   }
 
   getReviewsByMovieId(movieId: number): Observable<review[]> {
-    return this.http.get<review[]>(`http://localhost:8080/reviews/movie-review/${movieId}`).pipe(
-      tap(response => console.log('Response from getMoviesById:', response))
-    );
-  }}
+    return this.http
+      .get<review[]>(`http://localhost:8080/reviews/movie-review/${movieId}`)
+      .pipe(
+        tap((response) =>
+          console.log('Response from getMoviesById:', response),
+        ),
+      );
+  }
+}

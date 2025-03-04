@@ -1,29 +1,29 @@
 <div class="movies-wrapper">
   <button class="scroll-btn left" (click)="scrollLeft()">&#10094;</button>
-    <div class="movies-container" #moviesContainer>
-      <ng-container *ngFor="let review of sortedMoviesByReview">
-        <article
-          *ngIf="review.id"
-          [routerLink]="['/movie-review', review.movieDTOS?.[0]?.id]"
-        >
-          <header>
+  <div class="movies-container" #moviesContainer>
+    <ng-container *ngFor="let review of sortedMoviesByReview">
+      <article
+        *ngIf="review.id"
+        [routerLink]="['/movie-review', review.movieDTOS?.[0]?.id]"
+      >
+        <header>
+          <img
+            [src]="review.movieDTOS?.[0]?.posterUrl"
+            alt="{{ review.title }} poster"
+            class="img"
+          />
+        </header>
+          <div class="review-header">
             <img
-              [src]="review.movieDTOS?.[0]?.posterUrl"
-              alt="{{ review.title }} poster"
-              class="img"
+              [src]="review.avatarUrl"
+              alt="{{ review.avatarUrl }}"
+              class="avatar"
             />
-            <div class="review-header">
-              <img
-                [src]="review.avatarUrl"
-                alt="{{ review.avatarUrl }}"
-                class="avatar"
-              />
-              <strong class="username">{{ review.username }}</strong>
-            </div>
-            <p class="userReview">{{ review.review }}</p>
-          </header>
-        </article>
-      </ng-container>
-    </div>
-    <button class="scroll-btn right" (click)="scrollRight()">&#10095;</button>
+            <strong class="username">{{ review.username }}</strong>
+          </div>
+          <p class="userReview">{{ review.review }}</p>
+      </article>
+    </ng-container>
+  </div>
+  <button class="scroll-btn right" (click)="scrollRight()">&#10095;</button>
 </div>

@@ -16,7 +16,10 @@ import { MovieService } from '../../services/movie.service';
 export class AdminAddMovieComponent implements OnInit {
   movieCards: movieCards[] = [];
 
-  constructor(private apiService: ApiService, private movieService: MovieService) {}
+  constructor(
+    private apiService: ApiService,
+    private movieService: MovieService,
+  ) {}
 
   ngOnInit(): void {
     this.fetchPendingMovies();
@@ -25,7 +28,9 @@ export class AdminAddMovieComponent implements OnInit {
   private fetchPendingMovies(): void {
     this.apiService.getAllMovies().subscribe({
       next: (response) => {
-        this.movieCards = response.filter((movie: movieCards) => movie.status === 'PENDING');
+        this.movieCards = response.filter(
+          (movie: movieCards) => movie.status === 'PENDING',
+        );
       },
       error: (error) => {
         console.error('Erreur lors de la récupération des films :', error);
@@ -38,7 +43,7 @@ export class AdminAddMovieComponent implements OnInit {
   }
 
   /**
-   * @param movie 
+   * @param movie
    * @param newStatus
    */
   updateMovieStatus(movie: movieCards, newStatus: string): void {
@@ -49,7 +54,7 @@ export class AdminAddMovieComponent implements OnInit {
         console.log('Mise à jour réussie :', response);
 
         this.movieCards = this.movieCards.map((m) =>
-          m.id === updatedMovie.id ? response : m
+          m.id === updatedMovie.id ? response : m,
         );
       },
       error: (error) => {

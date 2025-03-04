@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MemberNavbarComponent } from '../member-navbar/member-navbar.component';
-import { ReviewService } from '../../services/review.service';
 import { AuthService } from '../../services/auth.service';
 import { FavoriteService } from '../../services/favorite.service';
 import { MovieService } from '../../services/movie.service';
@@ -15,7 +14,7 @@ import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
   templateUrl: './favorite-movie.component.html',
   styleUrls: ['./favorite-movie.component.scss'],
 })
-export class FavoriteMovieComponent {
+export class FavoriteMovieComponent implements OnInit {
   favoriteMovieCards: favorite[] = [];
   isAdmin: boolean = false;
 
@@ -28,7 +27,7 @@ export class FavoriteMovieComponent {
   ngOnInit() {
     const decodedToken = this.authService.getDecodedToken(); // Récupérer le token décodé
     if (decodedToken) {
-      const userId = decodedToken.id;
+      //const userId = decodedToken.id;
 
       this.isAdmin = decodedToken.roles.some(
         (role: any) => role.authority === 'ROLE_ADMIN',

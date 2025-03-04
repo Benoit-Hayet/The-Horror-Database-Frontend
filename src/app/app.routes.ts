@@ -35,7 +35,7 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    canActivate: [AuthGuard],  // Utilisation de AuthGuard (avec majuscule)
+    canActivate: [AuthGuard], // Utilisation de AuthGuard (avec majuscule)
     data: {
       userType: 'visitor',
     },
@@ -47,7 +47,7 @@ export const routes: Routes = [
   {
     path: 'create-account',
     component: CreateAccountComponent,
-    canActivate: [AuthGuard],  // Idem
+    canActivate: [AuthGuard], // Idem
     data: {
       userType: 'visitor',
     },
@@ -55,7 +55,6 @@ export const routes: Routes = [
   {
     path: 'member-home',
     component: MemberHomeComponent,
-   
   },
   {
     path: 'account',
@@ -80,25 +79,25 @@ export const routes: Routes = [
   {
     path: 'admin-home',
     component: AdminHomeComponent,
-    canActivate: [AuthGuard],  // Idem
+    canActivate: [AuthGuard], // Idem
     data: {
       userType: 'admin',
     },
   },
-  { 
-  path: 'admin-add-movie',
-  component: AdminAddMovieComponent,
-},
-{ 
-  path: 'admin-database',
-  component: AdminDatabaseComponent,
-},
-{ 
-  path: 'admin-members',
-  component: AdminMembersComponent,
-},
-{ 
-  path: 'admin-reviews',
-  component: AdminReviewsComponent,
-},
+  {
+    path: 'admin-add-movie',
+    component: AdminAddMovieComponent,
+  },
+  {
+    path: 'admin-database',
+    component: AdminDatabaseComponent,
+  },
+  {
+    path: 'admin-members',
+    component: AdminMembersComponent,
+  },
+  {
+    path: 'admin-reviews',
+    component: AdminReviewsComponent,
+  },
 ];

@@ -1,7 +1,14 @@
 <div class="carousel-container">
-    <div class="carousel-slide" [ngStyle]="{ transform: 'translateX(' + currentIndex * -100 + '%)' }">
-      <img *ngFor="let image of images; let i = index" [src]="image" alt="Carousel image {{ i + 1 }}" />
-    </div>
-    <button class="prev" (click)="prevSlide()">&#10094;</button>
-    <button class="next" (click)="nextSlide()">&#10095;</button>
+  <div
+    class="carousel-slide"
+    [ngStyle]="{ transform: 'translateX(' + currentIndex * -100 + '%)' }"
+  >
+    <img
+      *ngFor="let image of images; let i = index"
+      [src]="image"
+      alt="Carousel image {{ i + 1 }}"
+    />
   </div>
+  <button class="prev" (click)="prevSlide()">&#10094;</button>
+  <button class="next" (click)="nextSlide()">&#10095;</button>
+</div>

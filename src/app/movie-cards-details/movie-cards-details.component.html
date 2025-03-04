@@ -20,7 +20,7 @@
             <span
               *ngFor="let star of stars; let i = index"
               [ngStyle]="{
-                color: i < (averageScores[item.id] || 0) ? 'gold' : 'gray'
+                color: i < (averageScores[item.id] || 0) ? 'gold' : 'gray',
               }"
             >
               ★

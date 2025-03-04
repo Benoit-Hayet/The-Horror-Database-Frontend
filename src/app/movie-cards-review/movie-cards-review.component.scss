@@ -7,13 +7,13 @@
 
 .movies-container {
   display: flex;
-  gap: 6px;
+  gap: 10px;
   overflow-x: hidden;
   padding: 10px;
   box-sizing: border-box;
   scroll-behavior: smooth;
   white-space: nowrap;
- 
+
 }
 article {
   flex: 0 0 auto; 
@@ -49,23 +49,6 @@ a,p {
   &:hover {
     background-color: rgba(0, 0, 0, 0.8);
   }
-}.scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  font-size: 24px;
-  border-radius: 50%;
-  z-index: 10;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
 }
 
 .left {
@@ -80,14 +63,28 @@ a,p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 80%;
   margin-bottom: 8px;
 }
 
 .userReview {
-  margin-top: 8px;
-  font-size: 1em;
-  line-height: 1.4;
+  display:flex;
+  overflow: hidden;
+  text-overflow: ellipsis '...';
+  word-wrap: break-word; /* Permet de couper les mots longs si nécessaire */
+  max-width: 60%; /* Assure que le texte reste dans la card */
 }
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+  align-items: flex-start;
+}
+
+
 article {
   display: flex;
   flex-direction: column;
@@ -139,12 +136,7 @@ h3 {
   color: white;
 }
 
-p {
-  text-align: center;
-  font-size: 0.8rem;
-  padding: 3px;
-  color: white;
-}
+
 
 .img {
   border-radius: 2px;
@@ -154,38 +146,6 @@ p {
 }
 
 @media screen and (min-width: 1200px) {
-  .movies-container {
-    gap: 2px;
-  }
 
-  article {
-    padding: 16px;
-    width: 300px;
-    height: 500px;
-    box-sizing: border-box;
-  }
-
-  section {
-    padding: 8px;
-  }
-
-  h3,
-  p {
-    text-align: center;
-    font-size: 1rem;
-  }
-
-  .img {
-    border-radius: 2px;
-    width: 200px;
-    height: 300px;
-  }
-
-  .btn-style {
-    display: inline-block;
-    justify-content: center;
-    padding: 10px 20px;
-    color: #fff;
-  }
 
 }

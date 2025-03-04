@@ -1,26 +1,33 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  Router,
+} from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 
 @Injectable({
-  providedIn: 'root'  // Assure-toi que le guard est fourni dans le root
+  providedIn: 'root', // Assure-toi que le guard est fourni dans le root
 })
 export class AuthGuard implements CanActivate {
-
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {}
 
   // Fonction pour vérifier les rôles
   private checkRole(role: string): boolean {
     const decodedToken = this.authService.getDecodedToken();
-    return decodedToken && decodedToken.roles && decodedToken.roles.some((r: any) => r.authority === role);
+    return (
+      decodedToken &&
+      decodedToken.roles &&
+      decodedToken.roles.some((r: any) => r.authority === role)
+    );
   }
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    //state: RouterStateSnapshot
   ): boolean {
     const userType = route.data['userType'];
 
@@ -49,7 +56,4 @@ export class AuthGuard implements CanActivate {
 
     return false;
   }
-
-  
-
 }

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyAddMovieComponent } from './my-add-movie.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('MyAddMovieComponent', () => {
   let component: MyAddMovieComponent;
@@ -8,10 +9,9 @@ describe('MyAddMovieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MyAddMovieComponent]
-    })
-    .compileComponents();
-    
+      imports: [HttpClientTestingModule, MyAddMovieComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(MyAddMovieComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

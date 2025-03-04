@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing'; // Import du module de test pour HttpClient
 import { DatabaseComponent } from './database.component';
 
 describe('DatabaseComponent', () => {
@@ -8,10 +8,9 @@ describe('DatabaseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DatabaseComponent]
-    })
-    .compileComponents();
-    
+      imports: [HttpClientTestingModule, DatabaseComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(DatabaseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

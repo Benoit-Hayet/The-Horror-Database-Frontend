@@ -12,6 +12,7 @@
             alt="{{ review.title }} poster"
             class="img"
           />
+        </header>
           <div class="review-header">
             <img
               [src]="review.avatarUrl"
@@ -21,7 +22,6 @@
             <strong class="username">{{ review.username }}</strong>
           </div>
           <p class="userReview">{{ review.review }}</p>
-        </header>
       </article>
     </ng-container>
   </div>

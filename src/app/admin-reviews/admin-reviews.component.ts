@@ -24,8 +24,6 @@ export class AdminReviewsComponent implements OnInit {
   deleteReview(reviewId: number): void {
     this.reviewService.deleteReview(reviewId).subscribe({
       next: () => {
-        console.log(`Critique avec l'ID ${reviewId} supprimée.`);
-        // Met à jour la liste des critiques localement après suppression
         this.review = this.review.filter(
           (review) => review.id !== reviewId,
         );

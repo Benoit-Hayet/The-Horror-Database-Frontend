@@ -21,4 +21,18 @@ export class AdminReviewsComponent implements OnInit {
       this.review = response;
     });
   }
+  deleteReview(reviewId: number): void {
+    this.reviewService.deleteReview(reviewId).subscribe({
+      next: () => {
+        console.log(`Critique avec l'ID ${reviewId} supprimée.`);
+        // Met à jour la liste des critiques localement après suppression
+        this.review = this.review.filter(
+          (review) => review.id !== reviewId,
+        );
+      },
+      error: (err) => {
+        console.error('Erreur lors de la suppression de la critique :', err);
+      },
+    });
+  }
 }

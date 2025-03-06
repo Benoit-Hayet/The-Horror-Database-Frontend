@@ -12,13 +12,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './admin-members.component.scss',
 })
 export class AdminMembersComponent implements OnInit {
-  member: User[] = [];
+  user: User[] = [];
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.userService.getAllUsers().subscribe((response) => {
-      this.member = response;
+      this.user = response;
     });
   }
 
@@ -35,7 +35,19 @@ export class AdminMembersComponent implements OnInit {
     return roleMap[role] || role;
   }
 
-  get sortedMemberById(): User[] {
-    return this.member.sort((a, b) => b.id - a.id).slice(0, 15);
+  get sortedUserById(): User[] {
+    return this.user.sort((a, b) => b.id - a.id).slice(0, 15);
+  }
+  deleteUser(userId: number): void {
+    this.userService.deleteUser(userId).subscribe({
+      next: () => {
+        this.user = this.user.filter(
+          (user) => user.id !== userId,
+        );
+      },
+      error: (err) => {
+        console.error('Erreur lors de la suppression de la critique :', err);
+      },
+    });
   }
 }

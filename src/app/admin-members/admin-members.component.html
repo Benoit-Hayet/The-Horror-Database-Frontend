@@ -2,24 +2,24 @@
 <h1>Les membres</h1>
 <section>
   <div class="movies-container"></div>
-  <ng-container *ngFor="let member of sortedMemberById">
+  <ng-container *ngFor="let user of sortedUserById">
     <div class="profil">
       <div class="content">
         <img
-          *ngIf="member?.avatarUrl"
-          [src]="member.avatarUrl"
+          *ngIf="user?.avatarUrl"
+          [src]="user.avatarUrl"
           alt="Avatar de l'utilisateur"
           class="img"
         />
-        <p class="pseudo"><strong>Pseudo :</strong> {{ member?.username }}</p>
+        <p class="pseudo"><strong>Pseudo :</strong> {{ user?.username }}</p>
         <p class="createdAt">
-          <strong>Inscription :</strong> {{ member.createdAt }}
+          <strong>Inscription :</strong> {{ user.createdAt }}
         </p>
         <p class="role">
-          <strong>Role :</strong> {{ formatRole(member.role) }}
+          <strong>Role :</strong> {{ formatRole(user.role) }}
         </p>
 
-        <a class="btn-style" href="#">Supprimer</a>
+        <a class="btn-style" href="#"(click)="deleteUser(user.id)">Supprimer</a>
       </div>
     </div>
   </ng-container>

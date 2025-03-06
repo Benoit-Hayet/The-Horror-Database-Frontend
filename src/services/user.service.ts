@@ -39,4 +39,7 @@ export class UserService {
       }),
     );
   }
+  deleteUser(userId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${userId}`);
+  }
 }

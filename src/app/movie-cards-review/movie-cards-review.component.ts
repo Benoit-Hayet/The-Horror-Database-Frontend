@@ -33,7 +33,6 @@ export class MovieCardsReviewComponent implements OnInit {
   ngOnInit() {
     this.reviewService.getAllReviews().subscribe((response) => {
       this.reviews = response;
-      console.log(response);
     });
   }
 

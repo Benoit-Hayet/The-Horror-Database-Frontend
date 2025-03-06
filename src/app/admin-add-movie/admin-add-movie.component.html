@@ -18,10 +18,10 @@
           <p class="synopsis">{{ item.synopsis }}</p>
         </header>
         <div class="content">
-          <button (click)="updateMovieStatus(item, 'APPROVED')">
+          <button class="btn-style" (click)="updateMovieStatus(item, 'APPROVED')">
             Approuver
           </button>
-          <button (click)="updateMovieStatus(item, 'REJECTED')">Rejeter</button>
+          <button class="btn-style" (click)="updateMovieStatus(item, 'REJECTED')">Rejeter</button>
         </div>
       </article>
     </ng-container>

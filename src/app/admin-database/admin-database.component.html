@@ -17,7 +17,7 @@
           <p class="synopsis">{{ item.synopsis }}</p>
         </div>
         <div class="btnbloc" class="btn-style">Modifier</div>
-        <div class="btnbloc" class="btn-style">Supprimer</div>
+        <div class="btnbloc" class="btn-style" (click)="deleteMovie(item.id)">Supprimer</div>
       </article>
     </ng-container>
   </div>

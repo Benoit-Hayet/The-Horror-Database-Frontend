@@ -13,7 +13,7 @@ article {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 
-h3,h1,strong,a,p,label {
+h3,h1,strong,a,p,label,textarea {
   color: white;
 }
 
@@ -102,16 +102,21 @@ h3 {
   width: 300px;
 }
 
-button {
-  background-color: black;
-  color: white;
-  border: none;
-  cursor: pointer;
+.btn-style {
+  margin-top: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: grey;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: grey;
+
+.btn-style:hover {
+  background-color: black;
 }
 
 .new-review {

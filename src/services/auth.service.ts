@@ -15,8 +15,9 @@ export class AuthService {
     birthdate: string,
     username: string,
     email: string,
-    role: string,
     password: string,
+    role: string,
+    
   ) {
     const body = {
       firstName,
@@ -24,8 +25,8 @@ export class AuthService {
       birthdate,
       username,
       email,
-      role,
       password,
+      role,
     };
     return this.http.post(this.authUrl + '/register', body);
   }

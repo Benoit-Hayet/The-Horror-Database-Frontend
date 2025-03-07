@@ -50,7 +50,6 @@ export class CreateAccountComponent {
         this.registerForm.value;
       const role = 'USER';
 
-      // Appel au service d'inscription
       this.authService
         .register(
           firstName,

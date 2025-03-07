@@ -46,7 +46,7 @@ export class AdminMembersComponent implements OnInit {
         );
       },
       error: (err) => {
-        console.error('Erreur lors de la suppression de la critique :', err);
+        console.error('Erreur lors de la suppression du membre :', err);
       },
     });
   }

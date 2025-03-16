@@ -68,7 +68,6 @@ export class MovieService {
     );
   }
   deleteMovie(movieId: number): Observable<any> {
-    console.log('ID du film à supprimer:', movieId);
     return this.http.delete(`${this.movieUrl}/${movieId}`);
   }
 }

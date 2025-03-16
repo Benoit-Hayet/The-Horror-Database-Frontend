@@ -7,16 +7,18 @@ import {
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule,CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  errorMessage: string | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,7 +27,7 @@ export class LoginComponent {
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required]],
     });
   }
   onSubmit(): void {
@@ -40,6 +42,7 @@ export class LoginComponent {
         },
         (error) => {
           console.error('Erreur lors de la connexion', error);
+          this.errorMessage = 'Mot de passe ou email incorrect. Veuillez réessayer.';
         },
       );
     }

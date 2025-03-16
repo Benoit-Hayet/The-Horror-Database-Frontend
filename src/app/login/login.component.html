@@ -12,8 +12,14 @@
       placeholder="Mot de passe"
     />
 
-    <button>Se Connecter</button>
+    <button type="submit">Se Connecter</button>
   </form>
+
+  <!-- Afficher le message d'erreur si présent -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
   <div class="create-account">
     <p>Pas encore membre ?</p>
     <a [routerLink]="'/create-account'">Inscris-toi !</a>

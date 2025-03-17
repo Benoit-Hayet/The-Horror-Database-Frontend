@@ -3,6 +3,9 @@ import { movieCards } from '../model/movieCards.model';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { RouterLink } from '@angular/router';
+import { favorite } from '../model/favorite.model';
+import { FavoriteService } from '../../services/favorite.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-movie-cards-details',
@@ -18,6 +21,7 @@ export class MovieCardsDetailsComponent implements OnInit {
   orderRating: movieCards[] = [];
   averageScores: { [key: number]: number } = {}; // Stocke la moyenne de chaque film
   stars: number[] = [1, 2, 3, 4, 5];
+  favorite:favorite[] = [];
 
   @Input() genreClicked: string = '';
   @Input() yearClicked: any = '';
@@ -25,7 +29,7 @@ export class MovieCardsDetailsComponent implements OnInit {
   @Input() orderByTitle: string = '';
   @Input() orderByRating: 'asc' | 'desc' = 'asc';
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService,private favoriteService: FavoriteService,private authService: AuthService) {}
 
   ngOnInit() {
     this.apiService.getAllMovies().subscribe((response) => {
@@ -35,7 +39,8 @@ export class MovieCardsDetailsComponent implements OnInit {
       this.filteredMovieCards = [...this.movieCards];
       this.orderTitles = [...this.movieCards];
       this.orderRating = [...this.movieCards];
-
+   
+this.favoriteMovie();
       this.calculateAverageScores();
     });
   }
@@ -117,4 +122,58 @@ export class MovieCardsDetailsComponent implements OnInit {
         )
       : [...this.movieCards];
   }
+  
+
+  favoriteMovie() {
+    const decodedToken = this.authService.getDecodedToken();
+    if (decodedToken) {
+      this.favoriteService.getFavoritesByUserId().subscribe((response) => {
+        this.favorite = response;
+        console.log(response)
+      });
+    }
+  }
+  
+  isFavorite(movieId: number): boolean {
+    return this.favorite ? this.favorite.some(fav => fav.movieId === movieId) : false;
+  }
+  
+  toggleFavorite(movieId: number) {
+    const decodedToken = this.authService.getDecodedToken();
+    if (decodedToken && this.favorite) {
+      const userId = decodedToken.id;
+  
+      // Trouver l'ID du favori à supprimer
+      const favorite = this.favorite.find(fav => fav.movieId === movieId);
+  
+      if (favorite) {
+        // Supprimer le favori en utilisant son ID
+        this.favoriteService.removeFavorite(favorite.id).subscribe({
+          next: () => {
+            console.log('Favori supprimé avec succès');
+            this.favorite = this.favorite.filter(fav => fav.id !== favorite.id);
+          },
+          error: (err) => {
+            console.error('Erreur lors de la suppression du favori', err);
+          }
+        });
+      } else {
+        // Ajouter le film aux favoris
+        this.favoriteService.addFavorite(userId, movieId).subscribe({
+          next: (response) => {
+            console.log('Favori ajouté avec succès');
+            this.favorite.push(response);
+          },
+          error: (err) => {
+            console.error('Erreur lors de l\'ajout du favori', err);
+          }
+        });
+      }
+    }
+  }
+  
 }
+
+   
+
+  

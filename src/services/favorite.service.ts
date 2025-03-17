@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { favorite } from '../app/model/favorite.model';
 import { AuthService } from './auth.service';
 
@@ -27,6 +27,7 @@ export class FavoriteService {
         favorite[]
       >(`${this.favoriteUrl}/user/${userId}`, { headers: this.getHeaders() })
       .pipe(
+        map(response => response || []), 
         catchError((error) => {
           console.error('Erreur lors de la récupération des favoris:', error);
           return throwError(() => new Error('Erreur de requête'));
@@ -49,9 +50,9 @@ export class FavoriteService {
       );
   }
 
-  removeFavorite(userId: number, movieId: number): Observable<any> {
+  removeFavorite(movieId: number): Observable<any> {
     return this.http
-      .delete(`${this.favoriteUrl}/${userId}/${movieId}`, {
+      .delete(`${this.favoriteUrl}/${movieId}`, {
         headers: this.getHeaders(),
       })
       .pipe(

@@ -1,14 +1,14 @@
 <div class="movies-wrapper">
   <button class="scroll-btn left" (click)="scrollLeft()">&#10094;</button>
   <div class="movies-container" #moviesContainer>
-    <ng-container *ngFor="let item of sortedMoviesById">
-      <article *ngIf="item.id">
+    <ng-container *ngFor="let movie of sortedMoviesById">
+      <article *ngIf="movie.id">
         <header>
           <img
-            [routerLink]="['/movie-review', item.id]"
+            [routerLink]="['/movie-review', movie.id]"
             class="btn-style"
-            [src]="item.posterUrl"
-            alt="{{ item.title }} poster"
+            [src]="movie.posterUrl"
+            alt="{{ movie.title }} poster"
             class="img"
           />
         </header>

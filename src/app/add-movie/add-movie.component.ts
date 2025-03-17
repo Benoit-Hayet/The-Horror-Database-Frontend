@@ -11,6 +11,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
+import { UploadFileService } from '../../services/upload-file.service';
 
 @Component({
   selector: 'app-add-movie',
@@ -30,7 +31,10 @@ export class AddMovieComponent {
     return this.authService.isLoggedIn();
   }
 
-  constructor(private movieService: MovieService) {}
+  constructor(
+    private movieService: MovieService,
+    private uploadFileService: UploadFileService,
+  ) {}
 
   addMovieForm = this.formBuilder.group({
     title: [''],
@@ -64,7 +68,7 @@ export class AddMovieComponent {
     }
   }
 
-  onFileSelected(event: Event): void {
+  /*onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {
       const file = input.files[0];
@@ -78,15 +82,16 @@ export class AddMovieComponent {
         },
       );
     }
-  }
+  }*/
 
-  // Méthode pour envoyer l'image au backend
-  uploadFile(file: File): Observable<string> {
-    const formData = new FormData();
-    formData.append('file', file);
+  uploadFile(event: any) {
+    const file = event.target.files[0];
+    this.uploadFileService.uploadFile(file).subscribe({
+      next:(response:any) => {
+        this.addMovieForm.get('posterUrl')?.setValue(response.secure_url);
+      }
 
-    // Supposons que le MovieService ait une méthode `uploadImage`.
-    return this.movieService.uploadImage(formData);
+    });
   }
 
   onSubmit() {

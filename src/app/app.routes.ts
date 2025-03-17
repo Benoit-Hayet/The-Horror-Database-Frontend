@@ -59,6 +59,10 @@ export const routes: Routes = [
   {
     path: 'account',
     component: AccountComponent,
+    canActivate: [AuthGuard], // Idem
+    data: {
+      userType: 'user',
+    },
   },
   {
     path: 'favorite-movie',
@@ -79,7 +83,7 @@ export const routes: Routes = [
   {
     path: 'admin-home',
     component: AdminHomeComponent,
-    canActivate: [AuthGuard], // Idem
+    canActivate: [AuthGuard],
     data: {
       userType: 'admin',
     },
@@ -87,6 +91,10 @@ export const routes: Routes = [
   {
     path: 'admin-add-movie',
     component: AdminAddMovieComponent,
+    canActivate: [AuthGuard],
+    data: {
+      userType: 'admin',
+    },
   },
   {
     path: 'admin-database',

@@ -40,10 +40,10 @@ export class AuthGuard implements CanActivate {
     }
 
     if (userType === 'user') {
-      if (this.authService.isLoggedIn() && this.checkRole('ROLE_USER')) {
-        this.router.navigate(['member-home']);
+      if (this.authService.isLoggedIn() && (this.checkRole('ROLE_ADMIN')|| this.checkRole('ROLE_USER'))) {
         return true;
       }
+      this.router.navigate(['']);
       return false;
     }
 
@@ -51,6 +51,7 @@ export class AuthGuard implements CanActivate {
       if (this.authService.isLoggedIn() && this.checkRole('ROLE_ADMIN')) {
         return true;
       }
+      this.router.navigate(['']);
       return false;
     }
 

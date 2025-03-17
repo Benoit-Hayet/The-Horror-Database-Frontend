@@ -41,7 +41,6 @@ export class ReviewService {
 
     return this.http.get<review[]>(`${this.reviewUrl}/${id}`, { headers }).pipe(
       catchError((error) => {
-        console.error('Erreur lors de la récupération des critiques:', error);
         return throwError(() => new Error('Erreur de requête'));
       }),
     );

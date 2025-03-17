@@ -11,16 +11,24 @@
     </button>
   </div>
   <div class="movies-container">
-    <ng-container *ngFor="let item of filteredMovieCards">
-      <article *ngIf="item.id">
+    <ng-container *ngFor="let movie of filteredMovieCards">
+      <article *ngIf="movie.id">
+        <button class="favoris" (click)="toggleFavorite(movie.id)">
+          {{ isFavorite(movie.id) ? "J'aime déjà" : "Ajouter à mes favoris" }}
+        </button>
+        
         <header class="header">
-          <h3>{{ item.title }}</h3>
+         
+          <div class="max-header">
+          <h3 class="movie-title">{{ movie.title }}</h3>
+         
+          </div>
           <div class="star-rating">
-            <p class="averageNumber">{{ averageScores[item.id] || 0 }}</p>
+            <p class="averageNumber">{{ averageScores[movie.id] || 0 }}</p>
             <span
               *ngFor="let star of stars; let i = index"
               [ngStyle]="{
-                color: i < (averageScores[item.id] || 0) ? 'gold' : 'gray',
+                color: i < (averageScores[movie.id] || 0) ? 'gold' : 'gray',
               }"
             >
               ★
@@ -28,19 +36,19 @@
           </div>
         </header>
         <section class="header-content">
-          <p>{{ item.releaseYear }}</p>
-          <p>{{ item.genreName }}</p>
-          <p>{{ item.director }}</p>
+          <p>{{ movie.releaseYear }}</p>
+          <p>{{ movie.genreName }}</p>
+          <p>{{ movie.director }}</p>
         </section>
         <div class="content">
           <img
-            [src]="item.posterUrl"
-            [alt]="item.title + ' poster'"
+            [src]="movie.posterUrl"
+            [alt]="movie.title + ' poster'"
             class="img"
           />
-          <p class="synopsis">{{ item.synopsis }}</p>
+          <p class="synopsis">{{ movie.synopsis }}</p>
         </div>
-        <a [routerLink]="['/movie-review', item.id]" class="btn-style"
+        <a [routerLink]="['/movie-review', movie.id]" class="btn-style"
           >Découvrir</a
         >
       </article>

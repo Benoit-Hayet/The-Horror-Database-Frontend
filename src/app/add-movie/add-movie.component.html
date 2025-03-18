@@ -45,13 +45,6 @@
     <label for="poster">Affiche</label>
     <input id="poster" type="file" (change)="uploadFile($event)" />
 
-    <input
-      type="url"
-      id="posterUrl"
-      formControlName="posterUrl"
-      placeholder="URL de l'affiche"
-    />
-
     <select
       [formControl]="addMovieForm.controls['genreName']"
       (change)="onGenreChange($event)"

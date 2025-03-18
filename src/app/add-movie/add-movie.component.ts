@@ -68,22 +68,6 @@ export class AddMovieComponent {
     }
   }
 
-  /*onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      this.uploadFile(file).subscribe(
-        (url: string) => {
-          this.addMovieForm.patchValue({ posterUrl: url });
-          console.log('Image uploadée, URL :', url);
-        },
-        (error) => {
-          console.error('Erreur lors de l’upload de l’image', error);
-        },
-      );
-    }
-  }*/
-
   uploadFile(event: any) {
     const file = event.target.files[0];
     this.uploadFileService.uploadFile(file).subscribe({

@@ -9,6 +9,7 @@ import {
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { UploadFileService } from '../../services/upload-file.service';
 
 @Component({
   selector: 'app-create-account',
@@ -19,14 +20,18 @@ import { AuthService } from '../../services/auth.service';
 })
 export class CreateAccountComponent {
   registerForm: FormGroup;
+  
    router: Router = inject(Router); // Injection du service Router
    
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private uploadFileService: UploadFileService,
+  
   ) {
     this.registerForm = this.formBuilder.group({
+      
       firstName: [
         '',
         [Validators.required, Validators.pattern('^[a-zA-ZÀ-ÿ\\s-]+$')],
@@ -35,6 +40,7 @@ export class CreateAccountComponent {
         '',
         [Validators.required, Validators.pattern('^[a-zA-ZÀ-ÿ\\s-]+$')],
       ],
+      avatarUrl:'',
       username: [
         '',
         [Validators.required, Validators.pattern('^[a-zA-ZÀ-ÿ\\s-]+$')],
@@ -47,39 +53,59 @@ export class CreateAccountComponent {
   }
   onSubmit(): void {
     if (this.registerForm.valid) {
-      // Récupération des valeurs du formulaire
-      const { firstName, lastName, birthdate, username, email, password } =
+      console.log('Valeurs du formulaire envoyées:', this.registerForm.value);
+  
+      const { firstName, lastName, avatarUrl, birthdate, username, email, password } =
         this.registerForm.value;
-      const role = 'USER';
-
+  
+      if (!avatarUrl) {
+        console.warn('⚠ avatarUrl est vide ou non défini !');
+      }
+  
       this.authService
         .register(
           firstName,
           lastName,
+          avatarUrl,
           birthdate,
           username,
           email,
           password,
-          role,
+          'USER',
         )
         .subscribe(
           (response: unknown) => {
             console.log('Inscription réussie :', response);
-            return  this.router.navigate(['/login']);
+            return this.router.navigate(['/login']);
           },
           (error: any) => {
-            console.error(
-              "Erreur lors de l'inscription :",
-              error?.error || error?.message || error,
-            );
-          },
+            console.error("Erreur lors de l'inscription :", error?.error || error?.message || error);
+          }
         );
-
-      console.log('Valeurs du formulaire envoyées :', this.registerForm.value);
     } else {
       console.log('Le formulaire est invalide :', this.registerForm.errors);
     }
   }
+  
+
+  uploadFile(event: any) {
+    const file = event.target.files[0];
+    this.uploadFileService.uploadFile(file).subscribe({
+      next: (response: any) => {
+        console.log('Réponse de l’upload:', response); // Vérifie que secure_url est bien présent
+        this.registerForm.get('avatarUrl')?.setValue(response.secure_url);
+        this.registerForm.get('avatarUrl')?.valueChanges.subscribe(value => {
+          console.log('Nouvelle valeur de avatarUrl:', value);
+        });
+        
+      },
+      error: (error) => {
+        console.error('Erreur lors de l’upload:', error);
+      }
+    });
+  }
+  
+ 
 
   dateValidator(control: AbstractControl): { [key: string]: any } | null {
     const dateRegex = /^\d{4}-\d{2}-\d{2}$/; // Format YYYY-MM-DD

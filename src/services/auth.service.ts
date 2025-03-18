@@ -12,6 +12,7 @@ export class AuthService {
   register(
     firstName: string,
     lastName: string,
+    avatarUrl:string,
     birthdate: string,
     username: string,
     email: string,
@@ -22,6 +23,7 @@ export class AuthService {
     const body = {
       firstName,
       lastName,
+      avatarUrl,
       birthdate,
       username,
       email,

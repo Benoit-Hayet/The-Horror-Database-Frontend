@@ -40,13 +40,8 @@ export class MovieService {
 
     return this.http.post(this.movieUrl, body);
   }
-  uploadImage(fileData: FormData): Observable<string> {
-    return this.http
-      .post<{ url: string }>('https://votre-backend.com/upload', fileData)
-      .pipe(
-        map((response) => response.url), // Supposons que le backend retourne un objet avec `url`.
-      );
-  }
+
+  
   getAddedMoviesByUserId(): Observable<movieCards[]> {
     const token = this.authService.getToken();
     const userId = this.authService.getUserId();

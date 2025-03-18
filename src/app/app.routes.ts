@@ -35,7 +35,7 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    canActivate: [AuthGuard], // Utilisation de AuthGuard (avec majuscule)
+    canActivate: [AuthGuard],
     data: {
       userType: 'visitor',
     },
@@ -47,7 +47,7 @@ export const routes: Routes = [
   {
     path: 'create-account',
     component: CreateAccountComponent,
-    canActivate: [AuthGuard], // Idem
+    canActivate: [AuthGuard],
     data: {
       userType: 'visitor',
     },
@@ -59,7 +59,7 @@ export const routes: Routes = [
   {
     path: 'account',
     component: AccountComponent,
-    canActivate: [AuthGuard], // Idem
+    canActivate: [AuthGuard],
     data: {
       userType: 'user',
     },
@@ -67,14 +67,26 @@ export const routes: Routes = [
   {
     path: 'favorite-movie',
     component: FavoriteMovieComponent,
+    canActivate: [AuthGuard],
+    data: {
+      userType: 'user',
+    },
   },
   {
     path: 'my-review',
     component: MyReviewComponent,
+    canActivate: [AuthGuard],
+    data: {
+      userType: 'user',
+    },
   },
   {
     path: 'my-add-movie',
     component: MyAddMovieComponent,
+    canActivate: [AuthGuard],
+    data: {
+      userType: 'user',
+    },
   },
   {
     path: 'movie-review/:movieIdPath',
@@ -99,13 +111,25 @@ export const routes: Routes = [
   {
     path: 'admin-database',
     component: AdminDatabaseComponent,
+    canActivate: [AuthGuard],
+    data: {
+      userType: 'admin',
+    },
   },
   {
     path: 'admin-members',
     component: AdminMembersComponent,
+    canActivate: [AuthGuard],
+    data: {
+      userType: 'admin',
+    },
   },
   {
     path: 'admin-reviews',
     component: AdminReviewsComponent,
+    canActivate: [AuthGuard],
+    data: {
+      userType: 'admin',
+    },
   },
 ];

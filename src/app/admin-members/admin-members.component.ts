@@ -36,14 +36,13 @@ export class AdminMembersComponent implements OnInit {
   }
 
   get sortedUserById(): User[] {
-    return this.user.sort((a, b) => b.id - a.id).slice(0, 15);
+    return [...this.user].sort((a, b) => b.id - a.id).slice(0, 15);
   }
+
   deleteUser(userId: number): void {
     this.userService.deleteUser(userId).subscribe({
       next: () => {
-        this.user = this.user.filter(
-          (user) => user.id !== userId,
-        );
+        this.user = this.user.filter((user) => user.id !== userId);
       },
       error: (err) => {
         console.error('Erreur lors de la suppression du membre :', err);

@@ -25,7 +25,7 @@ export class AddMovieComponent {
   countryMap: country[] = countries;
   genreMap: genre[] = genres;
   authService: AuthService = inject(AuthService);
-  router: Router = inject(Router); // Injection du service Router
+  router: Router = inject(Router);
 
   isLoggedOk(): boolean {
     return this.authService.isLoggedIn();

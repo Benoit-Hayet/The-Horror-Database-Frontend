@@ -25,10 +25,8 @@ export class FavoriteMovieComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const decodedToken = this.authService.getDecodedToken(); // Récupérer le token décodé
+    const decodedToken = this.authService.getDecodedToken();
     if (decodedToken) {
-      //const userId = decodedToken.id;
-
       this.isAdmin = decodedToken.roles.some(
         (role: any) => role.authority === 'ROLE_ADMIN',
       );
@@ -38,5 +36,17 @@ export class FavoriteMovieComponent implements OnInit {
         this.favoriteMovieCards = response;
       });
     }
+  }
+
+
+  deleteFavorite(Id: number): void {
+    this.favoriteService.removeFavorite(Id).subscribe({
+      next: () => {
+        this.favoriteMovieCards = this.favoriteMovieCards.filter((favoriteMovieCards) => favoriteMovieCards.id !== Id);
+      },
+      error: (err) => {
+        console.error('Erreur lors de la suppression du favois :', err);
+      },
+    });
   }
 }

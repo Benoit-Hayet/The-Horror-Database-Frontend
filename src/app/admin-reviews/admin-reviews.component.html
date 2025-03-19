@@ -4,7 +4,7 @@
   <article *ngFor="let review of review">
     <img
       [src]="review.movieDTOS?.[0]?.posterUrl || 'assets/default-poster.jpg'"
-      alt="Affiche du film"
+      alt="Affiche du film {{ review.movieDTOS?.[0]?.title }}"
       class="img"
     />
     <div class="header-content">

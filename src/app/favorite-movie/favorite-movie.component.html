@@ -5,7 +5,7 @@
   <article *ngFor="let movie of favoriteMovieCards">
     <img
       [src]="movie.movieDTOS?.[0]?.posterUrl || 'assets/default-poster.jpg'"
-      alt="Affiche du film"
+      alt="Affiche du film {{ movie.movieDTOS?.[0]?.title }}"
       class="img"
     />
     <div class="header-content">

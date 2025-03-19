@@ -16,19 +16,17 @@
         <button class="favoris" (click)="toggleFavorite(movie.id)">
           {{ isFavorite(movie.id) ? "J'aime déjà" : "Ajouter à mes favoris" }}
         </button>
-        
+
         <header class="header">
-         
           <div class="max-header">
-          <h3 class="movie-title">{{ movie.title }}</h3>
-         
+            <h3 class="movie-title">{{ movie.title }}</h3>
           </div>
           <div class="star-rating">
             <p class="averageNumber">{{ averageScores[movie.id] || 0 }}</p>
             <span
               *ngFor="let star of stars; let i = index"
               [ngStyle]="{
-                color: i < (averageScores[movie.id] || 0) ? 'gold' : 'gray',
+                color: i < (averageScores[movie.id] || 0) ? 'gold' : 'gray'
               }"
             >
               ★
@@ -43,7 +41,7 @@
         <div class="content">
           <img
             [src]="movie.posterUrl"
-            [alt]="movie.title + ' poster'"
+            [alt]="'Affiche du film' + movie.title"
             class="img"
           />
           <p class="synopsis">{{ movie.synopsis }}</p>

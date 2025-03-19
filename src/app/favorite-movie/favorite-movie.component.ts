@@ -38,11 +38,12 @@ export class FavoriteMovieComponent implements OnInit {
     }
   }
 
-
   deleteFavorite(Id: number): void {
     this.favoriteService.removeFavorite(Id).subscribe({
       next: () => {
-        this.favoriteMovieCards = this.favoriteMovieCards.filter((favoriteMovieCards) => favoriteMovieCards.id !== Id);
+        this.favoriteMovieCards = this.favoriteMovieCards.filter(
+          (favoriteMovieCards) => favoriteMovieCards.id !== Id,
+        );
       },
       error: (err) => {
         console.error('Erreur lors de la suppression du favois :', err);

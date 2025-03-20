@@ -1,22 +1,21 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { DatabaseComponent } from './database/database.component';
-import { LoginComponent } from './login/login.component';
-import { AboutComponent } from './about/about.component';
-import { CreateAccountComponent } from './create-account/create-account.component';
-import { MemberHomeComponent } from './member-home/member-home.component';
-import { AccountComponent } from './account/account.component';
-import { FavoriteMovieComponent } from './favorite-movie/favorite-movie.component';
-import { MyReviewComponent } from './my-review/my-review.component';
-import { MyAddMovieComponent } from './my-add-movie/my-add-movie.component';
-import { MovieReviewComponent } from './movie-review/movie-review.component';
-import { AddMovieComponent } from './add-movie/add-movie.component';
-import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
 import { AuthGuard } from './shared/guards/auth.guard';
-import { AdminAddMovieComponent } from './admin-add-movie/admin-add-movie.component';
-import { AdminDatabaseComponent } from './admin-database/admin-database.component';
-import { AdminMembersComponent } from './admin-members/admin-members.component';
-import { AdminReviewsComponent } from './admin-reviews/admin-reviews.component';
+import { AdminDatabaseComponent } from './Admin/admin-database/admin-database.component';
+import { AdminMembersComponent } from './Admin/admin-members/admin-members.component';
+import { AdminReviewsComponent } from './Admin/admin-reviews/admin-reviews.component';
+import { AdminAddMovieComponent } from './Admin/admin-add-movie/admin-add-movie.component';
+import { HomeComponent } from './Visitor/home/home.component';
+import { DatabaseComponent } from './Visitor/database/database.component';
+import { AboutComponent } from './Visitor/about/about.component';
+import { CreateAccountComponent } from './Visitor/create-account/create-account.component';
+import { AccountComponent } from './Member/account/account.component';
+import { FavoriteMovieComponent } from './Member/favorite-movie/favorite-movie.component';
+import { MyReviewComponent } from './Member/my-review/my-review.component';
+import { MyAddMovieComponent } from './Member/my-add-movie/my-add-movie.component';
+import { MovieReviewComponent } from './Visitor/movie-review/movie-review.component';
+import { AddMovieComponent } from './Member/add-movie/add-movie.component';
+import { LoginComponent } from './Visitor/login/login.component';
 
 export const routes: Routes = [
   {
@@ -51,10 +50,6 @@ export const routes: Routes = [
     data: {
       userType: 'visitor',
     },
-  },
-  {
-    path: 'member-home',
-    component: MemberHomeComponent,
   },
   {
     path: 'account',

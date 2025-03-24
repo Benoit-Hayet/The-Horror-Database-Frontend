@@ -9,9 +9,11 @@
 </div>
 
 <div class="container" *ngIf="isLoggedOk()">
+  <label for="title">Titre</label>
   <form class="form1" [formGroup]="addMovieForm" (ngSubmit)="onSubmit()">
     <input type="text" id="title" formControlName="title" placeholder="Titre" />
 
+    <label for="country">Pays</label>
     <select
       [formControl]="addMovieForm.controls['country']"
       (change)="onCountryChange($event)"
@@ -22,6 +24,7 @@
       </ng-container>
     </select>
 
+    <label for="releaseYear">Année de sortie</label>
     <input
       type="number"
       id="releaseYear"
@@ -29,6 +32,7 @@
       placeholder="Année de sortie"
     />
 
+    <label for="director">Réalisateur</label>
     <input
       type="text"
       id="director"
@@ -36,6 +40,7 @@
       placeholder="Réalisateur"
     />
 
+    <label for="synopsis">Synopsis</label>
     <textarea
       id="synopsis"
       formControlName="synopsis"
@@ -45,6 +50,7 @@
     <label for="poster">Affiche</label>
     <input id="poster" type="file" (change)="uploadFile($event)" />
 
+    <label for="genre">Genre</label>
     <select
       [formControl]="addMovieForm.controls['genreName']"
       (change)="onGenreChange($event)"

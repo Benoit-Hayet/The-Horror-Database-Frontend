@@ -21,7 +21,7 @@ import { UploadFileService } from '../../../services/upload-file.service';
 })
 export class CreateAccountComponent {
   registerForm: FormGroup;
-  
+  errorMessage: string | null = null;
    router: Router = inject(Router); // Injection du service Router
    
 
@@ -49,7 +49,7 @@ export class CreateAccountComponent {
 
       birthdate: ['', [Validators.required, this.dateValidator]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(12),Validators.pattern(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
     });
   }
   onSubmit(): void {
@@ -85,6 +85,7 @@ export class CreateAccountComponent {
         );
     } else {
       console.log('Le formulaire est invalide :', this.registerForm.errors);
+      this.errorMessage = 'Mot de passe ou email incorrect. Veuillez réessayer.';
     }
   }
   

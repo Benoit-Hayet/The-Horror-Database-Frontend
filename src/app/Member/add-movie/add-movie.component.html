@@ -1,4 +1,5 @@
 <h1>Ajouter un film</h1>
+
 <div class="unLogged" *ngIf="!isLoggedOk()">
   <p class="centered-paragraph">
     <a [routerLink]="'/create-account'" class="bold">Inscrivez-vous</a>
@@ -9,61 +10,62 @@
 </div>
 
 <div class="container" *ngIf="isLoggedOk()">
-  <label for="title">Titre</label>
   <form class="form1" [formGroup]="addMovieForm" (ngSubmit)="onSubmit()">
+    <label for="title">Titre</label>
     <input type="text" id="title" formControlName="title" placeholder="Titre" />
+    <div class="error" *ngIf="addMovieForm.get('title')?.invalid && addMovieForm.get('title')?.touched">
+      <span *ngIf="addMovieForm.get('title')?.errors?.['required']">Le titre est obligatoire.</span>
+      <span *ngIf="addMovieForm.get('title')?.errors?.['minlength']">Le titre doit faire au moins 2 caractères.</span>
+    </div>
 
     <label for="country">Pays</label>
-    <select
-      [formControl]="addMovieForm.controls['country']"
-      (change)="onCountryChange($event)"
-    >
+    <select formControlName="country" (change)="onCountryChange($event)">
       <option value="" disabled selected>Pays</option>
       <ng-container *ngFor="let item of countryMap">
         <option [value]="item.name">{{ item.name }}</option>
       </ng-container>
     </select>
+    <div class="error" *ngIf="addMovieForm.get('country')?.invalid && addMovieForm.get('country')?.touched">
+      <span>Veuillez sélectionner un pays.</span>
+    </div>
 
     <label for="releaseYear">Année de sortie</label>
-    <input
-      type="number"
-      id="releaseYear"
-      formControlName="releaseYear"
-      placeholder="Année de sortie"
-    />
+    <input type="number" id="releaseYear" formControlName="releaseYear" placeholder="Année de sortie" />
+    <div class="error" *ngIf="addMovieForm.get('releaseYear')?.invalid && addMovieForm.get('releaseYear')?.touched">
+      <span *ngIf="addMovieForm.get('releaseYear')?.errors?.['required']">L'année est obligatoire.</span>
+      <span *ngIf="addMovieForm.get('releaseYear')?.errors?.['pattern']">L'année doit être un nombre à 4 chiffres.</span>
+    </div>
 
     <label for="director">Réalisateur</label>
-    <input
-      type="text"
-      id="director"
-      formControlName="director"
-      placeholder="Réalisateur"
-    />
+    <input type="text" id="director" formControlName="director" placeholder="Réalisateur" />
+    <div class="error" *ngIf="addMovieForm.get('director')?.invalid && addMovieForm.get('director')?.touched">
+      <span>Le réalisateur est obligatoire.</span>
+    </div>
 
     <label for="synopsis">Synopsis</label>
-    <textarea
-      id="synopsis"
-      formControlName="synopsis"
-      placeholder="Synopsis"
-    ></textarea>
+    <textarea id="synopsis" formControlName="synopsis" placeholder="Synopsis"></textarea>
+    <div class="error" *ngIf="addMovieForm.get('synopsis')?.invalid && addMovieForm.get('synopsis')?.touched">
+      <span>Le synopsis est obligatoire.</span>
+    </div>
 
     <label for="poster">Affiche</label>
     <input id="poster" type="file" (change)="uploadFile($event)" />
 
     <label for="genre">Genre</label>
-    <select
-      [formControl]="addMovieForm.controls['genreName']"
-      (change)="onGenreChange($event)"
-    >
+    <select formControlName="genreName" (change)="onGenreChange($event)">
       <option value="" disabled selected>Genre</option>
       <ng-container *ngFor="let genre of genreMap">
         <option [value]="genre.name">{{ genre.name }}</option>
       </ng-container>
     </select>
+    <div class="error" *ngIf="addMovieForm.get('genreName')?.invalid && addMovieForm.get('genreName')?.touched">
+      <span>Veuillez sélectionner un genre.</span>
+    </div>
 
-    <button type="submit">Valider</button>
+    <button type="submit" [disabled]="addMovieForm.invalid">Valider</button>
   </form>
+
   <div class="create-account">
-    <a href="database">Retour</a>
+    <a routerLink="/database">Retour</a>
   </div>
 </div>

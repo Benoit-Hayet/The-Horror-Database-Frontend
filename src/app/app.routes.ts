@@ -16,11 +16,12 @@ import { MyAddMovieComponent } from './Member/my-add-movie/my-add-movie.componen
 import { MovieReviewComponent } from './Visitor/movie-review/movie-review.component';
 import { AddMovieComponent } from './Member/add-movie/add-movie.component';
 import { LoginComponent } from './Visitor/login/login.component';
+import { NoPageComponent } from './Visitor/no-page/no-page.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent,
+    path: '**',
+    component: NoPageComponent,
   },
   {
     path: 'home',

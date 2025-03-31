@@ -20,8 +20,8 @@ import { NoPageComponent } from './Visitor/no-page/no-page.component';
 
 export const routes: Routes = [
   {
-    path: '**',
-    component: NoPageComponent,
+    path: '',
+    component: HomeComponent,
   },
   {
     path: 'home',
@@ -127,5 +127,9 @@ export const routes: Routes = [
     data: {
       userType: 'admin',
     },
+  },
+  {
+    path: '**',
+    component: NoPageComponent,
   },
 ];

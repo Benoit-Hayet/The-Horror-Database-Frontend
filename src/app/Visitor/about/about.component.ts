@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './about.component.scss',
 })
 export class AboutComponent {
-  about: string = 'assets/About_Horror.jpeg';
+  about: string = 'assets/About_Horror.jpg';
 }

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -35,17 +35,19 @@ export class AddMovieComponent {
     private uploadFileService: UploadFileService,
   ) {}
 
-  addMovieForm = this.formBuilder.group({
-    title: [''],
-    country: [''],
-    releaseYear: [''],
-    director: [''],
-    synopsis: [''],
-    status: ['PENDING'],
-    posterUrl: [''],
-    createdAt: [new Date().toISOString().split('T')[0]],
-    genreName: [''],
-  });
+  
+    addMovieForm = this.formBuilder.group({
+      title: ['', [Validators.required, Validators.minLength(2)]],
+      country: ['', Validators.required],
+      releaseYear: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
+      director: ['', Validators.required],
+      synopsis: ['', Validators.required],
+      status: ['PENDING'],
+      posterUrl: [''],
+      createdAt: [new Date().toISOString().split('T')[0]],
+      genreName: [''],
+    });
+    
 
   onCountryChange(event: Event): void {
     const selectedId = (event.target as HTMLSelectElement).value;

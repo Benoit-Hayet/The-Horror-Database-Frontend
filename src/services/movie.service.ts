@@ -3,10 +3,11 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { movieCards } from '../app/model/movieCards.model';
 import { AuthService } from './auth.service';
+import { environment } from '../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class MovieService {
-  private movieUrl = 'http://localhost:8080/movies';
+  private movieUrl = environment.apiUrl + '/movies';
 
   constructor(
     private http: HttpClient,
@@ -58,7 +59,7 @@ export class MovieService {
   }
   updateMovie(movie: movieCards): Observable<movieCards> {
     return this.http.put<movieCards>(
-      `http://localhost:8080/movies/${movie.id}`,
+      this.movieUrl+ '/' + movie.id,
       movie,
     );
   }

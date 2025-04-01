@@ -4,7 +4,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing'; // Impor
 
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../../services/user.service';
+
 
 class ActivatedRouteStub {
   snapshot = { paramMap: { get: () => '1' } };

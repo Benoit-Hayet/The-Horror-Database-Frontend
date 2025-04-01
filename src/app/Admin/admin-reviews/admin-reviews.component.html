@@ -1,0 +1,23 @@
+<app-admin-navbar></app-admin-navbar>
+<h1>Les critiques</h1>
+<div class="movies-container">
+  <article *ngFor="let review of review">
+    <img
+      [src]="review.movieDTOS?.[0]?.posterUrl || 'assets/default-poster.jpg'"
+      alt="Affiche du film {{ review.movieDTOS?.[0]?.title }}"
+      class="img"
+    />
+    <div class="header-content">
+      <h3>{{ review.movieDTOS?.[0]?.title }}</h3>
+    </div>
+    <div class="content">
+      <p class="review">Membre :</p>
+      <p>{{ review.username }}</p>
+      <p class="review">La critique :</p>
+      <p>
+        {{ review.review }}
+      </p>
+    </div>
+    <button (click)="deleteReview(review.id)">Supprimer</button>
+  </article>
+</div>

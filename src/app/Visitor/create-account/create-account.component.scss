@@ -1,0 +1,87 @@
+.registerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  h1,h3,textarea,p,input,label,a, placeholder {
+    color: white;
+  }
+
+  input {
+    border: solid;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 300px;
+  }
+  
+
+  input,
+  button {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+
+  button {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: grey;
+  }
+
+
+  .create-account {
+    margin :15px;
+  }
+  
+  .registerContainer .name-container {
+    display: flex;
+    gap: 10px; 
+}
+
+.registerContainer .name {
+    flex: 1; 
+}
+
+.registerContainer label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.registerContainer input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+@media screen and (min-width: 1200px) {
+  .registerContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+}

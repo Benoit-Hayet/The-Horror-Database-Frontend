@@ -1,0 +1,13 @@
+<div class="star-rating">
+  <span
+    *ngFor="let star of stars; let i = index"
+    (click)="selectRating(i + 1)"
+    (mouseenter)="hoverRating(i + 1)"
+    (mouseleave)="hoverRating(0)"
+    [ngStyle]="{
+      color: i < currentRating || i < hoverRatingState ? 'gold' : 'gray',
+    }"
+  >
+    ★
+  </span>
+</div>

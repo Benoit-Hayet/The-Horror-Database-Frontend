@@ -1,0 +1,19 @@
+<div class="sideBloc">
+  <app-sidebar
+    class="sidebar"
+    (notifyParent)="handleGenre($event)"
+    (dateFilter)="handleYear($event)"
+    (countryToParent)="handleCountry($event)"
+    (orderByTitleChange)="orderByTitleChange($event)"
+    (orderByTitleChange)="orderByRatingChange($event)"
+  ></app-sidebar>
+</div>
+<div class="movieBloc">
+  <app-movie-cards-details
+    [genreClicked]="genreClicked"
+    [yearClicked]="yearClicked"
+    [countryClicked]="countryClicked"
+    [orderByTitle]="orderByTitle"
+    [orderByRating]="orderByRating"
+  ></app-movie-cards-details>
+</div>

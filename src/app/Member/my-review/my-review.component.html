@@ -1,0 +1,37 @@
+<app-admin-navbar *ngIf="isAdmin"></app-admin-navbar>
+<app-member-navbar *ngIf="!isAdmin"></app-member-navbar>
+<h1>Mes Critiques</h1>
+<div class="movies-container">
+  <article *ngFor="let review of reviewMovieCards">
+    <img
+      [src]="review.movieDTOS?.[0]?.posterUrl || 'assets/default-poster.jpg'"
+      alt="Affiche du film {{ review.movieDTOS?.[0]?.title }}"
+      class="img"
+    />
+    <div class="header-content">
+      <h3>{{ review.movieDTOS?.[0]?.title }}</h3>
+      <span class="star-rating">
+        <i
+          *ngFor="let star of [1, 2, 3, 4, 5]"
+          [class]="star <= review.rating ? 'fas fa-star' : 'far fa-star'"
+        ></i>
+      </span>
+    </div>
+    <div class="content">
+      <p class="review">Ma critique :</p>
+      <!-- Utilisation de [(ngModel)] pour lier le textarea à review.review -->
+      <textarea
+        id="synopsis"
+        [(ngModel)]="review.review"
+        [ngModelOptions]="{ standalone: true }"
+      >
+      </textarea>
+    </div>
+    <a
+      class="btn-style"
+      (click)="updateReview (review, review.rating.toString())"
+      >Modifier</a
+    >
+    <a class="btn-style" (click)="deleteReview(review.id)">Supprimer</a>
+  </article>
+</div>

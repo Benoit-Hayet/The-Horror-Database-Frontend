@@ -1,0 +1,112 @@
+.centered-paragraph {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+h1,h3,textarea,p,a,label {
+  color: white;
+}
+
+a.bold {
+  color: white;
+}
+
+.error {
+  color: #ff0000;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.spacer {
+  margin: 0 5px;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+input {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+select {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+select option {
+  color: white;
+}
+
+select option:disabled {
+  color: white;
+}
+
+
+textarea {
+  height: 80px;
+  resize: none;
+}
+
+input {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

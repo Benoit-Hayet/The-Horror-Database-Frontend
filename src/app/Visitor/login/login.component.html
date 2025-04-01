@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Connectez-vous</h1>
+  <form class="form1" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <label for="email"></label>
+    <input type="text" id="email" formControlName="email" placeholder="Email" />
+
+    <label for="password"></label>
+    <input
+      type="password"
+      id="password"
+      formControlName="password"
+      placeholder="Mot de passe"
+    />
+
+    <button type="submit">Se Connecter</button>
+  </form>
+
+  <!-- Afficher le message d'erreur si présent -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div class="create-account">
+    <p>Pas encore membre ?</p>
+    <a [routerLink]="'/create-account'">Inscris-toi !</a>
+  </div>
+</div>

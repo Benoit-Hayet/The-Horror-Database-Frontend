@@ -1,0 +1,135 @@
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+h1,h3,textarea,p {
+  color: white;
+}
+
+.profil,
+.password {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #e1dede;
+  padding: 16px;
+  width: 200px;
+  max-width: 500px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px;
+  transition: transform 0.3s ease;
+}
+
+.profil:hover,
+.password:hover {
+  transform: scale(1.02);
+}
+
+.profil .content,
+.password .content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+  align-items: flex-start;
+}
+
+.profil .content img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid green;
+  margin-bottom: 1rem;
+}
+
+.profil .content label,
+.password .content label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.profil .content input,
+.password .content input {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: border-color 0.2s;
+}
+
+.profil .content input:hover,
+.password .content input:hover,
+.profil .content input:focus,
+.password .content input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.profil .content input[readonly],
+.password .content input[readonly] {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.password .passwordTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #c82333;
+}
+
+.btn-style {
+  margin-top: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: grey;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-style:hover {
+  background-color: black;
+}
+
+@media screen and (min-width: 1200px) {
+  .profil,
+  .password {
+    width: calc(25% - 24px);
+    max-width: none;
+  }
+}

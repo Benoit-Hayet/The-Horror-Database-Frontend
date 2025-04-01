@@ -1,0 +1,77 @@
+<section>
+  <div class="movies-container">
+    <ng-container *ngIf="movieDetails$ | async as movieDetails">
+      <article *ngIf="movieDetails.id">
+        <header class="header">
+          <h3>{{ movieDetails.title }}</h3>
+          <div class="header-content">
+            <p>{{ movieDetails.releaseYear }}</p>
+            <p>{{ movieDetails.genreName }}</p>
+            <p class="director">De {{ movieDetails.director }}</p>
+          </div>
+        </header>
+        <div class="content">
+          <img
+            [src]="movieDetails.posterUrl"
+            alt="Affiche du film {{ movieDetails.title }} "
+            class="img"
+          />
+          <p class="synopsis">{{ movieDetails.synopsis }}</p>
+        </div>
+      </article>
+    </ng-container>
+  </div>
+</section>
+<h1>Critiques spectateurs</h1>
+<section class="review-space">
+  <ng-container *ngIf="reviewDetailsId$ | async as reviewDetails">
+    <div *ngFor="let review of reviewDetails" class="review-card">
+      <div class="review-header">
+        <img
+          [src]="review.avatarUrl"
+          alt="{{ review.avatarUrl }}"
+          class="avatar"
+        />
+        <strong class="username">{{ review.username }}</strong>
+        <span class="rating">Rating: {{ review.rating }}</span>
+      </div>
+      <p class="userReview">{{ review.review }}</p>
+    </div>
+  </ng-container>
+</section>
+<div class="unLogged" *ngIf="!isLoggedOk()">
+  <p class="centered-paragraph">
+    <a [routerLink]="'/create-account'" class="bold">Inscrivez-vous</a>
+    <span class="spacer">ou</span>
+    <a [routerLink]="'/login'" class="bold">connectez-vous</a>
+    <span class="spacer">pour ajouter votre avis !</span>
+  </p>
+</div>
+<section class="new-review" *ngIf="isLoggedOk()">
+  <div class="new-review-card">
+    <form class="formReview" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+      <label for="review"></label>
+      <textarea
+        class="reviewText"
+        type="text"
+        id="review"
+        formControlName="review"
+        placeholder="Ajouter ma critique"
+      ></textarea>
+      <div class="star-rating">
+        <span
+          *ngFor="let star of stars; let i = index"
+          (click)="selectRating(i + 1)"
+          (mouseenter)="hoverRating(i + 1)"
+          (mouseleave)="hoverRating(0)"
+          [ngStyle]="{
+            color: i < currentRating || i < hoverRatingState ? 'gold' : 'gray',
+          }"
+        >
+          ★
+        </span>
+      </div>
+      <button class="btn-style">Publier</button>
+    </form>
+  </div>
+</section>

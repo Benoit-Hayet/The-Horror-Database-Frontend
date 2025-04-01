@@ -1,0 +1,24 @@
+<app-admin-navbar></app-admin-navbar>
+<h1>La Database</h1>
+<section>
+  <div class="movies-container">
+    <ng-container *ngFor="let item of sortedMoviesById">
+      <article *ngIf="item.id">
+        <header>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.releaseYear }}</p>
+          <img
+            [src]="item.posterUrl"
+            alt="Affiche du film {{ item.title }}"
+            class="img"
+          />
+        </header>
+        <div class="content">
+          <p class="synopsis">{{ item.synopsis }}</p>
+        </div>
+        <div class="btnbloc" class="btn-style">Modifier</div>
+        <div class="btnbloc" class="btn-style" (click)="deleteMovie(item.id)">Supprimer</div>
+      </article>
+    </ng-container>
+  </div>
+</section>

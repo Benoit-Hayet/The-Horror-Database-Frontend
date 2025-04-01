@@ -1,0 +1,137 @@
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+h1,h3,textarea,p {
+  color: white;
+}
+
+.review {
+  color: white;
+}
+
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  flex: 3;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.movies-container article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #e1dede;
+  padding: 16px;
+  width: calc(25% - 24px);
+  max-width: 300px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px;
+  transition: transform 0.3s ease;
+}
+
+.movies-container article:hover {
+  transform: scale(1.02);
+}
+
+.movies-container article img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.movies-container article .header-content h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.movies-container article .content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.movies-container article .content .review {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.movies-container article .content textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  resize: none;
+  transition: border-color 0.2s;
+}
+
+.movies-container article .content textarea:hover,
+.movies-container article .content textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #c82333;
+}
+
+.btn-style {
+  margin-top: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: grey;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-style:hover {
+  background-color: black;
+}
+
+@media screen and (min-width: 1200px) {
+  .movies-container article {
+    width: calc(20% - 24px);
+  }
+
+  app-member-navbar,
+  app-admin-navbar {
+    max-width: none;
+  }
+}

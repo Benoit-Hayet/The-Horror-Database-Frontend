@@ -1,0 +1,47 @@
+.admin-navbar {
+    padding: 10px;
+    text-align: center;
+    background-color: black;  
+    border: 2px solid #e1dede;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: white;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
+    justify-content: center; /* Centre les éléments horizontalement */
+    gap: 15px; /* Espacement entre les éléments */
+    padding: 0;
+    list-style: none; /* Supprime les puces */
+}
+
+ul li {
+    display: flex; /* Permet de gérer plusieurs liens dans un même `li` */
+    gap: 10px;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+
+@media screen and (min-width: 1023px) {
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    ul {
+        gap: 20px;
+    }
+
+ 
+}

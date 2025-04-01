@@ -1,0 +1,14 @@
+.star-rating {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .fas {
+    color: gold;
+  }
+  .far {
+    color: gray;
+  }
+  

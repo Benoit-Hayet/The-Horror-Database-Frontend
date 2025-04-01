@@ -1,0 +1,55 @@
+<section>
+  <div class="search-bar">
+    <input
+      class="search"
+      type="search"
+      placeholder="Rechercher par titre, année ou réalisateur"
+      #filter
+    />
+    <button class="search-btn" (click)="filterResults(filter.value)">
+      Rechercher
+    </button>
+  </div>
+  <div class="movies-container">
+    <ng-container *ngFor="let movie of filteredMovieCards">
+      <article *ngIf="movie.id">
+        <button class="favoris" (click)="toggleFavorite(movie.id)">
+          {{ isFavorite(movie.id) ? "J'aime déjà" : "Ajouter à mes favoris" }}
+        </button>
+
+        <header class="header">
+          <div class="max-header">
+            <h3 class="movie-title">{{ movie.title }}</h3>
+          </div>
+          <div class="star-rating">
+            <p class="averageNumber">{{ averageScores[movie.id] || 0 }}</p>
+            <span
+              *ngFor="let star of stars; let i = index"
+              [ngStyle]="{
+                color: i < (averageScores[movie.id] || 0) ? 'gold' : 'gray'
+              }"
+            >
+              ★
+            </span>
+          </div>
+        </header>
+        <section class="header-content">
+          <p>{{ movie.releaseYear }}</p>
+          <p>{{ movie.genreName }}</p>
+          <p>{{ movie.director }}</p>
+        </section>
+        <div class="content">
+          <img
+            [src]="movie.posterUrl"
+            [alt]="'Affiche du film' + movie.title"
+            class="img"
+          />
+          <p class="synopsis">{{ movie.synopsis }}</p>
+        </div>
+        <a [routerLink]="['/movie-review', movie.id]" class="btn-style"
+          >Découvrir</a
+        >
+      </article>
+    </ng-container>
+  </div>
+</section>

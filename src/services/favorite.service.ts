@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { favorite } from '../app/model/favorite.model';
 import { AuthService } from './auth.service';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FavoriteService {
-  private favoriteUrl = 'http://localhost:8080/favorites'; // URL de base du backend
+  private favoriteUrl = environment.apiUrl +'/favorites'; // URL de base du backend
 
   constructor(
     private http: HttpClient,

@@ -3,10 +3,11 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { AuthService } from './auth.service';
 import { review } from '../app/model/review.model';
+import { environment } from '../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ReviewService {
-  private reviewUrl = 'http://localhost:8080/reviews';
+  private reviewUrl =  environment.apiUrl +'/reviews';
 
   constructor(
     private http: HttpClient,
@@ -53,7 +54,7 @@ export class ReviewService {
       // Si d'autres champs sont nécessaires, assure-toi de les inclure
     };
     return this.http.put<review>(
-      `http://localhost:8080/reviews/${review.id}`,
+      this.reviewUrl + '/' +review.id,
       updatedReview,
     );
   }

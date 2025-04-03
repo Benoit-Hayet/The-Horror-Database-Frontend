@@ -7,7 +7,7 @@ import { environment } from '../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class MovieService {
-  private movieUrl = environment.apiUrl + '/movies';
+  private movieUrl = environment.apiUrl +'/movies';
 
   constructor(
     private http: HttpClient,

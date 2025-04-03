@@ -9,7 +9,7 @@ import { environment } from '../environments/environment';
   providedIn: 'root',
 })
 export class FavoriteService {
-  private favoriteUrl = environment.apiUrl +'/favorites'; // URL de base du backend
+  private favoriteUrl = environment.apiUrl +'/favorites';
 
   constructor(
     private http: HttpClient,

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminNavbarComponent } from './admin-navbar.component';
+import { ActivatedRoute } from '@angular/router';
 
 describe('AdminNavbarComponent', () => {
   let component: AdminNavbarComponent;
@@ -9,6 +10,12 @@ describe('AdminNavbarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AdminNavbarComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: { snapshot: { params: { id: 123 } } }  // Mock des params de l'ActivatedRoute
+        }
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AdminNavbarComponent);

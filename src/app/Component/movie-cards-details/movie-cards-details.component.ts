@@ -80,7 +80,7 @@ this.favoriteMovie();
     }
 
     if (changes['orderByRating']) {
-      this.orderRating = [...this.movieCards].sort(
+      this.filteredMovieCards = [...this.movieCards].sort(
         (a, b) =>
           this.orderByRating === 'asc'
             ? this.getRating(a) - this.getRating(b) // Trie par la notation des films en ordre croissant

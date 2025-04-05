@@ -48,14 +48,14 @@ article:hover {
 
 .content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 16px;
-  justify-content: center;
   margin-top: 10px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .btn-style {
+  margin-top: 10px;
   padding: 10px 20px;
   color: #fff;
   background-color: grey;
@@ -113,20 +113,3 @@ p {
       line-height: 1.5;
     }
 }
-
-/*@media screen and (max-width: 768px) {
-  .movies-container {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  article {
-    width: 100%;
-  }
-
-  .img {
-    height: auto;
-    width: 100%;
-  }
-
-}*/

@@ -109,12 +109,12 @@ p {
   }
 
   .synopsis {
-    max-height: 4.5em;
-    overflow-y: auto;
-  }
+      font-size: 1em;
+      line-height: 1.5;
+    }
 }
 
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
   .movies-container {
     flex-direction: column;
     gap: 16px;
@@ -129,4 +129,4 @@ p {
     width: 100%;
   }
 
-}
+}*/

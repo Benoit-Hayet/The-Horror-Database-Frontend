@@ -3,26 +3,23 @@
 <h1>Mes films ajoutés</h1>
 <section>
   <div class="movies-container">
-    <!-- Utiliser une boucle ngFor pour afficher chaque film -->
     <ng-container *ngIf="addedMovieCards.length > 0">
       <article *ngFor="let movie of addedMovieCards">
-        <header class="header">
+        <header>
           <h3>{{ movie.title }}</h3>
-          <div class="header-content">
             <p>{{ movie.releaseYear }}</p>
             <p>{{ movie.genreName.join(", ") }}</p>
             <!-- Afficher les genres sous forme de liste -->
             <p class="director">De {{ movie.director }}</p>
             <p>Status :</p>
             <p>{{ movie.status }}</p>
-          </div>
-        </header>
-        <div class="content">
-          <img
+            <img
             [src]="movie.posterUrl"
             alt="Affiche du film {{ movie.title }}"
             class="img"
           />
+        </header>
+        <div class="content">
           <p class="synopsis">{{ movie.synopsis }}</p>
         </div>
       </article>

@@ -2,97 +2,86 @@
   <h1>Créer un compte</h1>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-    <!-- Prénom -->
-    <div class="form-group">
-      <label for="firstName">Prénom</label>
-      <input id="firstName" type="text" formControlName="firstName" class="form-control" />
-      <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched" class="error">
-        <span *ngIf="registerForm.get('firstName')?.errors?.['required']">
-          Le prénom est requis.
-        </span>
-        <span *ngIf="registerForm.get('firstName')?.errors?.['pattern']">
-          Caractères non valides.
-        </span>
-      </div>
+    <label for="lastName">Nom de famille</label>
+    <input
+      type="text"
+      id="lastName"
+      formControlName="lastName"
+      placeholder="Nom"
+    />
+    <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched" class="error">
+      <span *ngIf="registerForm.get('lastName')?.errors?.['required']">Le nom est requis.</span>
+      <span *ngIf="registerForm.get('lastName')?.errors?.['pattern']">Caractères non valides.</span>
     </div>
-  
-    <!-- Nom -->
-    <div class="form-group">
-      <label for="lastName">Nom</label>
-      <input id="lastName" type="text" formControlName="lastName" class="form-control" />
-      <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched" class="error">
-        <span *ngIf="registerForm.get('lastName')?.errors?.['required']">
-          Le nom est requis.
-        </span>
-        <span *ngIf="registerForm.get('lastName')?.errors?.['pattern']">
-          Caractères non valides.
-        </span>
-      </div>
-    </div>
-  
-    <!-- Nom d'utilisateur -->
-    <div class="form-group">
-      <label for="username">Nom d'utilisateur</label>
-      <input id="username" type="text" formControlName="username" class="form-control" />
-      <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="error">
-        <span *ngIf="registerForm.get('username')?.errors?.['required']">
-          Le nom d'utilisateur est requis.
-        </span>
-        <span *ngIf="registerForm.get('username')?.errors?.['pattern']">
-          Caractères non valides.
-        </span>
-      </div>
-    </div>
-  
-    <!-- Date de naissance -->
-    <div class="form-group">
-      <label for="birthdate">Date de naissance</label>
-      <input id="birthdate" type="date" formControlName="birthdate" class="form-control" />
-      <div *ngIf="registerForm.get('birthdate')?.invalid && registerForm.get('birthdate')?.touched" class="error">
-        <span *ngIf="registerForm.get('birthdate')?.errors?.['required']">
-          La date de naissance est requise.
-        </span>
-        <span *ngIf="registerForm.get('birthdate')?.errors?.['invalidDate']">
-          Date invalide.
-        </span>
-      </div>
-    </div>
-  
-    <!-- Email -->
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input id="email" type="email" formControlName="email" class="form-control" />
-      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error">
-        <span *ngIf="registerForm.get('email')?.errors?.['required']">
-          L'email est requis.
-        </span>
-        <span *ngIf="registerForm.get('email')?.errors?.['email']">
-          Format de mail invalide.
-        </span>
-      </div>
-    </div>
-  
-    <!-- Mot de passe -->
-    <div class="form-group">
-      <label for="password">Mot de passe</label>
-      <input id="password" type="password" formControlName="password" class="form-control" />
-      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error">
-        <span *ngIf="registerForm.get('password')?.errors?.['required']">
-          Le mot de passe est requis.
-        </span>
-        <span *ngIf="registerForm.get('password')?.errors?.['minlength']">
-          Minimum 12 caractères.
-        </span>
-        <span *ngIf="registerForm.get('password')?.errors?.['pattern']">
-          Doit contenir lettres, chiffres et un caractère spécial.
-        </span>
-      </div>
-    </div>
-  
-    <!-- Submit -->
-    <button type="submit" [disabled]="registerForm.invalid">S'inscrire</button>
-  
-  </form>
-  
 
- 
+    <label for="firstName">Prénom</label>
+    <input
+      type="text"
+      id="firstName"
+      formControlName="firstName"
+      placeholder="Prénom"
+    />
+    <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched" class="error">
+      <span *ngIf="registerForm.get('firstName')?.errors?.['required']">Le prénom est requis.</span>
+      <span *ngIf="registerForm.get('firstName')?.errors?.['pattern']">Caractères non valides.</span>
+    </div>
+
+    <label for="username">Pseudo</label>
+    <input
+      type="text"
+      id="username"
+      formControlName="username"
+      placeholder="Pseudo"
+    />
+    <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="error">
+      <span *ngIf="registerForm.get('username')?.errors?.['required']">Le pseudo est requis.</span>
+      <span *ngIf="registerForm.get('username')?.errors?.['pattern']">Caractères non valides.</span>
+    </div>
+
+    <label for="avatarUrl">Avatar</label>
+    <input id="avatarUrl" type="file" (change)="uploadFile($event)" />
+
+    <label for="birthdate">Date de naissance</label>
+    <input
+      type="date"
+      id="birthdate"
+      formControlName="birthdate"
+      placeholder="Date de naissance JJ/MM/AAAA"
+    />
+    <div *ngIf="registerForm.get('birthdate')?.invalid && registerForm.get('birthdate')?.touched" class="error">
+      <span *ngIf="registerForm.get('birthdate')?.errors?.['required']">La date de naissance est requise.</span>
+      <span *ngIf="registerForm.get('birthdate')?.errors?.['invalidDate']">Date invalide.</span>
+    </div>
+
+    <label for="email">E-mail</label>
+    <input type="text" id="email" formControlName="email" placeholder="Email" />
+    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error">
+      <span *ngIf="registerForm.get('email')?.errors?.['required']">L'email est requis.</span>
+      <span *ngIf="registerForm.get('email')?.errors?.['email']">Format d’email invalide.</span>
+    </div>
+
+    <label for="password">Mot de passe</label>
+    <input
+      type="password"
+      id="password"
+      formControlName="password"
+      placeholder="Mot de passe 12 caractères minimum"
+    />
+    <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error">
+      <span *ngIf="registerForm.get('password')?.errors?.['required']">Le mot de passe est requis.</span>
+      <span *ngIf="registerForm.get('password')?.errors?.['minlength']">12 caractères minimum.</span>
+      <span *ngIf="registerForm.get('password')?.errors?.['pattern']">
+        Doit contenir lettres, chiffres et un caractère spécial.
+      </span>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <button>Suivant</button>
+  </form>
+
+  <div class="create-account"></div>
+  <a [routerLink]="'/login'" class="buttonBack">Retour</a>
+</div>

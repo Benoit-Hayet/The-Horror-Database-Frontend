@@ -83,13 +83,12 @@ this.favoriteMovie();
       this.filteredMovieCards = [...this.movieCards].sort(
         (a, b) =>
           this.orderByRating === 'asc'
-            ? this.getRating(a) - this.getRating(b) // Trie par la notation des films en ordre croissant
-            : this.getRating(b) - this.getRating(a), // Trie par la notation des films en ordre décroissant
+            ? this.getRating(a) - this.getRating(b) 
+            : this.getRating(b) - this.getRating(a),
       );
     }
   }
 
-  // ✅ Déplacé en dehors de ngOnChanges
   getRating(movie: movieCards): number {
     const reviews = movie.userReview ?? [];
     return reviews.length > 0 ? reviews[0].rating : 0; // Prend la note du premier utilisateur, sinon 0

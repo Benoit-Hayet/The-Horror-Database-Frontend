@@ -2,36 +2,44 @@
   <h1>Créer un compte</h1>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-      <label for="lastName">Nom de famille
-      </label>
-      <input
-        type="text"
-        id="lastName"
-        formControlName="lastName"
-        placeholder="Nom"
-      />
+    <label for="lastName">Nom de famille</label>
+    <input
+      type="text"
+      id="lastName"
+      formControlName="lastName"
+      placeholder="Nom"
+    />
+    <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched" class="error">
+      <span *ngIf="registerForm.get('lastName')?.errors?.['required']">Le nom est requis.</span>
+      <span *ngIf="registerForm.get('lastName')?.errors?.['pattern']">Caractères non valides.</span>
+    </div>
 
-      <label for="firstName">Prénom</label>
-      <input
-        type="text"
-        id="firstName"
-        formControlName="firstName"
-        placeholder="Prénom"
-      />
+    <label for="firstName">Prénom</label>
+    <input
+      type="text"
+      id="firstName"
+      formControlName="firstName"
+      placeholder="Prénom"
+    />
+    <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched" class="error">
+      <span *ngIf="registerForm.get('firstName')?.errors?.['required']">Le prénom est requis.</span>
+      <span *ngIf="registerForm.get('firstName')?.errors?.['pattern']">Caractères non valides.</span>
+    </div>
 
-
-      <label for="username">Pseudo</label>
-      <input
-        type="text"
-        id="username"
-        formControlName="username"
-        placeholder="Pseudo"
-      />
-
+    <label for="username">Pseudo</label>
+    <input
+      type="text"
+      id="username"
+      formControlName="username"
+      placeholder="Pseudo"
+    />
+    <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="error">
+      <span *ngIf="registerForm.get('username')?.errors?.['required']">Le pseudo est requis.</span>
+      <span *ngIf="registerForm.get('username')?.errors?.['pattern']">Caractères non valides.</span>
+    </div>
 
     <label for="avatarUrl">Avatar</label>
-      <input id="avatarUrl" type="file" (change)="uploadFile($event)" />
-  
+    <input id="avatarUrl" type="file" (change)="uploadFile($event)" />
 
     <label for="birthdate">Date de naissance</label>
     <input
@@ -40,9 +48,17 @@
       formControlName="birthdate"
       placeholder="Date de naissance JJ/MM/AAAA"
     />
+    <div *ngIf="registerForm.get('birthdate')?.invalid && registerForm.get('birthdate')?.touched" class="error">
+      <span *ngIf="registerForm.get('birthdate')?.errors?.['required']">La date de naissance est requise.</span>
+      <span *ngIf="registerForm.get('birthdate')?.errors?.['invalidDate']">Date invalide.</span>
+    </div>
 
     <label for="email">E-mail</label>
     <input type="text" id="email" formControlName="email" placeholder="Email" />
+    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error">
+      <span *ngIf="registerForm.get('email')?.errors?.['required']">L'email est requis.</span>
+      <span *ngIf="registerForm.get('email')?.errors?.['email']">Format d’email invalide.</span>
+    </div>
 
     <label for="password">Mot de passe</label>
     <input
@@ -51,12 +67,21 @@
       formControlName="password"
       placeholder="Mot de passe 12 caractères minimum"
     />
- <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
-  
+    <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error">
+      <span *ngIf="registerForm.get('password')?.errors?.['required']">Le mot de passe est requis.</span>
+      <span *ngIf="registerForm.get('password')?.errors?.['minlength']">12 caractères minimum.</span>
+      <span *ngIf="registerForm.get('password')?.errors?.['pattern']">
+        Doit contenir lettres, chiffres et un caractère spécial.
+      </span>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
     <button>Suivant</button>
   </form>
+
   <div class="create-account"></div>
   <a [routerLink]="'/login'" class="buttonBack">Retour</a>
 </div>
